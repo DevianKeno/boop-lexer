@@ -1,7 +1,15 @@
-Valid tokens count: 148
+Valid tokens count: 160
 Error tokens count: 6
-Elapsed time: 0.0009975433349609375 s
+Elapsed time: 0.009007930755615234 s
 
+fl                                              	IDENTIFIER                                      
+_2oat                                           	IDENTIFIER                                      
+var1                                            	IDENTIFIER                                      
+_                                               	IDENTIFIER                                      
+_dou                                            	IDENTIFIER                                      
+_                                               	IDENTIFIER                                      
+_ble                                            	IDENTIFIER                                      
+var                                             	IDENTIFIER                                      
 /*                                              	COMMENT_MULT_START                              
 */                                              	COMMENT_MULT_END                                
 'asd'                                           	STRING_LITERAL                                  
@@ -10,13 +18,17 @@ Elapsed time: 0.0009975433349609375 s
 .                                               	DOT                                             
 1                                               	NUM_LITERAL                                     
 '\tab'                                          	STRING_LITERAL                                  
-float                                           	KEYWORD                                         
+fl                                              	IDENTIFIER                                      
+_2oat                                           	IDENTIFIER                                      
 var1                                            	IDENTIFIER                                      
 =                                               	EQUALITY_OP                                     
 15                                              	NUM_LITERAL                                     
-π                                               	PI                                              
+π                                               	IDENTIFIER                                      
 ;                                               	END_STATEMENT                                   
-double                                          	KEYWORD                                         
+_                                               	IDENTIFIER                                      
+_dou                                            	IDENTIFIER                                      
+_                                               	IDENTIFIER                                      
+_ble                                            	IDENTIFIER                                      
 var2                                            	IDENTIFIER                                      
 =                                               	EQUALITY_OP                                     
 √                                               	SQUARE                                          
@@ -34,7 +46,7 @@ var3                                            	IDENTIFIER
 var1                                            	IDENTIFIER                                      
 ==                                              	LOGICAL_EQUALS                                  
 4                                               	NUM_LITERAL                                     
-ι                                               	IMAGINARY                                       
+ι                                               	IDENTIFIER                                      
 &&                                              	LOGICAL_AND                                     
 var2                                            	IDENTIFIER                                      
 ==                                              	LOGICAL_EQUALS                                  
@@ -48,7 +60,7 @@ var7                                            	IDENTIFIER
 long                                            	IDENTIFIER                                      
 var7                                            	IDENTIFIER                                      
 =                                               	EQUALITY_OP                                     
-Σ                                               	SUMMATION                                       
+Σ                                               	IDENTIFIER                                      
 (                                               	PARENTHESIS_START                               
 1                                               	NUM_LITERAL                                     
 ,                                               	COMMA                                           

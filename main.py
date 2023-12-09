@@ -1,7 +1,7 @@
-import lexer
+import boopicalexicalanalyzer as boop_lexer
 
 if __name__ == '__main__':
-    Lexer = lexer.Lexer()
+    Lexer = boop_lexer.Lexer()
     # Change directory to your directory ;)
-    Lexer.open('D:/PUP/Documents/3rd year 1st sem/PPL/boopicalexan/samples/complex.boop')
+    Lexer.open('D:/PUP/Documents/3rd year 1st sem/PPL/boopicalexan/code samples/triangle.boop')
     Lexer.parse()

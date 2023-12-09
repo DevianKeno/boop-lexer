@@ -1,9 +1,11 @@
+fl_2oat var1 __dou__ble var
+
 /* Author: Gian Paolo B.
  */
 
 'asd'||3.1'\tab'
-float var1 = 15π;
-double var2 = √27;
+fl_2oat var1 = 15π;
+__dou__ble var2 = √27;
 int var3 = |-99|;
 (var1 == 4ι && var2 == √27) || var7 == 'false'
 long var7 = Σ(1, 100) + ∏(1, 5);

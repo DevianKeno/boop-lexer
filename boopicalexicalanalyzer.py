@@ -26,12 +26,11 @@ def isidentifier(string: str) -> bool:
     if not string: return False
     if not (string[0].isalpha() or string[0] in IDENTIFIER_STARTER_CHARMAP): return False
     for char in string[1:]:
-        if not (char.isalnum() or char == '_'): return False
+        if not (char in IDENTIFIER_CHARMAP): return False
     return True
 
 class Lexer:
     """Open a file with open('filepath'), then parse it with parse().\n
-    This will output two files, a symbol_table-filename.txt and error_log-filename.txt.
     """
               
     class Token:
@@ -66,7 +65,7 @@ class Lexer:
             self.col: int = token.col
         
         def __str__(self) -> str:
-            return f'Invalid token in ln {self.line}, col {self.col}\n\t{self.msg}\n'            
+            return f'[ErrorToken]: Invalid token in ln {self.line}, col {self.col}\n\t{self.msg}\n'            
         
     class SymbolTable:
         """Symbol table output of the Boopicalexican."""
@@ -154,7 +153,7 @@ class Lexer:
         self._prev = EMPTY
         
     def _tokenize(self, lexeme: str) -> Token:
-        if lexeme == EMPTY: return
+        if lexeme == EMPTY or lexeme == None: return
         if lexeme.isalpha():
             if lexeme in KEYWORDS:
                 return Lexer.Token(lexeme, 'KEYWORD')
@@ -163,7 +162,7 @@ class Lexer:
             if lexeme in ALIASES:
                 return Lexer.Token(lexeme, 'ALIAS')
                   
-        if lexeme.startswith(IDENTIFIER_STARTER_CHARMAP):
+        if isidentifier(lexeme):
             return Lexer.Token(lexeme, 'IDENTIFIER')
         
         if lexeme.isdigit():
@@ -176,8 +175,8 @@ class Lexer:
                 return Lexer.Token(lexeme, OPERATORS[lexeme])
             if lexeme in SPECIAL_CHARACTERS:
                 return Lexer.Token(lexeme, SPECIAL_CHARACTERS[lexeme])
-            
-        return Lexer.Token(lexeme, 'IDENTIFIER')
+        
+        return Lexer.Token(lexeme, 'UNIDENTIFIED')
 
     def _set_delim(self, delim) -> str:
         """Set delimiter functionality for the lexer.\n"""
@@ -448,16 +447,22 @@ class Lexer:
         
         return chars[:-1]
     
-    def _parse_by_char(self) -> list[Token]:
-        """Read file by character."""
-        if not self._content: return
-        
+    def _parse(self) -> list[Token]:
         for char in self._content:
             self._parse_char(char)
             self._char_idx += 1
             self._col_idx += 1
-                            
+
         self.symbol_table.add_symbols(self._stack)
+        return self._stack
+    
+    def _parse_ln(self, line: str) -> list[Token]:
+        if line == EMPTY or line == None: return
+        self._stack = []
+        _col_idx = 1
+        for char in line:
+            self._parse_char(char)
+            _col_idx += 1
         return self._stack
     
     #region public
@@ -473,18 +478,19 @@ class Lexer:
             self._lines = file.readlines()
         return True
     
-    def read(self, filepath: str) -> SymbolTable:        
+    def read(self, filepath: str) -> SymbolTable | None:        
         """Lexical analyze a .boop file."""
         if not self.open(filepath): return        
         return self.parse()
     
-    def parse(self) -> SymbolTable:
-        """Parse all lines of the file.\n
-        Returns a SymbolTable object."""
-        if not self._content: return
+    def parse(self) -> SymbolTable | None:
+        """Parse all lines of the currently opened file.\n
+        Returns a SymbolTable object if a file is opened, None otherwise.
+        This will output two files, a symbol_table-filename.txt and error_log-filename.txt.\n"""
+        if not self._content: return None
         
         self._start_time = time.time()
-        self._parse_by_char()
+        self._parse()
         self._end_time = time.time()
         self.elapsed_time = self._end_time - self._start_time
         
@@ -494,30 +500,31 @@ class Lexer:
         
     def tokenize(self, lexeme: str) -> Token:
         """Check lexeme string if in valid tokens, where lexeme is not an empty string.\n
-        Returns a Symbol object."""
+        Returns a Token object."""
         return self._tokenize(lexeme)
     
     def get_line(self, index: int) -> str:
+        """Returns a line from the current open file. Returns None if no file has been opened yet."""
         return None if not self._lines else self._lines[index]
     
     def parse_index(self, index: int) -> SymbolTable:
-        """Parse a line via index."""
+        """Leximize a line via index.\n
+        Returns a SymbolTable object."""
         table = self.SymbolTable()
-        table.add_symbols(self._parse_by_char(self.get_line(index)))
+        table.add_symbols(self._parse_ln(self.get_line(index)))
         return table
     
     #TODO
     def parse_lines(self, range: tuple[int, int]) -> SymbolTable:
-        """Parses lines from index to index."""
+        """Parse lines from index to index."""
         if self._lines == None: return None
-        pass
     
     def parse_string(self, line: str) -> SymbolTable:
         """Parse a single line of BOOP code.\n
-        This is used when changes are made to one specific line of code, to avoid reading the whole file again."""
-        table = self.SymbolTable()
-        table.add_symbols(self._parse_by_char(line))
-        return table
+        Used when changes are made to one specific line of code, to avoid reading the whole file again."""
+        st = self.SymbolTable()
+        st.add_symbols(self._parse_ln(line))
+        return st
     
     def save_symbol_table(self, filename: str = OUTPUT_FILENAME):
         """Save the output SymbolTable to file."""
@@ -529,7 +536,7 @@ class Lexer:
         return    
     
     def save_error_log(self, filename: str = ERROR_LOG_FILENAME):
-        """Save the error log to file."""
+        """Save the error logs to file."""
         if self.symbol_table == None: return
         with codecs.open(f'{filename}-{self.rootext[0]}{OUTPUT_FILETYPE}', 'w') as file:
             for s in self.symbol_table.error_tokens:
