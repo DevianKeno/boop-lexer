@@ -1,0 +1,12 @@
+Invalid token in ln 11, col 49
+	Unclosed string literal
+Invalid token in ln 11, col 49
+	Invalid escape sequence
+Invalid token in ln 11, col 52
+	New line in string literals are not allowed
+Invalid token in ln 12, col 28
+	New line in string literals are not allowed
+Invalid token in ln 12, col 52
+	New line in string literals are not allowed
+Invalid token in ln 13, col 12
+	New line in string literals are not allowed

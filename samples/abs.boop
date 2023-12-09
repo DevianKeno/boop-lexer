@@ -1,0 +1,29 @@
+/* Author: John Franky B.
+ */
+
+public class Absolute
+{
+    static func Main(string[] args)
+    {
+   	    // variable declaration
+  	    Float inputVar, absolute;
+   	 
+   		// user instruction
+     	PrintLine("A Program for Absolute Value (| |) ");
+        PrintLine("Example: |-6969| = 6969");
+    
+  		// user input
+   		string input = ReadLine("\n\nEnter the value: ");
+        inputVar = Float(input);
+        absolute = |inputVar|;
+
+        //another way
+        if (inputVar < 0)
+            absolute = inputVar*(-1);
+        else
+            absolute = inputVar;
+
+        // display of the absolute
+        print (absolute);
+    }
+}

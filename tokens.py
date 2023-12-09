@@ -1,9 +1,96 @@
+EMPTY = ''
+       
+SPACE = ' '
+PERIOD = '.'
+COMMA = ','
+COLON = ':'
+SEMICOLON = ';'
+BACKTICK = '`'
+TILDE = '~'
+AT_SIGN = '@'
+QUESTION_MARK = '?'
+EXCLAMATION_POINT = '!'
+DOLLAR = '$'
+HASH = '#'
+CARET = '^'
+ASTERISK = '*'
+PERCENT = '%'
+AMPERSAND = '&'
+PARENTHESIS_OPEN = '('
+PARENTHESIS_CLOSE = ')'
+BRACKET_OPEN = '['
+BRACKET_CLOSE = ']'
+BRACE_OPEN = '{'
+BRACE_CLOSE = '}'
+LEFT_ANGLED_BRACKET = '<'
+RIGHT_ANGLED_BRACKET = '>'
+PLUS = '+'
+EQUALS = '='
+HYPHEN = '-'
+UNDERSCORE = '_'
+VERTICAL_BAR = '|'
+FORWARD_SLASH = '/'
+BACKSLASH = '\\'
+SINGLE_QUOTE = '\''
+DOUBLE_QUOTE = '\"'
 
 MAX_OPERATOR_LENGTH = 3
+MAX_DELIMITER_LENGTH = 3
+
+#region Special characters
+#endregion 
+
+#region Math symbols
+SQUARE = '√'
+MEAN = 'x̅'
+PRODUCT_NOTATION = '∏'
+SUMMATION = 'Σ'
+PI = 'π'
+THETA = 'θ'
+IMAGINARY = 'ι'
+#endregion
+
+#region Delimiters
+ESCAPE_CHARACTER = BACKSLASH
+DELIM_END_STATEMENT = SEMICOLON
+DELIM_PAREN_L = '('
+DELIM_PAREN_R = ')'
+DELIM_BRACKET_L = '['
+DELIM_BRACKET_R = ']'
+DELIM_BRACE_L = '{'
+DELIM_BRACE_R = '}'
+DELIM_ANGLED_BRACKET_L = '<'
+DELIM_ANGLED_BRACKET_R = '>'
+DELIM_TYPE_RETURN = '->'
+DELIM_RETURN = '=>'
+DELIM_COMMENT_SINGLE = '//'
+DELIM_COMMENT_START = '/*'
+DELIM_COMMENT_END = '*/'
+#endregion
+
+ERROR_TOKEN = 'ERROR_TOKEN'
+
+#region Keywords
+ABSTRACT = 'abstract'
+ALIAS = 'alias'
+BASE = 'base'
+#endregion
+
+#region WHITESPACE
+NEW_LINE = '\n'
+CARRIAGE_RETURN = '\r'
+TAB = '\t'
+#endregion
+
+KEYWORD = {
+    ABSTRACT: 'KEYWORD',
+    ALIAS: 'KEYWORD',
+    BASE: 'KEYWORD'
+}
 
 KEYWORDS = {
-    'abstract' : 'ABSTRACT',
-    'alias' : 'ALIAS',
+    'abstract' : 'KEYWORD',
+    'alias' : 'KEYWORD',
     'base': 'BASE',
     'bool': 'BOOL',
     'break': 'BREAK',
@@ -85,49 +172,48 @@ IDENTIFIER_STARTER_CHARMAP = '_'
 IDENTIFIER_CHARMAP = '_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 
 SPECIAL_CHARACTERS = {
-    ' ': 'SPACE',
-    '.': 'PERIOD',
-    ',': 'COMMA',
-    '`': 'BACKTICK',
-    '~': 'TILDE',
-    '@': 'AT_SIGN',
-    '?': 'QUESTION_MARK',
-    '!': 'EXCLAMATION_POINT',
-    '$': 'DOLLAR',
-    '#': 'HASH',
-    '^': 'CARET',
-    '*': 'ASTERISK',
-    '%': 'PERCENT',
-    '&': 'AMPERSAND',
-    '(': 'PARENTHESIS_OPEN',
-    ')': 'PARENTHESIS_CLOSE',
-    '[': 'BRACKET_OPEN',
-    ']': 'BRACKET_CLOSE',
-    '{': 'BRACE_OPEN',
-    '}': 'BRACE_CLOSE',
-    '<': 'LEFT_ANGLED_BRACKET',
-    '>': 'RIGHT_ANGLED_BRACKET',
-    '+': 'PLUS',
-    '=': 'EQUALS',
-    '-': 'HYPHEN',
-    '_': 'UNDERSCORE',
-    '|': 'V_BAR',
-    '/': 'FORWARD_SLASH',
-    '\\': 'BACKWARD_SLASH',
-    ':': 'COLON',
-    ';': 'SEMICOLON',
-    '\'': 'SINGLE_QUOTE',
-    '\"': 'DOUBLE_QUOTE',
-}
-
-MATH_SYMBOLS = {
-    '√': 'SQUARE',
-    'x̅': 'MEAN',
-    '∏': 'PRODUCT_NOTATION',
-    'Σ': 'SUMMATION',
-    'π': 'PI',
-    'θ': 'THETA',
-    'ι': 'IMAGINARY',
+    SPACE: 'SPACE',
+    PERIOD: 'PERIOD',
+    COMMA: 'COMMA',
+    BACKTICK: 'BACKTICK',
+    TILDE: 'TILDE',
+    AT_SIGN: 'AT_SIGN',
+    QUESTION_MARK: 'QUESTION_MARK',
+    EXCLAMATION_POINT: 'EXCLAMATION_POINT',
+    DOLLAR: 'DOLLAR',
+    HASH: 'HASH',
+    CARET: 'CARET',
+    ASTERISK: 'ASTERISK',
+    PERCENT: 'PERCENT',
+    AMPERSAND: 'AMPERSAND',
+    PARENTHESIS_OPEN: 'PARENTHESIS_OPEN',
+    PARENTHESIS_CLOSE: 'PARENTHESIS_CLOSE',
+    BRACKET_OPEN: 'BRACKET_OPEN',
+    BRACKET_CLOSE: 'BRACKET_CLOSE',
+    BRACE_OPEN: 'BRACE_OPEN',
+    BRACE_CLOSE: 'BRACE_CLOSE',
+    LEFT_ANGLED_BRACKET: 'LEFT_ANGLED_BRACKET',
+    RIGHT_ANGLED_BRACKET: 'RIGHT_ANGLED_BRACKET',
+    PLUS: 'PLUS',
+    EQUALS: 'EQUALS',
+    HYPHEN: 'HYPHEN',
+    UNDERSCORE: 'UNDERSCORE',
+    VERTICAL_BAR: 'VERTICAL_BAR',
+    FORWARD_SLASH: 'FORWARD_SLASH',
+    BACKSLASH: 'BACKWARD_SLASH',
+    COLON: 'COLON',
+    SEMICOLON: 'SEMICOLON',
+    SINGLE_QUOTE: 'SINGLE_QUOTE',
+    DOUBLE_QUOTE: 'DOUBLE_QUOTE',
+    
+    # Math symbols
+    SQUARE: 'SQUARE',
+    MEAN: 'MEAN',
+    PRODUCT_NOTATION: 'PRODUCT_NOTATION',
+    SUMMATION: 'SUMMATION',
+    PI: 'PI',
+    THETA: 'THETA',
+    IMAGINARY: 'IMAGINARY',
 }
 
 OPERATORS = {
@@ -162,10 +248,21 @@ BOOLEAN_OPERATORS = {
     '!=': 'LOGICAL_NOT_EQUALS',
 }
 
+ESCAPE_SEQUENCE = {
+    "\\'": 'SINGLE_QUOTE',
+    '\\"': 'DOUBLE_QUOTE',
+    '\\\\': 'BACKSLASH',
+    '\\n': 'NEW_LINE',
+    '\\r': 'CARRIAGE_RETURN',
+    '\\t': 'TAB',
+    '\\b': 'BACKSPACE',
+    '\\0': 'NULL_CHAR',
+}
+
 DELIMITERS = {
-    ',': 'COMMA',
-    ':': 'COLON',
-    ';': 'END_STATEMENT',
+    COMMA: 'COMMA',
+    COLON: 'COLON',
+    SEMICOLON: 'END_STATEMENT',
     '(': 'PARENTHESIS_START',
     ')': 'PARENTHESIS_END',
     '[': 'BRACKET_START',
@@ -182,12 +279,24 @@ DELIMITERS = {
     '/*': 'COMMENT_MULT_START',
     '*/': 'COMMENT_MULT_END',
     '->': 'RETURN_TYPE_DELIM',
-    '=>': 'RETURN'
+    '=>': 'RETURN',
+}
+
+RAW_STRING_DELIMITER = {
+    '\'\'\'': 'SINGLE_QUOTE_TRIPLE',
+    '\"\"\"': 'DOUBLE_QUOTE_TRIPLE',
+}
+
+SEPARATOR = {
+    ' ': 'SPACE',
+    '\r': 'CARRIAGE_RETURN',
+    '\n': 'NEW_LINE',
+    '\t': 'TAB',
 }
 
 WHITESPACE = {
     '\r': 'CARRIAGE_RETURN',
-    '\n': 'NEW_LINE',
+    NEW_LINE: 'NEW_LINE',
     '\t': 'TAB',
     '\v': 'V_TAB',
 }

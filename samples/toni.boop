@@ -1,0 +1,37 @@
+/*  Author: Toni Gaile
+ */
+
+public class PowersOfImaginaryUnit
+{
+    static func Main(string[] args)
+    {
+        // var declaration
+  		int expo, remainder;
+   	 
+   		// description
+        // ginawang ganto yung ι para madali makita muna
+     	PrintLine("A Program for Simplifying Any Power of the Imaginary Unit ι");
+        PrintLine("Example: ι^23415 = -ι");
+    
+  		// user input for the exponent of the imaginary unit
+   		expo = ReadLine("\nEnter the number of the exponent of ι: ");
+        // (???????????? uh confused ako kung pano i-store yung user input after ReadLine)
+        // waley masyadong example sa docu ih
+    
+  		// dividing by 4 to see its remainder;
+        // here we're exploiting the cyclic pattern of i to easily get its answer
+        remainder = expo%4;
+        
+        PrintLine("\nSimplify: i^" + expo);
+        Print("Answer:" );
+
+        if(remainder == 0)
+            Print("1");
+        else if(remainder == 1)
+            Print("ι");
+        else if(remainder == 2)
+            Print("-1");
+        else if(remainder == 3)
+            Print("-ι");
+    }
+}
