@@ -1,6 +1,6 @@
 Valid tokens count: 126
 Error tokens count: 0
-Elapsed time: 0.001994609832763672 s
+Elapsed time: 0.01296544075012207 s
 
 /*                                              	COMMENT_MULT_START                              
 */                                              	COMMENT_MULT_END                                
@@ -61,7 +61,7 @@ sideA                                           	IDENTIFIER
 )                                               	PARENTHESIS_END                                 
 ;                                               	END_STATEMENT                                   
 double                                          	KEYWORD                                         
-θ                                               	IDENTIFIER                                      
+θ                                               	THETA                                           
 =                                               	EQUALITY_OP                                     
 RadiansToDegrees                                	IDENTIFIER                                      
 (                                               	PARENTHESIS_START                               
@@ -81,7 +81,7 @@ floorValue                                      	IDENTIFIER
 =                                               	EQUALITY_OP                                     
 Floor                                           	IDENTIFIER                                      
 (                                               	PARENTHESIS_START                               
-θ                                               	IDENTIFIER                                      
+θ                                               	THETA                                           
 )                                               	PARENTHESIS_END                                 
 ;                                               	END_STATEMENT                                   
 double                                          	KEYWORD                                         
@@ -89,7 +89,7 @@ ceilValue                                       	IDENTIFIER
 =                                               	EQUALITY_OP                                     
 Ceil                                            	IDENTIFIER                                      
 (                                               	PARENTHESIS_START                               
-θ                                               	IDENTIFIER                                      
+θ                                               	THETA                                           
 )                                               	PARENTHESIS_END                                 
 ;                                               	END_STATEMENT                                   
 //                                              	COMMENT_DELIM                                   
@@ -123,7 +123,7 @@ radians                                         	IDENTIFIER
 .                                               	DOT                                             
 0                                               	NUM_LITERAL                                     
 /                                               	DIV_OP                                          
-π                                               	IDENTIFIER                                      
+π                                               	PI                                              
 )                                               	PARENTHESIS_END                                 
 ;                                               	END_STATEMENT                                   
 }                                               	BRACE_END                                       

@@ -1,5 +1,8 @@
 EMPTY = ''
        
+ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+DIGIT = '0123456789'
+       
 SPACE = ' '
 PERIOD = '.'
 COMMA = ','
@@ -41,11 +44,11 @@ MAX_DELIMITER_LENGTH = 3
 #endregion 
 
 #region Math symbols
-SQUARE = '√'
+SQUARE_ROOT = '√'
 MEAN = 'x̅'
 PRODUCT_NOTATION = '∏'
 SUMMATION = 'Σ'
-PI = 'π'
+PI_CHAR = 'π'
 THETA = 'θ'
 IMAGINARY = 'ι'
 #endregion
@@ -207,11 +210,11 @@ SPECIAL_CHARACTERS = {
     DOUBLE_QUOTE: 'DOUBLE_QUOTE',
     
     # Math symbols
-    SQUARE: 'SQUARE',
+    SQUARE_ROOT: 'SQUARE',
     MEAN: 'MEAN',
     PRODUCT_NOTATION: 'PRODUCT_NOTATION',
     SUMMATION: 'SUMMATION',
-    PI: 'PI',
+    PI_CHAR: 'PI',
     THETA: 'THETA',
     IMAGINARY: 'IMAGINARY',
 }
@@ -246,6 +249,17 @@ BOOLEAN_OPERATORS = {
     '||': 'LOGICAL_OR',
     '!': 'LOGICAL_NOT',
     '!=': 'LOGICAL_NOT_EQUALS',
+}
+
+MATH_SYMBOLS = {
+    
+    SQUARE_ROOT: 'SQUARE_ROOT',
+    MEAN: 'MEAN',
+    PRODUCT_NOTATION: 'PRODUCT_NOTATION',
+    SUMMATION: 'SUMMATION',
+    PI_CHAR: 'PI_CHAR',
+    THETA: 'THETA',
+    IMAGINARY: 'IMAGINARY'
 }
 
 ESCAPE_SEQUENCE = {

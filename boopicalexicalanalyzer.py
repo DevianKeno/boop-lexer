@@ -13,6 +13,14 @@ ERROR_LOG_FILENAME = 'error_log'
 OUTPUT_FILETYPE = '.txt'
 TABLE_COLUMN_WIDTH = 48
 
+def isalpha(string: str) -> bool:
+    """Returns True if the string consists of only special characters, False otherwise or if empty.\n"""
+    return bool(string) and all(char in ALPHABET for char in string)
+
+def isdigit(string: str) -> bool:
+    """Returns True if the string consists of only special characters, False otherwise or if empty.\n"""
+    return bool(string) and all(char in DIGIT for char in string)
+
 def isspcl(string: str) -> bool:
     """Returns True if the string consists of only special characters, False otherwise or if empty.\n"""
     return bool(string) and all(char in SPECIAL_CHARACTERS for char in string)
@@ -24,7 +32,7 @@ def isidentifier(string: str) -> bool:
     - does not start with a digit (0-9)\n
     An identifier may have trailing digits only after a valid starting character."""
     if not string: return False
-    if not (string[0].isalpha() or string[0] in IDENTIFIER_STARTER_CHARMAP): return False
+    if not (isalpha(string[0]) or string[0] in IDENTIFIER_STARTER_CHARMAP): return False
     for char in string[1:]:
         if not (char in IDENTIFIER_CHARMAP): return False
     return True
@@ -154,7 +162,7 @@ class Lexer:
         
     def _tokenize(self, lexeme: str) -> Token:
         if lexeme == EMPTY or lexeme == None: return
-        if lexeme.isalpha():
+        if isalpha(lexeme):
             if lexeme in KEYWORDS:
                 return Lexer.Token(lexeme, 'KEYWORD')
             if lexeme in RESERVED_WORDS:
@@ -165,7 +173,7 @@ class Lexer:
         if isidentifier(lexeme):
             return Lexer.Token(lexeme, 'IDENTIFIER')
         
-        if lexeme.isdigit():
+        if isdigit(lexeme):
             return Lexer.Token(lexeme, 'NUM_LITERAL')
         
         if isspcl(lexeme):            
@@ -380,13 +388,13 @@ class Lexer:
 
         if char in WHITESPACE: return
                     
-        if (char.isalpha() or char in IDENTIFIER_STARTER_CHARMAP) and not char in SPECIAL_CHARACTERS:
-            if self._prev.isalpha() or isidentifier(self._prev) or self._prev == EMPTY:
-                """<alpha><alpha>"""
+        if (isalpha(char) or char in IDENTIFIER_STARTER_CHARMAP) and not char in MATH_SYMBOLS:
+            if isalpha(self._prev) or isidentifier(self._prev) or self._prev == EMPTY:
+                """<alpha><alpha> | <alpha><underscore>"""
                 self._prev += char
                 return
             
-            if self._prev.isdigit():
+            if isdigit(self._prev):
                 """<digit><alpha>"""
                 self._add_buffer()
                 self._add_stack(Lexer.Token(char, 'NUM_SUFFIX'))
@@ -398,8 +406,8 @@ class Lexer:
                 self._parse_char(char)
                 return
             
-        if char.isdigit():
-            if self._prev.isdigit() or isidentifier(self._prev) or self._prev == EMPTY:
+        if isdigit(char):
+            if isdigit(self._prev) or isidentifier(self._prev) or self._prev == EMPTY:
                 """<digit><digit> | <identifier><digit>"""
                 self._prev += char
                 return
@@ -443,6 +451,7 @@ class Lexer:
         
         if chars in DELIMITERS: return None
         if chars in OPERATORS: return None
+        if chars in MATH_SYMBOLS: return None
         if chars in SPECIAL_CHARACTERS: return None
         
         return chars[:-1]
