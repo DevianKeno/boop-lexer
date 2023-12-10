@@ -1,6 +1,5 @@
 /*  Author: Toni Gaile
  */
-using System;
 
 public class PowersOfImaginaryUnit
 {

@@ -1,3 +1,0 @@
-function_heading
-    : modifiers? FUNC identifier typeParameters functionParams functionBody
-    |

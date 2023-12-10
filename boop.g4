@@ -122,9 +122,7 @@ data_primitive
     : INT | CHAR | FLOAT | DOUBLE | STRING
     ;
 
-data_ref
-    : identifier
-    ;
+data_ref : identifier ;
 
 dataType
     : data_primitive

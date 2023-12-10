@@ -1,4 +1,0 @@
-Invalid token in ln 12, col 60
-	Invalid character
-Invalid token in ln 12, col 77
-	Invalid character

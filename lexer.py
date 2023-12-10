@@ -2,40 +2,15 @@
 This analyzer scans each character ..."""
 
 from __future__ import annotations
-from tokens import *
 import os
 import codecs
 import time
+from tokens import *
+from utils import *
 
 __author__ = 'Gian Paolo B.'
-OUTPUT_FILENAME = 'symbol_table'
-ERROR_LOG_FILENAME = 'error_log'
-OUTPUT_FILETYPE = '.txt'
+cwd = os.getcwd()
 TABLE_COLUMN_WIDTH = 48
-
-def isalpha(string: str) -> bool:
-    """Returns True if the string consists of only special characters, False otherwise or if empty.\n"""
-    return bool(string) and all(char in ALPHABET for char in string)
-
-def isdigit(string: str) -> bool:
-    """Returns True if the string consists of only special characters, False otherwise or if empty.\n"""
-    return bool(string) and all(char in DIGIT for char in string)
-
-def isspcl(string: str) -> bool:
-    """Returns True if the string consists of only special characters, False otherwise or if empty.\n"""
-    return bool(string) and all(char in SPECIAL_CHARACTERS for char in string)
-
-def isidentifier(string: str) -> bool:
-    """Returns True if the string is a valid identifier, False otherwise or if empty.\n
-    A string is an identifier if it
-    - starts with an alphabet (a-z, A-Z) or IDENTIFIER_STARTER_CHARMAP
-    - does not start with a digit (0-9)\n
-    An identifier may have trailing digits only after a valid starting character."""
-    if not string: return False
-    if not (isalpha(string[0]) or string[0] in IDENTIFIER_STARTER_CHARMAP): return False
-    for char in string[1:]:
-        if not (char in IDENTIFIER_CHARMAP): return False
-    return True
 
 class Lexer:
     """Open a file with open('filepath'), then parse it with parse().\n
@@ -535,19 +510,21 @@ class Lexer:
         st.add_symbols(self._parse_ln(line))
         return st
     
-    def save_symbol_table(self, filename: str = OUTPUT_FILENAME):
-        """Save the output SymbolTable to file."""
+    def save_symbol_table(self):
+        """Save the SymbolTable as text file."""
         if self.symbol_table == None: return
-        with codecs.open(f'{filename}-{self.rootext[0]}{OUTPUT_FILETYPE}', 'w', encoding='utf-8') as file:
+        path = os.path.join(cwd, 'symbol_tables', f'{self.rootext[0]}.txt')
+        with codecs.open(path, 'w', encoding='utf-8') as file:
             file.write(self.symbol_table.get_info())
             file.write(f'Elapsed time: {self.elapsed_time} s\n\n')
             file.write(self.symbol_table.__str__())
         return    
     
-    def save_error_log(self, filename: str = ERROR_LOG_FILENAME):
-        """Save the error logs to file."""
+    def save_error_log(self):
+        """Save the error logs as text file."""
         if self.symbol_table == None: return
-        with codecs.open(f'{filename}-{self.rootext[0]}{OUTPUT_FILETYPE}', 'w') as file:
+        path = os.path.join(cwd, 'error_logs', f'{self.rootext[0]}.txt')
+        with codecs.open(path, 'w', encoding='utf-8') as file:
             for s in self.symbol_table.error_tokens:
                 file.write(s.__str__())
         return
