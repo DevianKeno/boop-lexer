@@ -1,5 +1,6 @@
 /* Author: Edrick D.
  */
+using System;
 
 class TriangleAngleCalculator
 {
