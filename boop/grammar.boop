@@ -1,18 +1,24 @@
-grammar boop;
+grammar grammar;
 
-
-LOWER: [a-z]+;
-UPPER: [A-Z]+;
-DIGIT: [0-9]+ ;
-SPECIAL
+fragment LOWER: [a-z]+;
+fragment UPPER: [A-Z]+;
+fragment DIGIT: [0-9]+ ;
+fragment SPECIAL
     : ' ' | '.'
     ;
-MATH: '√'
+    
+fragment MATH: '√'
     ;
+
+fragment ALPHA : LOWER | UPPER ;
+fragment ALNUM : ALPHA | DIGIT ;
+fragment SYMBOL : SPECIAL | MATH ;
+fragment CHARACTER : ALNUM | SYMBOL ;
 
 // Keywords
 ABSTRACT   : 'abstract';
 ALIAS      : 'alias';
+ASYNC      : 'async';
 BASE       : 'base';
 BOOL       : 'bool';
 BREAK      : 'break';
@@ -92,17 +98,13 @@ UNDERSCORE : '_' ;
 OP_EQUALITY: EQUALS;
 INHERITS: COLON | INHERIT;
 
-CHARACTER
-    : UPPER | LOWER | DIGIT | SPECIAL | MATH
-    ;
-
 Identifier_Start_Character
     : UNDERSCORE
     | UPPER | LOWER
     ;
 
 Identifier_Character
-    : UPPER | LOWER | DIGIT
+    : UNDERSCORE | UPPER | LOWER | DIGIT
     ;
 
 identifier
@@ -122,7 +124,11 @@ data_primitive
     : INT | CHAR | FLOAT | DOUBLE | STRING
     ;
 
-data_ref : identifier ;
+data_ref
+    : identifier
+    | LIST
+    | DICT
+    ;
 
 dataType
     : data_primitive
@@ -156,12 +162,12 @@ block
     :
     ;
 
-functionParam
-    : dataType identifier
+parameter
+    : dataType identifier (EQUALS constant)?
     ;
 
-functionParams
-    : functionParam (',' functionParam)+
+functionParameters
+    : PAREN_L (parameter (COMMA parameter)*)? PAREN_R
     ;
 
 functionBody
@@ -169,28 +175,86 @@ functionBody
     ;
 
 typeParameters
-    : ANGLD_L dataType (COMMA dataType)* ANGLD_R
+    : ANGLD_L (dataType (COMMA dataType)*)? ANGLD_R
+    ;
+
+async
+    : ASYNC
+    ;
+
+functionReturn
+    : RET_TYPE dataType
     ;
 
 functionHeading
-    : modifiers?
-    FUNC identifier typeParameters functionParams functionBody
+    : modifiers? async? FUNC identifier typeParameters? functionParameters functionReturn? functionBody
     ;
 
-functionArgs
+recurLastParameter
+    : TIME identifier
+    | INT identifier
+    ;
+
+recurParameters
+    : PAREN_L parameter+ (COMMA parameter)+ recurLastParameter PAREN_R
+    | PAREN_L parameter (COMMA parameter)+ COMMA recurLastParameter PAREN_R
+    ;
+
+recurHeading
+    : modifiers? async?
+    RECUR identifier typeParameters? recurParameters functionReturn? functionBody
+    ;
+
+arguments
     : expression+
     ;
 
 functionCall
-    : identifier PAREN_L functionArgs? PAREN_R
+    : identifier PAREN_L arguments? PAREN_R
+    ;
+
+structBody
+    : CURLY_L CURLY_R
+    ;
+
+structHeading
+    : modifiers?
+    STRUCT identifier structBody
+    ;
+
+enumBody
+    : CURLY_L (identifier (COMMA identifier)*)? CURLY_R
+    ;
+
+enumHeading
+    : modifiers?
+    ENUM identifier enumBody
+    ;
+
+eventBody
+    : CURLY_L dataType* CURLY_R
+    ;
+ 
+eventHeading
+    : modifiers?
+    EVENT identifier eventBody
+    ;
+
+classBodyDeclarations
+    : varDeclaration
+    | functionHeading
+    | classHeading
+    | structHeading
+    | enumHeading
+    | eventHeading
     ;
 
 classBody
-    : CURLY_L varDeclaration* CURLY_R
+    : CURLY_L classBodyDeclarations* CURLY_R
     ;
 
 classHeading
-    : modifiers? CLASS identifier (INHERITS identifier)? interfaceSignature? classBody
+    : modifiers? CLASS typeParameters? identifier (INHERITS identifier)? interfaceSignature? classBody
     ;
 
 interfaceSignature
@@ -206,7 +270,7 @@ moduleHeading
     ;
 
 keyword
-    : ABSTRACT    | ALIAS       | BASE       | BOOL        | BREAK
+    : ABSTRACT    | ALIAS       | ALIAS      | BASE       | BOOL        | BREAK
     | CASE        | CATCH       | CHAR       | CLASS       | CONST
     | CONSTANT    | CONTINUE    | DEFAULT    | DICT        | DICTIONARY
     | DO          | DOUBLE      | ELSE       | ENUM        | ENUMERATION

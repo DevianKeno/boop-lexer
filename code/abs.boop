@@ -3,7 +3,7 @@
 
 public class Absolute
 {
-    static func Main(string[] args)
+    func Main()
     {
    	    // variable declaration
   	    Float inputVar, absolute;
@@ -24,6 +24,6 @@ public class Absolute
             absolute = inputVar;
 
         // display of the absolute
-        print (absolute);
+        Print (absolute);
     }
 }

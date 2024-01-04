@@ -3,7 +3,7 @@
 
 public class PowersOfImaginaryUnit
 {
-    static func Main(string[] args)
+    func Main()
     {
         // var declaration
   		int expo, remainder;

@@ -3,7 +3,7 @@
 
 class SquareRoots
 {
-    static func Main(string[] args)
+    func Main()
     {
         // simple program of getting square root of a number
         // declaration of variables

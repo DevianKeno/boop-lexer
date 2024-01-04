@@ -3,7 +3,7 @@
 
 class TriangleAngleCalculator
 {
-    static func Main()
+    func Main()
     {
         PrintLine("Right Triangle Angle Calculator");
 
