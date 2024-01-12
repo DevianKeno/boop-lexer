@@ -70,6 +70,7 @@ class Lexer:
     def __init__(self):
         self.symbol_table = self.SymbolTable()
         self.tokenize_comments: bool = True
+        self._allow_external_files: bool = False
         """If to include the comment delimiters as tokens in the output table."""        
         self.rootext: tuple[str, str] = (EMPTY, EMPTY)
         """Represents the filename [0] and file extension [1]."""
@@ -80,7 +81,7 @@ class Lexer:
         self._stack: list[Token] = []
         self._char_idx: int = 0
         self._line_idx: int = 1
-        self._col_idx: int = 1
+        self._col_idx: int = 0
         self._prev: str = EMPTY
         self._delim: str = EMPTY
         self._string_buffer: str = EMPTY
@@ -215,11 +216,14 @@ class Lexer:
     
     def _parse_literal(self, char: str):
         """Parse literal string quotes."""
+        
         if self._escape_char:
             self._handle_escape_char(char)
             return
             
         if char == self._quote_used:
+            self._col_idx += 1
+            
             if self._string_buffer:
                 """If there is already a literal, this is an end quote."""
                 self._add_stack(Token(f'{self._quote_used}{self._string_buffer}{self._quote_used}', 'STRING_LITERAL'))
@@ -238,14 +242,15 @@ class Lexer:
                 return
         
         if self._is_escape_char(char):
+            self._col_idx += 1
             self._escape_char = char
             return
         
-        if (char == NEW_LINE or char == CARRIAGE_RETURN):
+        if (char == NEW_LINE):
             error_token = Token(f'{self._quote_used}{self._string_buffer}', ERROR_TOKEN, self._line_idx, self._col_idx)
-            self._add_stack(ErrorToken(error_token, ErrorToken.NEWLINE_LITERAL))
-            
+            self._add_stack(ErrorToken(error_token, ErrorToken.NEWLINE_LITERAL))            
             self._reset_quote_flags()
+            self._line_idx += 1
             return
         
         if len(self._prev_quotes) == 2:
@@ -255,6 +260,7 @@ class Lexer:
             self._parse_char(char)
             return
         
+        self._col_idx += 1
         self._string_buffer += char
     
     def _parse_raw_literal(self, char: str):    
@@ -332,8 +338,10 @@ class Lexer:
             return
 
         if char in WHITESPACE: return
-                    
+                            
         if (isalpha(char) or char in IDENTIFIER_STARTER_CHARMAP) and not char in MATH_SYMBOLS:
+            self._col_idx += 1
+            
             if isalpha(self._prev) or isidentifier(self._prev) or self._prev == EMPTY:
                 """<alpha><alpha> | <alpha><underscore>"""
                 self._prev += char
@@ -415,13 +423,16 @@ class Lexer:
             _col_idx += 1
         return self._stack
     
-    #region public
+    """Public methods
+    """
+    #region
     def open(self, filepath: str) -> bool:
         """Open a .boop file, and store its contents for further operations.\n
         Returns True upon no errors."""
-        if not filepath.lower().endswith(".boop"):
-            raise Exception("Input file must be a type of .boop")
-        
+        if not self._allow_external_files:
+            if not filepath.lower().endswith(".boop"):
+                raise Exception("Input file must be a type of .boop")
+
         with codecs.open(filepath, 'r', encoding='utf-8') as file:
             self.rootext = os.path.splitext(os.path.basename(file.name))
             self._content = file.read()
@@ -452,34 +463,20 @@ class Lexer:
         if self.symbol_table == None: return
         
         self.syntaxer.parse(self.symbol_table)
-        
+    
     def tokenize(self, lexeme: str) -> Token:
         """Check lexeme string if in valid tokens, where lexeme is not an empty string.\n
         Returns a Token object."""
         return self._tokenize(lexeme)
     
+    def allow_external_files(self, allow: bool) -> None:
+        self._allow_external_files = allow
+    
+    #UNUSED
     def get_line(self, index: int) -> str:
         """Returns a line from the current open file. Returns None if no file has been opened yet."""
         return None if not self._lines else self._lines[index]
     
-    def parse_index(self, index: int) -> SymbolTable:
-        """Leximize a line via index.\n
-        Returns a SymbolTable object."""
-        table = self.SymbolTable()
-        table.add_symbols(self._parse_ln(self.get_line(index)))
-        return table
-    
-    #TODO
-    def parse_lines(self, range: tuple[int, int]) -> SymbolTable:
-        """Parse lines from index to index."""
-        if self._lines == None: return None
-    
-    def parse_string(self, line: str) -> SymbolTable:
-        """Parse a single line of BOOP code.\n
-        Used when changes are made to one specific line of code, to avoid reading the whole file again."""
-        st = self.SymbolTable()
-        st.add_symbols(self._parse_ln(line))
-        return st
     
     def save_symbol_table(self):
         """Save the SymbolTable as text file."""
@@ -499,6 +496,28 @@ class Lexer:
             for s in self.symbol_table.error_tokens:
                 file.write(s.__str__())
         return
+    
+    #TODO
+    #UNUSED
+    def parse_index(self, index: int) -> SymbolTable:
+        """Leximize a line via its index.\n
+        Returns a SymbolTable object."""
+        table = self.SymbolTable()
+        table.add_symbols(self._parse_ln(self.get_line(index)))
+        return table
+    
+    #UNUSED
+    def parse_lines(self, range: tuple[int, int]) -> SymbolTable:
+        """Parse lines from index to index."""
+        if self._lines == None: return None
+    
+    #UNUSED
+    def parse_string(self, line: str) -> SymbolTable:
+        """Parse a single line of BOOP code.\n
+        Used when changes are made to one specific line of code, to avoid reading the whole file again."""
+        st = self.SymbolTable()
+        st.add_symbols(self._parse_ln(line))
+        return st
     #endregion
     
     

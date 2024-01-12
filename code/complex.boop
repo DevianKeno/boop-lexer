@@ -1,12 +1,8 @@
-"sad
-"
-"""raw 
-new line
-new line
-end raw
-"""
-2.
-πfl_2oat var1 __dou__ble var
+/* Author: Gian Paolo B.
+ */
+
+√x ̅∏Σπθι̅ 
+πfl_2oat var1 __dou__ble var'
 'asd'||3.1'\tab'
 fl_2oat var1 = 15π;
 var delay = 3s;
@@ -24,7 +20,7 @@ s'''
 "literal does not allow
 new lines"
 """raw does wink
-wink and allows the use of \, ', and " characters."""
+wink and allows the use of \, ', ", and "" characters."""
 ++=!==string; // consecutive operators
 import /* Math***/ from System;import Graphics from System;
 float _IOSYS=3.14f; // f is num suffix representing floating point

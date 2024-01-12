@@ -1,21 +1,23 @@
-Valid tokens count: 160
-Error tokens count: 8
-Elapsed time: 0.0019953250885009766 s
+Valid tokens count: 165
+Error tokens count: 9
+Elapsed time: 0.0019943714141845703 s
 
-"sad                                            	ERROR_TOKEN                                     
-"                                               	ERROR_TOKEN                                     
-"""raw 
-new line
-new line
-end raw
-"""                                             	RAW_LITERAL                                     
-2                                               	NUM_LITERAL                                     
-.                                               	DOT                                             
+/*                                              	COMMENT_MULT_START                              
+*/                                              	COMMENT_MULT_END                                
+√                                               	SQUARE                                          
+x                                               	IDENTIFIER                                      
+̅                                               	ERROR_TOKEN                                     
+∏                                               	PRODUCT_NOTATION                                
+Σ                                               	SUMMATION                                       
+π                                               	PI                                              
+θ                                               	THETA                                           
+̅                                               	ERROR_TOKEN                                     
 π                                               	PI                                              
 fl_2oat                                         	IDENTIFIER                                      
 var1                                            	IDENTIFIER                                      
 __dou__ble                                      	IDENTIFIER                                      
 var                                             	IDENTIFIER                                      
+'                                               	ERROR_TOKEN                                     
 'asd'                                           	STRING_LITERAL                                  
 ||                                              	LOGICAL_OR                                      
 3                                               	NUM_LITERAL                                     
@@ -107,12 +109,12 @@ Sads                                            	IDENTIFIER
 D                                               	IDENTIFIER                                      
 "Adas'd"                                        	STRING_LITERAL                                  
 '                                               	ERROR_TOKEN                                     
-"literal does not allow                         	ERROR_TOKEN                                     
+"literal does not allow                        	ERROR_TOKEN                                     
 new                                             	IDENTIFIER                                      
 lines                                           	IDENTIFIER                                      
 "                                               	ERROR_TOKEN                                     
 """raw does wink
-wink and allows the use of \, ', and " characters."""	RAW_LITERAL                                     
+wink and allows the use of \, ', ", and "" characters."""	RAW_LITERAL                                     
 ++                                              	INCREMENT                                       
 =                                               	EQUALITY_OP                                     
 !=                                              	LOGICAL_NOT_EQUALS                              
