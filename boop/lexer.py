@@ -402,7 +402,6 @@ class Lexer:
     def _parse(self) -> list[Token]:
         for char in self._content:
             self._parse_char(char)
-            self._col_idx += 1
 
         self.symbol_table.add_symbols(self._stack)
         return self._stack
@@ -442,8 +441,7 @@ class Lexer:
         
         self._start_time = time.time()
         self._parse()
-        self._end_time = time.time()
-        self.elapsed_time = self._end_time - self._start_time
+        self.elapsed_time = time.time() - self._start_time
         
         self.save_error_log()
         self.save_symbol_table()

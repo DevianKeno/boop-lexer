@@ -1,12 +1,16 @@
-[ErrorToken]: Invalid token in ln 14, col 50
+[ErrorToken]: Invalid token in ln 1, col 1
+	New line in string literals are not allowed
+[ErrorToken]: Invalid token in ln 2, col 1
+	New line in string literals are not allowed
+[ErrorToken]: Invalid token in ln 14, col 1
 	Unclosed string literal
-[ErrorToken]: Invalid token in ln 14, col 50
+[ErrorToken]: Invalid token in ln 14, col 1
 	Invalid escape sequence
-[ErrorToken]: Invalid token in ln 14, col 53
+[ErrorToken]: Invalid token in ln 14, col 1
 	New line in string literals are not allowed
-[ErrorToken]: Invalid token in ln 15, col 29
+[ErrorToken]: Invalid token in ln 15, col 3
 	New line in string literals are not allowed
-[ErrorToken]: Invalid token in ln 15, col 53
+[ErrorToken]: Invalid token in ln 15, col 3
 	New line in string literals are not allowed
-[ErrorToken]: Invalid token in ln 16, col 13
+[ErrorToken]: Invalid token in ln 16, col 2
 	New line in string literals are not allowed

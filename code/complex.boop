@@ -1,11 +1,15 @@
-/* Author: Gian Paolo B.
- */
-
+"sad
+"
+"""raw 
+new line
+new line
+end raw
+"""
 2.
-
 πfl_2oat var1 __dou__ble var
 'asd'||3.1'\tab'
 fl_2oat var1 = 15π;
+var delay = 3s;
 __dou__ble var2 = √27;
 int var3 = |-99|;
 (var1 == 4ι && var2 == √27) || var7 == 'false'

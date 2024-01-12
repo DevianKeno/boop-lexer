@@ -1,9 +1,14 @@
-Valid tokens count: 155
-Error tokens count: 6
-Elapsed time: 0.0019948482513427734 s
+Valid tokens count: 160
+Error tokens count: 8
+Elapsed time: 0.0019953250885009766 s
 
-/*                                              	COMMENT_MULT_START                              
-*/                                              	COMMENT_MULT_END                                
+"sad                                            	ERROR_TOKEN                                     
+"                                               	ERROR_TOKEN                                     
+"""raw 
+new line
+new line
+end raw
+"""                                             	RAW_LITERAL                                     
 2                                               	NUM_LITERAL                                     
 .                                               	DOT                                             
 π                                               	PI                                              
@@ -22,6 +27,12 @@ var1                                            	IDENTIFIER
 =                                               	EQUALITY_OP                                     
 15                                              	NUM_LITERAL                                     
 π                                               	PI                                              
+;                                               	END_STATEMENT                                   
+var                                             	IDENTIFIER                                      
+delay                                           	IDENTIFIER                                      
+=                                               	EQUALITY_OP                                     
+3                                               	NUM_LITERAL                                     
+s                                               	NUM_SUFFIX                                      
 ;                                               	END_STATEMENT                                   
 __dou__ble                                      	IDENTIFIER                                      
 var2                                            	IDENTIFIER                                      

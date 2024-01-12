@@ -6,7 +6,7 @@ public class Absolute
     func Main()
     {
    	    // variable declaration
-  	    Float inputVar, absolute;
+  	    float inputVar, absolute;
    	 
    		// user instruction
      	PrintLine("A Program for Absolute Value (| |) ");
