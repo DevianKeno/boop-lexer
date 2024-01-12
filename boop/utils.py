@@ -1,5 +1,5 @@
 
-from boop.tokens import *
+from tokens.tokens import *
 
 def isalpha(string: str) -> bool:
     """ Returns True if the string consists of only special characters, False otherwise or if empty.\n"""

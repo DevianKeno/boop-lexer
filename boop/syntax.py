@@ -2,7 +2,7 @@
 from __future__ import annotations
 import os
 from utils import *
-from boop.lexer.tokens import *
+from tokens.tokens import *
 
 cwd = os.getcwd()
 
@@ -120,8 +120,8 @@ class Syntaxer:
     
     def parse(self, table):
         
-        for table in table.toke:
+        # for table in table.token:
             
-            pass
+        #     pass
         pass
 

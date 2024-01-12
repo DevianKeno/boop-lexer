@@ -23,7 +23,7 @@ class ErrorToken:
     NEWLINE_LITERAL = """New line in string literals are not allowed"""
     #endregion
     
-    def __init__(self, token: Lexer.Token, msg: str = None) -> None:
+    def __init__(self, token: Token, msg: str = None) -> None:
         self.msg: str = msg
         self.lexeme: str = token.lexeme
         self.token: str = token.token

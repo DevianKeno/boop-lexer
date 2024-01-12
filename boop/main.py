@@ -1,10 +1,10 @@
 
 import os
-from boop.lexer import Lexer
+from lexer import Lexer
 
 if __name__ == '__main__':
     cwd = os.getcwd()
-    filename = 'code/triangle.boop'
+    filename = 'code/complex.boop'
     filepath = os.path.join(cwd, filename)
     
     lexer = Lexer()

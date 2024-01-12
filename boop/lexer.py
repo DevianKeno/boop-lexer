@@ -6,9 +6,8 @@ import os
 import codecs
 import time
 from syntax import *
-from boop.lexer import Lexer
-from boop.token import *
-from boop.tokens import *
+from tokens.token import *
+from tokens.tokens import *
 from utils import *
 
 __author__ = 'Gian Paolo B.'
