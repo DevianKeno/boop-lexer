@@ -7,30 +7,30 @@ class TriangleAngleCalculator
     {
         PrintLine("Right Triangle Angle Calculator");
 
-        //get the lengths of two sides of the right triangle
+        #get the lengths of two sides of the right triangle
         Print("Enter the length of the adjacent side (a): ");
         double sideA = ToDouble(ReadLine());
 
         Print("Enter the length of the opposite side (b): ");
         double sideB = ToDouble(ReadLine());
 
-        //calculate the angle using the arctangent function
+        #calculate the angle using the arctangent function
         double angleInRadians = Atan(sideB, sideA);
         double θ = RadiansToDegrees(angleInRadians);
 
-        //display the calculated angle
+        #display the calculated angle
         PrintLine($"The angle in degrees is: {θ}");
 
-        //use the angle in the floor and ceiling functions
+        #use the angle in the floor and ceiling functions
         double floorValue = Floor(θ);
         double ceilValue = Ceil(θ);
 
-        //display the results of floor and ceiling functions
+        #display the results of floor and ceiling functions
         PrintLine($"Floor = {floorValue}");
         PrintLine($"Ceiling = {ceilValue}");
     }
 
-    //helper function to convert radians to degrees
+    #helper function to convert radians to degrees
     static double RadiansToDegrees(double radians)
     {
         return radians * (180.0 / π);

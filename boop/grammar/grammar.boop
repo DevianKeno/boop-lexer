@@ -1,102 +1,135 @@
-grammar grammar;
+// grammar grammar;
 
-fragment LOWER: [a-z]+;
-fragment UPPER: [A-Z]+;
-fragment DIGIT: [0-9]+ ;
-fragment SPECIAL
-    : ' ' | '.'
-    ;
+// fragment LOWER: [a-z]+;
+// fragment UPPER: [A-Z]+;
+// fragment DIGIT: [0-9]+ ;
+// fragment SPECIAL
+//     : ' ' | '.'
+//     ;
     
-fragment MATH: '√'
-    ;
+// fragment MATH: '√'
+//     ;
 
-fragment ALPHA : LOWER | UPPER ;
-fragment ALNUM : ALPHA | DIGIT ;
-fragment SYMBOL : SPECIAL | MATH ;
-fragment CHARACTER : ALNUM | SYMBOL ;
+// fragment ALPHA : LOWER | UPPER ;
+// fragment ALNUM : ALPHA | DIGIT ;
+// fragment SYMBOL : SPECIAL | MATH ;
+// fragment CHARACTER : ALNUM | SYMBOL ;
 
 // Keywords
-ABSTRACT   : 'abstract';
-ALIAS      : 'alias';
-ASYNC      : 'async';
-BASE       : 'base';
-BOOL       : 'bool';
-BREAK      : 'break';
-CASE       : 'case';
-CATCH      : 'catch';
-CHAR       : 'char';
-CLASS      : 'class';
-CONST      : 'const';
-CONSTANT   : 'constant';
-CONTINUE   : 'continue';
-DEFAULT    : 'default';
-DICT       : 'dict';
-DICTIONARY : 'dictionary';
-DO         : 'do';
-DOUBLE     : 'double';
-ELSE       : 'else';
-ENUM       : 'enum';
-ENUMERATION: 'enumeration';
-EVENT      : 'event';
-FALSE      : 'false';
-FLOAT      : 'float';
-FOR        : 'for';
-FOREACH    : 'foreach';
-FORMAT     : 'format';
-FOR_TIME   : 'fortime';
-FROM       : 'from';
-FUNC       : 'func';
-GET        : 'get';
-IF         : 'if';
-IMPORT     : 'import';
-INHERIT    : 'inherit';
-INT        : 'int';
-INTERFACE  : 'interface';
-LIST       : 'list';
-MILLISEC   : 'millisec';
-MODULE     : 'module';
-NULL       : 'null';
-OVERRIDE   : 'override';
-PRIVATE    : 'private';
-PROTECTED  : 'protected';
-PUBLIC     : 'public';
-RECUR      : 'recur';
-REF        : 'ref';
-RETURN     : 'return';
-SECOND     : 'second';
-SET        : 'set';
-STATIC     : 'static';
-STRING     : 'string';
-STRUCT     : 'struct';
-SWITCH     : 'switch';
-THIS       : 'this';
-THROW      : 'throw';
-TIME       : 'time';
-TRUE       : 'true';
-TRY        : 'try';
-VIRTUAL    : 'virtual';
-VOID       : 'void';
-WHILE      : 'while';
-WHERE      : 'where';
+// ABSTRACT   : 'abstract';
+// ALIAS      : 'alias';
+// ASYNC      : 'async';
+// BASE       : 'base';
+// BOOL       : 'bool';
+// BREAK      : 'break';
+// CASE       : 'case';
+// CATCH      : 'catch';
+// CHAR       : 'char';
+// CLASS      : 'class';
+// CONST      : 'const';
+// CONSTANT   : 'constant';
+// CONTINUE   : 'continue';
+// DEFAULT    : 'default';
+// DICT       : 'dict';
+// DICTIONARY : 'dictionary';
+// DO         : 'do';
+// DOUBLE     : 'double';
+// ELSE       : 'else';
+// ENUM       : 'enum';
+// ENUMERATION: 'enumeration';
+// EVENT      : 'event';
+// FALSE      : 'false';
+// FLOAT      : 'float';
+// FOR        : 'for';
+// FOREACH    : 'foreach';
+// FORMAT     : 'format';
+// FOR_TIME   : 'fortime';
+// FROM       : 'from';
+// FUNC       : 'func';
+// GET        : 'get';
+// IF         : 'if';
+// IMPORT     : 'import';
+// INHERIT    : 'inherit';
+// INT        : 'int';
+// INTERFACE  : 'interface';
+// LIST       : 'list';
+// MILLISEC   : 'millisec';
+// MODULE     : 'module';
+// NULL       : 'null';
+// OVERRIDE   : 'override';
+// PRIVATE    : 'private';
+// PROTECTED  : 'protected';
+// PUBLIC     : 'public';
+// RECUR      : 'recur';
+// REF        : 'ref';
+// RETURN     : 'return';
+// SECOND     : 'second';
+// SET        : 'set';
+// STATIC     : 'static';
+// STRING     : 'string';
+// STRUCT     : 'struct';
+// SWITCH     : 'switch';
+// THIS       : 'this';
+// THROW      : 'throw';
+// TIME       : 'time';
+// TRUE       : 'true';
+// TRY        : 'try';
+// VIRTUAL    : 'virtual';
+// VOID       : 'void';
+// WHILE      : 'while';
+// WHERE      : 'where';
 
-ANGLD_L: '<';
-ANGLD_R: '>';
-BRCKT_L: '[';
-BRCKT_R: ']';
-COLON: ':';
-COMMA: ',';
-CURLY_L: '{';
-CURLY_R: '}';
-EQUALS: '=';
-PAREN_L: '(';
-PAREN_R: ')';
-RET_TYPE: '->';
-SEMICOLON: ';';
+// ANGLD_L: '<';
+// ANGLD_R: '>';
+// BRCKT_L: '[';
+// BRCKT_R: ']';
+// COLON: ':';
+// COMMA: ',';
+// CURLY_L: '{';
+// CURLY_R: '}';
+// EQUALS: '=';
+// PAREN_L: '(';
+// PAREN_R: ')';
+// RET_TYPE: '->';
+// SEMICOLON: ';';
 
-END_STMNT: SEMICOLON;
-UNDERSCORE : '_' ;
-OP_EQUALITY: EQUALS;
-INHERITS: COLON | INHERIT;
+// END_STMNT: SEMICOLON;
+// UNDERSCORE : '_' ;
+// OP_EQUALITY: EQUALS;
+// // INHERITS: COLON | INHERIT;
+
+#region Rules
+
+#region Program statement
+
+
+boopProgram
+    : moduleStatements? heading* mainDriver?
+    ;
+
+heading:moduleHeading|classHeading;
+
+mainDriver
+    : FUNC 'main' LEFT_PAREN mainDriverArgs? RIGHT_PAREN functionBody
+    ;
+
+mainDriverArgs
+    : arrayStringDeclr identifier
+    ;
+
+#endregion
+
+#region Headings
+
+moduleHeading
+    : modifiers? MODULE identifier moduleBody
+    ;
+    
+classHeading
+    : modifiers? CLASS typeParameters? identifier (INHERITS identifier)? interfaceSignature? classBody
+    ;
+
+#endregion
 
 Identifier_Start_Character
     : UNDERSCORE
@@ -116,15 +149,15 @@ modifiers
     | access_modifier access_modifier
     ;
 
-access_modifier
+accessModifier
     : PUBLIC | PRIVATE | PROTECTED
     ;
 
-data_primitive
+dataPrimitive
     : INT | CHAR | FLOAT | DOUBLE | STRING
     ;
 
-data_ref
+dataRef
     : identifier
     | LIST
     | DICT
@@ -253,9 +286,6 @@ classBody
     : CURLY_L classBodyDeclarations* CURLY_R
     ;
 
-classHeading
-    : modifiers? CLASS typeParameters? identifier (INHERITS identifier)? interfaceSignature? classBody
-    ;
 
 interfaceSignature
     : PAREN_L identifier (COMMA identifier)* PAREN_R
@@ -294,3 +324,5 @@ token
     | keyword
     | operator
     ;
+
+#endregion

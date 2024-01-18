@@ -5,25 +5,27 @@ public class Absolute
 {
     func Main()
     {
-   	    // variable declaration
+   	    # variable declaration
   	    float inputVar, absolute;
+        character inputChar = "s";
+        enumeration inputTypes = { 'a', 'b', 'c'}
    	 
-   		// user instruction
+   		# user instruction
      	PrintLine("A Program for Absolute Value (| |) ");
         PrintLine("Example: |-6969| = 6969");
     
-  		// user input
+  		# user input
    		string input = ReadLine("\n\nEnter the value: ");
         inputVar = Float(input);
         absolute = |inputVar|;
 
-        //another way
+        # another way
         if (inputVar < 0)
             absolute = inputVar*(-1);
         else
             absolute = inputVar;
 
-        // display of the absolute
+        # display of the absolute
         Print (absolute);
     }
 }

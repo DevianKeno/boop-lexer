@@ -1,0 +1,18 @@
+Valid tokens count: 14
+Error tokens count: 0
+Elapsed time: 0.001995086669921875 s
+
+public                                          	PUBLIC                                          
+class                                           	CLASS                                           
+Program                                         	IDENTIFIER                                      
+{                                               	LEFT_BRACE                                      
+func                                            	FUNC                                            
+Main                                            	IDENTIFIER                                      
+(                                               	LEFT_PAREN                                      
+)                                               	RIGHT_PAREN                                     
+{                                               	LEFT_BRACE                                      
+if                                              	IF                                              
+else                                            	ELSE                                            
+if                                              	IF                                              
+else                                            	ELSE                                            
+}                                               	RIGHT_BRACE                                     

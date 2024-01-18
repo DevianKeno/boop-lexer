@@ -1,8 +1,12 @@
 EMPTY = ''
-       
-ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
 DIGIT = '0123456789'
-       
+LOWER = 'abcdefghijklmnopqrstuvwxyz'
+UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+ALPHABET = LOWER + UPPER
+ALPHANUMERIC = LOWER + UPPER + DIGIT
+
+#region Special characters
 SPACE = ' '
 PERIOD = '.'
 COMMA = ','
@@ -19,12 +23,12 @@ CARET = '^'
 ASTERISK = '*'
 PERCENT = '%'
 AMPERSAND = '&'
-PARENTHESIS_OPEN = '('
-PARENTHESIS_CLOSE = ')'
-BRACKET_OPEN = '['
-BRACKET_CLOSE = ']'
-BRACE_OPEN = '{'
-BRACE_CLOSE = '}'
+LEFT_PAREN = '('
+RIGHT_PAREN = ')'
+LEFT_BRACKET = '['
+RIGHT_BRACKET = ']'
+LEFT_BRACE = '{'
+RIGHT_BRACE = '}'
 LEFT_ANGLED_BRACKET = '<'
 RIGHT_ANGLED_BRACKET = '>'
 PLUS = '+'
@@ -36,16 +40,11 @@ FORWARD_SLASH = '/'
 BACKSLASH = '\\'
 SINGLE_QUOTE = '\''
 DOUBLE_QUOTE = '\"'
-
-MAX_OPERATOR_LENGTH = 3
-MAX_DELIMITER_LENGTH = 3
-
-#region Special characters
-#endregion 
+#endregion
 
 #region Math symbols
 SQUARE_ROOT = '√'
-MEAN = 'x̅'
+MEAN = 'x̅' # buggy, this is two characters
 PRODUCT_NOTATION = '∏'
 SUMMATION = 'Σ'
 PI_CHAR = 'π'
@@ -54,30 +53,89 @@ IMAGINARY = 'ι'
 #endregion
 
 #region Delimiters
-ESCAPE_CHARACTER = BACKSLASH
-DELIM_END_STATEMENT = SEMICOLON
-DELIM_PAREN_L = '('
-DELIM_PAREN_R = ')'
-DELIM_BRACKET_L = '['
-DELIM_BRACKET_R = ']'
-DELIM_BRACE_L = '{'
-DELIM_BRACE_R = '}'
-DELIM_ANGLED_BRACKET_L = '<'
-DELIM_ANGLED_BRACKET_R = '>'
-DELIM_TYPE_RETURN = '->'
-DELIM_RETURN = '=>'
-DELIM_COMMENT_SINGLE = '//'
-DELIM_COMMENT_START = '/*'
-DELIM_COMMENT_END = '*/'
+END_STATEMENT = SEMICOLON
+SINGLE_QUOTE_TRIPLE = SINGLE_QUOTE + SINGLE_QUOTE + SINGLE_QUOTE
+DOUBLE_QUOTE_TRIPLE = DOUBLE_QUOTE  +DOUBLE_QUOTE + DOUBLE_QUOTE
+COMMENT_SINGLE = HASH
+COMMENT_START = FORWARD_SLASH + ASTERISK
+COMMENT_END = ASTERISK + FORWARD_SLASH
+DELIM_FUNC_RETURN = HYPHEN + RIGHT_ANGLED_BRACKET
+DELIM_FIELD_RETURN = EQUALS + RIGHT_ANGLED_BRACKET
 #endregion
 
+ESCAPE_CHARACTER = BACKSLASH
 ERROR_TOKEN = 'ERROR_TOKEN'
 
 #region Keywords
 ABSTRACT = 'abstract'
 ALIAS = 'alias'
+ASYNC = 'async'
+AWAIT = 'await'
 BASE = 'base'
+BOOL = 'bool'
+BREAK = 'break'
+CASE = 'case'
+CATCH = 'catch'
+CHAR = 'char'
+CHARACTER = 'character'
+CLASS = 'class'
+CONST = 'const'
+CONT = 'cont'
+CONTINUE = 'continue'
+DEFAULT = 'default'
+DELAYED = 'delayed'
+DICT = 'dict'
+DICTIONARY = 'dictionary'
+DO = 'do'
+DOUBLE = 'double'
+ELSE = 'else'
+ENUM = 'enum'
+ENUMERATION = 'enumeration'
+EVENT = 'event'
+FALSE = 'false'
+FLOAT = 'float'
+FOR = 'for'
+FOREACH = 'foreach'
+FORMAT = 'format'
+FORTIME = 'fortime'
+FROM = 'from'
+FUNC = 'func'
+GET = 'get'
+IF = 'if'
+IMPORT = 'import'
+INHERIT = 'inherit'
+INT = 'int'
+INTERFACE = 'interface'
+LIST = 'list'
+MILLISEC = 'millisec'
+MODULE = 'module'
+NULL = 'null'
+OVERRIDE = 'override'
+PRIVATE = 'private'
+PROTECTED = 'protected'
+PUBLIC = 'public'
+RECUR = 'recur'
+REF = 'ref'
+REPEAT = 'repeat'
+RETURN = 'return'
+SECOND = 'second'
+SET = 'set'
+STATIC = 'static'
+STRING = 'string'
+STRUCT = 'struct'
+SWITCH = 'switch'
+THIS = 'this'
+THROW = 'throw'
+TIME = 'time'
+TRUE = 'true'
+TRY = 'try'
+VIRTUAL = 'virtual'
+VOID = 'void'
+WHILE = 'while'
+WHERE = 'where'
 #endregion
+
+MAIN = 'main'
 
 #region WHITESPACE
 NEW_LINE = '\n'
@@ -85,82 +143,84 @@ CARRIAGE_RETURN = '\r'
 TAB = '\t'
 #endregion
 
-KEYWORD = {
-    ABSTRACT: 'KEYWORD',
-    ALIAS: 'KEYWORD',
-    BASE: 'KEYWORD'
+TOKENS = {
+    'IDENTIFIER': 'IDENTIFIER',
 }
 
 KEYWORDS = {
-    'abstract' : 'KEYWORD',
-    'alias' : 'KEYWORD',
-    'async' : 'KEYWORD',
-    'await' : 'KEYWORD',
-    'base': 'BASE',
-    'bool': 'BOOL',
-    'break': 'BREAK',
-    'case': 'CASE',
-    'catch': 'CATCH',
-    'char': 'CHAR',
-    'class': 'CLASS',
-    'const': 'CONST',
-    'constant': 'CONSTANT',
-    'continue': 'CONTINUE',
-    'default': 'DEFAULT',
-    'delayed' : 'DELAYED',
-    'dict': 'DICT',
-    'dictionary': 'DICTIONARY',
-    'do': 'DO',
-    'double': 'DOUBLE',
-    'else': 'ELSE',
-    'enum': 'ENUM',
-    'enumeration': 'ENUMERATION',
-    'event': 'EVENT',
-    'false': 'FALSE',
-    'float': 'FLOAT',
-    'for': 'FOR',
-    'foreach': 'FOREACH',
-    'format': 'FORMAT',
-    'fortime': 'FORTIME',
-    'from': 'FROM',
-    'func': 'FUNC',
-    'get': 'GET',
-    'if': 'IF',
-    'import': 'IMPORT',
-    'inherit': 'INHERIT',
-    'int': 'INT',
-    'interface': 'INTERFACE',
-    'list': 'LIST',
-    'millisec': 'MILLISEC',
-    'module': 'MODULE',
-    'null': 'NULL',
-    'override': 'OVERRIDE',
-    'private': 'PRIVATE',
-    'protected': 'PROTECTED',
-    'public': 'PUBLIC',
-    'recur': 'RECUR',
-    'ref': 'REF',
-    'repeat' : 'DELAYED',
-    'return': 'RETURN',
-    'second': 'SECOND',
-    'set': 'SET',
-    'static': 'STATIC',
-    'string': 'STRING',
-    'struct': 'STRUCT',
-    'switch': 'SWITCH',
-    'this': 'THIS',
-    'throw': 'THROW',
-    'time': 'TIME',
-    'true': 'TRUE',
-    'try': 'TRY',
-    'virtual': 'VIRTUAL',
-    'void': 'VOID',
-    'while': 'WHILE',
-    'where': 'WHERE'
+    ABSTRACT: 'ABSTRACT',
+    ALIAS: 'ALIAS',
+    ASYNC: 'ASYNC',
+    AWAIT: 'AWAIT',
+    BASE: 'BASE',
+    BOOL: 'BOOL',
+    BREAK: 'BREAK',
+    CASE: 'CASE',
+    CATCH: 'CATCH',
+    CHAR: 'CHAR',
+    CLASS: 'CLASS',
+    CONST: 'CONST',
+    CONTINUE: 'CONTINUE',
+    DEFAULT: 'DEFAULT',
+    DELAYED: 'DELAYED',
+    DICT: 'DICT',
+    DO: 'DO',
+    DOUBLE: 'DOUBLE',
+    ELSE: 'ELSE',
+    ENUM: 'ENUM',
+    EVENT: 'EVENT',
+    FALSE: 'FALSE',
+    FLOAT: 'FLOAT',
+    FOR: 'FOR',
+    FOREACH: 'FOREACH',
+    FORMAT: 'FORMAT',
+    FORTIME: 'FORTIME',
+    FROM: 'FROM',
+    FUNC: 'FUNC',
+    GET: 'GET',
+    IF: 'IF',
+    IMPORT: 'IMPORT',
+    INHERIT: 'INHERIT',
+    INT: 'INT',
+    INTERFACE: 'INTERFACE',
+    LIST: 'LIST',
+    MAIN: 'MAIN',
+    MILLISEC: 'MILLISEC',
+    MODULE: 'MODULE',
+    NULL: 'NULL',
+    OVERRIDE: 'OVERRIDE',
+    PRIVATE: 'PRIVATE',
+    PROTECTED: 'PROTECTED',
+    PUBLIC: 'PUBLIC',
+    RECUR: 'RECUR',
+    REF: 'REF',
+    REPEAT: 'REPEAT',
+    RETURN: 'RETURN',
+    SECOND: 'SECOND',
+    SET: 'SET',
+    STATIC: 'STATIC',
+    STRING: 'STRING',
+    STRUCT: 'STRUCT',
+    SWITCH: 'SWITCH',
+    THIS: 'THIS',
+    THROW: 'THROW',
+    TIME: 'TIME',
+    TRUE: 'TRUE',
+    TRY: 'TRY',
+    VIRTUAL: 'VIRTUAL',
+    VOID: 'VOID',
+    WHILE: 'WHILE',
+    WHERE: 'WHERE',
 }
 
 RESERVED_WORDS = {
-    
+}
+
+NOISE_WORDS = {
+    CHARACTER : CHAR,
+    CONTINUE: CONT,
+    DICTIONARY: DICT,
+    ENUMERATION: ENUM,
 }
 
 ALIASES = {
@@ -193,12 +253,12 @@ SPECIAL_CHARACTERS = {
     ASTERISK: 'ASTERISK',
     PERCENT: 'PERCENT',
     AMPERSAND: 'AMPERSAND',
-    PARENTHESIS_OPEN: 'PARENTHESIS_OPEN',
-    PARENTHESIS_CLOSE: 'PARENTHESIS_CLOSE',
-    BRACKET_OPEN: 'BRACKET_OPEN',
-    BRACKET_CLOSE: 'BRACKET_CLOSE',
-    BRACE_OPEN: 'BRACE_OPEN',
-    BRACE_CLOSE: 'BRACE_CLOSE',
+    LEFT_PAREN: 'LEFT_PAREN',
+    RIGHT_PAREN: 'RIGHT_PAREN',
+    LEFT_BRACKET: 'LEFT_BRACKET',
+    RIGHT_BRACKET: 'RIGHT_BRACKET',
+    LEFT_BRACE: 'LEFT_BRACE',
+    RIGHT_BRACE: 'RIGHT_BRACE',
     LEFT_ANGLED_BRACKET: 'LEFT_ANGLED_BRACKET',
     RIGHT_ANGLED_BRACKET: 'RIGHT_ANGLED_BRACKET',
     PLUS: 'PLUS',
@@ -224,39 +284,43 @@ SPECIAL_CHARACTERS = {
 }
 
 OPERATORS = {
-    '.': 'DOT',
-    '=': 'EQUALITY_OP',
-    '+': 'PLUS_OP',
-    '-': 'MINUS_OP',
-    '*': 'MULT_OP',
-    '/': 'DIV_OP',
-    '%': 'MODULUS_OP',
-    '^': 'EXPONENT',
-    '**': 'EXPONENT',
-    '+=': 'ADD_ASSIGN',
-    '-=': 'MINUS_ASSIGN',
-    '*=': 'MULT_ASSIGN',
-    '/=': 'DIV_ASSIGN',
-    '++': 'INCREMENT',
-    '--': 'DECREMENT',
-    '==': 'LOGICAL_EQUALS',
-    '&&': 'LOGICAL_AND',
-    '||': 'LOGICAL_OR',
-    '!': 'LOGICAL_NOT',
-    '!=': 'LOGICAL_NOT_EQUALS',
+    PERIOD: 'DOT',
+    EQUALS: 'OP_EQUALITY',
+    PLUS: 'OP_PLUS',
+    HYPHEN: 'OP_MINUS',
+    ASTERISK: 'OP_MULT',
+    FORWARD_SLASH: 'OP_DIV',
+    FORWARD_SLASH + FORWARD_SLASH: 'OP_TRUE_DIV',
+    PERCENT: 'OP_MODULUS',
+    CARET: 'OP_EXPONENT',
+    ASTERISK + ASTERISK: 'EXPONENT',
+    PLUS + EQUALS: 'ADD_ASSIGN',
+    HYPHEN + EQUALS: 'MINUS_ASSIGN',
+    ASTERISK + EQUALS: 'MULT_ASSIGN',
+    FORWARD_SLASH + EQUALS: 'DIV_ASSIGN',
+    PLUS + PLUS: 'INCREMENT',
+    HYPHEN + HYPHEN: 'DECREMENT',
+    LEFT_ANGLED_BRACKET: 'LOGICAL_LESS_THAN',
+    RIGHT_ANGLED_BRACKET: 'LOGICAL_GREATER_THAN',
+    LEFT_ANGLED_BRACKET + EQUALS: 'LOGICAL_LESS_OR_EQUAL',
+    RIGHT_ANGLED_BRACKET + EQUALS: 'LOGICAL_GREATER_OR_EQUAL',
+    EQUALS + EQUALS: 'LOGICAL_EQUALS',
+    AMPERSAND + AMPERSAND: 'LOGICAL_AND',
+    VERTICAL_BAR + VERTICAL_BAR: 'LOGICAL_OR',
+    EXCLAMATION_POINT: 'LOGICAL_NOT',
+    EXCLAMATION_POINT + EQUALS: 'LOGICAL_NOT_EQUALS',
 }
 
 # Currently unused
 BOOLEAN_OPERATORS = {
-    '==': 'LOGICAL_EQUALS',
-    '&&': 'LOGICAL_EQUALS',
-    '||': 'LOGICAL_OR',
-    '!': 'LOGICAL_NOT',
-    '!=': 'LOGICAL_NOT_EQUALS',
+    EQUALS + EQUALS: 'LOGICAL_EQUALS',
+    AMPERSAND + AMPERSAND: 'LOGICAL_AND',
+    VERTICAL_BAR + VERTICAL_BAR: 'LOGICAL_OR',
+    EXCLAMATION_POINT: 'LOGICAL_NOT',
+    EXCLAMATION_POINT + EQUALS: 'LOGICAL_NOT_EQUALS',
 }
 
 MATH_SYMBOLS = {
-    
     SQUARE_ROOT: 'SQUARE_ROOT',
     MEAN: 'MEAN',
     PRODUCT_NOTATION: 'PRODUCT_NOTATION',
@@ -266,55 +330,53 @@ MATH_SYMBOLS = {
     IMAGINARY: 'IMAGINARY'
 }
 
-ESCAPE_SEQUENCE = {
-    "\\'": 'SINGLE_QUOTE',
-    '\\"': 'DOUBLE_QUOTE',
-    '\\\\': 'BACKSLASH',
-    '\\n': 'NEW_LINE',
-    '\\r': 'CARRIAGE_RETURN',
-    '\\t': 'TAB',
-    '\\b': 'BACKSPACE',
-    '\\0': 'NULL_CHAR',
+ESCAPE_SEQUENCES = {
+    ESCAPE_CHARACTER + SINGLE_QUOTE: 'SINGLE_QUOTE',
+    ESCAPE_CHARACTER + DOUBLE_QUOTE: 'DOUBLE_QUOTE',
+    ESCAPE_CHARACTER + BACKSLASH: 'BACKSLASH',
+    ESCAPE_CHARACTER + 'n': 'NEW_LINE',
+    ESCAPE_CHARACTER + 'r': 'CARRIAGE_RETURN',
+    ESCAPE_CHARACTER + 't': 'TAB',
+    ESCAPE_CHARACTER + 'b': 'BACKSPACE',
 }
 
 DELIMITERS = {
     COMMA: 'COMMA',
     COLON: 'COLON',
-    SEMICOLON: 'END_STATEMENT',
-    '(': 'PARENTHESIS_START',
-    ')': 'PARENTHESIS_END',
-    '[': 'BRACKET_START',
-    ']': 'BRACKET_END',
-    '{': 'BRACE_START',
-    '}': 'BRACE_END',
-    '<': 'LEFT_ANGLE_BRACKET',
-    '>': 'RIGHT_ANGLE_BRACKET',
-    '\'': 'SINGLE_QUOTE',
-    '\"': 'DOUBLE_QUOTE',
-    '\'\'\'': 'SINGLE_QUOTE_TRIPLE',
-    '\"\"\"': 'DOUBLE_QUOTE_TRIPLE',
-    '//': 'COMMENT_DELIM',
-    '/*': 'COMMENT_MULT_START',
-    '*/': 'COMMENT_MULT_END',
-    '->': 'RETURN_TYPE_DELIM',
-    '=>': 'RETURN',
+    END_STATEMENT: 'END_STATEMENT',
+    LEFT_PAREN: 'LEFT_PAREN',
+    RIGHT_PAREN: 'RIGHT_PAREN',
+    LEFT_BRACKET: 'LEFT_BRACKET',
+    RIGHT_BRACKET: 'RIGHT_BRACKET',
+    LEFT_BRACE: 'LEFT_BRACE',
+    RIGHT_BRACE: 'RIGHT_BRACE',
+    LEFT_ANGLED_BRACKET: 'LEFT_ANGLED_BRACKET',
+    RIGHT_ANGLED_BRACKET: 'RIGHT_ANGLED_BRACKET',
+    SINGLE_QUOTE: 'SINGLE_QUOTE',
+    DOUBLE_QUOTE: 'DOUBLE_QUOTE',
+    SINGLE_QUOTE_TRIPLE: 'SINGLE_QUOTE_TRIPLE',
+    DOUBLE_QUOTE_TRIPLE: 'DOUBLE_QUOTE_TRIPLE',
+    COMMENT_SINGLE: 'COMMENT_SINGLE',
+    COMMENT_START: 'COMMENT_START',
+    COMMENT_END: 'COMMENT_END',
+    DELIM_FUNC_RETURN: 'DELIM_FUNC_RETURN',
+    DELIM_FIELD_RETURN: 'DELIM_FIELD_RETURN',
 }
 
 RAW_STRING_DELIMITER = {
-    '\'\'\'': 'SINGLE_QUOTE_TRIPLE',
-    '\"\"\"': 'DOUBLE_QUOTE_TRIPLE',
+    SINGLE_QUOTE + SINGLE_QUOTE + SINGLE_QUOTE: 'SINGLE_QUOTE_TRIPLE',
+    DOUBLE_QUOTE + DOUBLE_QUOTE + DOUBLE_QUOTE: 'DOUBLE_QUOTE_TRIPLE',
 }
 
 SEPARATOR = {
-    ' ': 'SPACE',
-    '\r': 'CARRIAGE_RETURN',
-    '\n': 'NEW_LINE',
-    '\t': 'TAB',
+    SPACE: 'SPACE',
+    CARRIAGE_RETURN: 'CARRIAGE_RETURN',
+    NEW_LINE: 'NEW_LINE',
+    TAB: 'TAB',
 }
 
 WHITESPACE = {
-    '\r': 'CARRIAGE_RETURN',
+    CARRIAGE_RETURN: 'CARRIAGE_RETURN',
     NEW_LINE: 'NEW_LINE',
-    '\t': 'TAB',
-    '\v': 'V_TAB',
+    TAB: 'TAB',
 }

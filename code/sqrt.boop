@@ -5,17 +5,17 @@ class SquareRoots
 {
     func Main()
     {
-        // simple program of getting square root of a number
-        // declaration of variables
+        # simple program of getting square root of a number
+        # declaration of variables
         public float num;
         public float sqrt;
 
-        // getting an user input of user
+        # getting an user input of user
         string input = ReadLine(“Enter A Number: ”);
         num = ToFloat(input);
         sqrt = √num;
 
-        // printing of square rooted number
+        # printing of square rooted number
         Print(sqrt);
     }	
 }
