@@ -1,6 +1,0 @@
-[ErrorToken]: Invalid token in ln 1, col 4
-	New line in string literals are not allowed, use a raw string literal instead.
-[ErrorToken]: Invalid token in ln 2, col 2
-	New line in string literals are not allowed, use a raw string literal instead.
-[ErrorToken]: Invalid token in ln 3, col 3
-	Invalid escape sequence.

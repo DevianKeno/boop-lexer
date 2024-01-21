@@ -31,13 +31,6 @@ def isrulename(string: str) -> bool:
     if str.isupper(string): return False
     return isalpha(string)
 
-def istoken(string: str) -> bool:
-    pass
-
-def separate(input: str) -> list[str]:
-    pattern = r'(\w+|[^\w\s])'
-    return re.findall(pattern, input)
-
 def separate_from_symbols(input: str) -> list[str]:
     return re.findall(r'\b\w+\b|\'[^\']*\'', input)
 
@@ -224,7 +217,7 @@ class Parser:
         
         sequences = set()
         for grammar in content: # content refers to a list of grammars separated by '|'           
-            sequences = sequences | self._parse_grammar(grammar)
+            self._parse_grammar(grammar)
                         
         return sequences
             

@@ -14,9 +14,9 @@ long var7 = Σ(1, 100) + ∏(1, 5);
 "a\tb" # escape character
 '''l
 s'''
-'a "tab": \t'"'x' is invalid escape character: \x"
+    'a "tab": \t'"'x' is invalid escape character: \x"
 """This is a raw"" string literal"""''''''
-''"d'"Sads"'d's"D"Adas'd"''
+''"d'"Sads"'d's"D"Adas'd"'
 "literal does not allow
 new lines"
 """raw does wink

@@ -406,7 +406,7 @@ class Lexer:
         with codecs.open(filepath, 'r', encoding='utf-8') as file:
             self.rootext = os.path.splitext(os.path.basename(file.name))
             self._content = file.read()
-            self._lines = file.readlines()
+            self._lines = self._content.split('\r\n')
         return True
         
     def parse(self, path: str) -> SymbolTable | None:
@@ -444,7 +444,7 @@ class Lexer:
     def get_line(self, index: int) -> str:
         """ Returns a line from the current open file. Returns None if no file has been opened yet.
         """
-        return None if not self._lines else self._lines[index]
+        return '' if not self._lines else self._lines[index]
         
     def save_symbol_table(self):
         """ Save the SymbolTable as text file.
@@ -468,7 +468,9 @@ class Lexer:
         
         with codecs.open(path, 'w', encoding='utf-8') as file:
             for s in self.symbol_table.error_tokens:
-                file.write(s.__str__())
+                line = self.get_line(s.line - 1)
+                indic = f'\t{line}\n\t{" " * (s.col - 1) + "^"}'                
+                file.write(s.__str__() + indic + '\n')
         return
     
     #TODO
