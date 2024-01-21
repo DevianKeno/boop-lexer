@@ -1,7 +1,7 @@
 
-from config import *
-from tokens.token import *
-from tokens.tokens import *
+from boop.config import *
+from boop.token import *
+from boop.tokens import *
 
 class SymbolTable:
     """ Symbol table output of the Boopicalexican.

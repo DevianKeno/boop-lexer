@@ -1,9 +1,49 @@
+
+statement
+    : IF ELSE IF ELSE END_STATEMENT
+    | IF ELSE END_STATEMENT
+    ;
+
+block
+    : statement
+    ;
+
+classBody
+    : block
+    | LEFT_BRACE block RIGHT_BRACE
+    ;
+
+classHeading
+    : PUBLIC CLASS IDENTIFIER LEFT_BRACE classBody RIGHT_BRACE
+    ;
+
+
+functionHeading
+    : FUNC IDENTIFIER functionParameters functionBody
+    | FUNC IDENTIFIER functionParameters functionReturn functionBody
+    ;
+
+programStatement
+    : functionHeading
+    | moduleHeading
+    | classHeading
+    ;
+
+functionBody
+    : LEFT_BRACE RIGHT_BRACE
+    | LEFT_BRACE block RIGHT_BRACE
+    ;
+
+mainFunction
+    : FUNC IDENTIFIER LEFT_PAREN RIGHT_PAREN functionBody
+    ;
+
 value
-    : 
+    : SINGLE_QUOTE DOLLAR SINGLE_QUOTE
     ;
     
 STRING_LITERAL
-    : DOLLAR
+    : SINGLE_QUOTE DOLLAR SINGLE_QUOTE
     ;
     
 dataType
@@ -42,29 +82,8 @@ functionReturn
     : DELIM_FUNC_RETURN dataType
     ;
 
-block
-    : IF ELSE IF ELSE
-    ;
-    
-mainFunction
-    : FUNC IDENTIFIER LEFT_PAREN RIGHT_PAREN functionBody
-    ;
-
-functionBody
-    : LEFT_BRACE RIGHT_BRACE
-    | LEFT_BRACE block RIGHT_BRACE
-    ;
-
 functionParameters
     : LEFT_PAREN (parameter (COMMA parameter)*)? RIGHT_PAREN
-    ;
-
-functionHeading
-    : FUNC IDENTIFIER functionParameters functionReturn functionBody
-    ;
-
-classHeading
-    : PUBLIC CLASS IDENTIFIER LEFT_BRACE functionHeading RIGHT_BRACE
     ;
 
 moduleBody
@@ -74,20 +93,10 @@ moduleBody
 moduleHeading
     : MODULE IDENTIFIER moduleBody
     ;
-    
-programStatement
-    : mainFunction
-    | moduleHeading
-    | classHeading
-    ;
 
 variableDeclaration
     : modifier? dataType IDENTIFIER SEMICOLON
     | modifier? dataType IDENTIFIER OP_EQUALITY expression SEMICOLON
-    ;
-
-statement
-    : expression+
     ;
 
 // parameter
@@ -158,9 +167,6 @@ classBodyDeclarations
     | eventHeading
     ;
 
-classBody
-    : LEFT_BRACE classBodyDeclarations* RIGHT_BRACE
-    ;
 
 // classHeading
 //     : modifier? CLASS typeParameters? IDENTIFIER (INHERIT IDENTIFIER)? interfaceSignature? classBody
@@ -184,16 +190,6 @@ keyword
     | STRUCT      | SWITCH      | THIS       | THROW       | TIME
     | TRUE        | TRY         | VIRTUAL    | VOID        | WHILE
     | WHERE
-    ;
-
-operator
-    :
-    ;
-
-token
-    : IDENTIFIER
-    | keyword
-    | operator
     ;
 
 #endregion

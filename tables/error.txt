@@ -1,0 +1,7 @@
+Valid tokens count: 0
+Error tokens count: 3
+Elapsed time: 0.0 s
+
+'no                                            	ERROR_TOKEN                                     
+'                                               	ERROR_TOKEN                                     
+\x                                              	ERROR_TOKEN                                     

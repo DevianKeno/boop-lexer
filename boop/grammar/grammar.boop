@@ -1,4 +1,4 @@
-// grammar grammar;
+grammar grammar;
 
 // fragment LOWER: [a-z]+;
 // fragment UPPER: [A-Z]+;

@@ -5,12 +5,12 @@ from __future__ import annotations
 import os
 import codecs
 import time
-from config import *
-from syntax import *
-from tokens.token import *
-from tokens.tokens import *
-from tokens.symboltable import *
-from utils import *
+from boop.config import *
+from boop.parser import *
+from boop.token import *
+from boop.tokens import *
+from boop.symboltable import *
+from boop.utils import *
 
 __author__ = 'Gian Paolo B.'
 cwd = os.getcwd()
@@ -20,19 +20,20 @@ class Lexer:
     """  
     def __init__(self):
         self.symbol_table = SymbolTable()
+        self.tokenize_keywords: bool = True
         self.tokenize_comments: bool = True
-        self._allow_external_files: bool = False
         """If to include the comment delimiters as tokens in the output table."""
         self.rootext: tuple[str, str] = (EMPTY, EMPTY)
         """Represents the filename [0] and file extension [1]."""
-        self.syntaxer = Syntaxer()
+        self.syntaxer = Parser()
         
+        self._allow_external_files: bool = False
         self._content: str = []
         self._lines: list[str] = []
         self._stack: list[Token] = []
         self._char_idx: int = 0
         self._line_idx: int = 1
-        self._col_idx: int = 0
+        self._col_idx: int = 1
         self._prev: str = EMPTY
         self._delim: str = EMPTY
         self._string_buffer: str = EMPTY
@@ -61,12 +62,12 @@ class Lexer:
         
         if isalpha(lexeme):
             if lexeme in KEYWORDS:
-                return Token(lexeme, KEYWORDS[lexeme])
+                return Token(lexeme, KEYWORDS[lexeme] if self.tokenize_keywords else 'KEYWORD')
             if lexeme in RESERVED_WORDS:
                 return Token(lexeme, 'RESERVED_WORD')
             # if lexeme in ALIASES:
             #     return Token(lexeme, 'ALIAS')
-            if lexeme in NOISE_WORDS: # This is useless, noise words just cause ambiguity
+            if lexeme in NOISE_WORDS: # This is useless
                 token = NOISE_WORDS[lexeme]                
                 self._add_stack(Token(token, KEYWORDS[token]))
                 return Token(lexeme[len(token):], 'NOISE_WORD')
@@ -178,9 +179,7 @@ class Lexer:
             self._handle_escape_char(char)
             return
             
-        if char == self._quote_used:
-            self._col_idx += 1
-            
+        if char == self._quote_used:            
             if self._string_buffer:
                 """ If there is already a literal, this is an end quote.
                 """
@@ -200,15 +199,13 @@ class Lexer:
                 return
         
         if self._is_escape_char(char):
-            self._col_idx += 1
             self._escape_char = char
             return
         
-        if (char == NEW_LINE):
+        if char == NEW_LINE:
             error_token = Token(f'{self._quote_used}{self._string_buffer}', ERROR_TOKEN, self._line_idx, self._col_idx)
             self._add_stack(ErrorToken(error_token, ErrorToken.NEWLINE_LITERAL))            
             self._reset_quote_flags()
-            self._line_idx += 1
             return
         
         if len(self._prev_quotes) == 2:
@@ -219,7 +216,6 @@ class Lexer:
             self._parse_char(char)
             return
         
-        self._col_idx += 1
         self._string_buffer += char
     
     def _parse_raw_literal(self, char: str):    
@@ -258,9 +254,9 @@ class Lexer:
         if self._escape_char in ESCAPE_SEQUENCES:
             self._string_buffer += self._escape_char
         else:            
-            error_token = Token(f'{self._quote_used}{self._string_buffer}', ERROR_TOKEN, self._line_idx, self._col_idx)
-            self._add_stack(ErrorToken(error_token, ErrorToken.UNCLOSED_LITERAL))
-            self._reset_quote_flags()
+            # error_token = Token(f'{self._quote_used}{self._string_buffer}', ERROR_TOKEN, self._line_idx, self._col_idx)
+            # self._add_stack(ErrorToken(error_token, ErrorToken.UNCLOSED_LITERAL))
+            # self._reset_quote_flags()
             
             error_token = Token(self._escape_char, ERROR_TOKEN, self._line_idx, self._col_idx)
             self._add_stack(ErrorToken(error_token, ErrorToken.INVALID_ESCAPE_SEQ))
@@ -291,22 +287,18 @@ class Lexer:
         """ Parse character.\n
             This tries to append the current character to the previous character to check for n length operators,
             where n is n < MAX_OPERATOR_LENGTH.
-        """
+        """        
         if self.in_delim():
             self._parse_delim(char)
             return
         
         if char in SEPARATOR:
             self._add_buffer()
-            if char == '\n':
-                self._line_idx += 1
-                self._col_idx = 1
             return
 
         if char in WHITESPACE: return
                             
         if (isalpha(char) or char in IDENTIFIER_STARTER_CHARMAP) and not char in MATH_SYMBOLS:
-            self._col_idx += 1
             
             if isalpha(self._prev) or isidentifier(self._prev) or self._prev == EMPTY:
                 """<alpha><alpha> | <alpha><underscore>"""
@@ -337,7 +329,7 @@ class Lexer:
                 self._prev += char
                 return
         
-        if isspcl(char):
+        if isspcl(char):            
             if isspcl(self._prev) or self._prev == EMPTY:
                 """<spcl><spcl>"""
                 self._prev += char
@@ -375,13 +367,22 @@ class Lexer:
         
         return chars[:-1]
     
+    def _update_lncol(self, char: str):
+        if char == NEW_LINE:
+            self._line_idx += 1
+            self._col_idx = 1
+        elif not char == CARRIAGE_RETURN:
+            self._col_idx += 1
+    
     def _parse(self) -> list[Token]:
         for char in self._content:
             self._parse_char(char)
+            self._update_lncol(char)
 
         self.symbol_table.add_symbols(self._stack)
         return self._stack
     
+    #UNUSED
     def _parse_ln(self, line: str) -> list[Token]:
         if line == EMPTY or line == None: return
         self._stack = []

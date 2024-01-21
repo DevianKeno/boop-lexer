@@ -17,10 +17,10 @@ class ErrorToken:
     """Represents an error token."""
     
     #region Errors
-    INVALID_CHARACTER = """Invalid character"""
-    INVALID_ESCAPE_SEQ = """Invalid escape sequence"""
-    UNCLOSED_LITERAL = """Unclosed string literal"""
-    NEWLINE_LITERAL = """New line in string literals are not allowed"""
+    INVALID_CHARACTER = """Invalid character."""
+    INVALID_ESCAPE_SEQ = """Invalid escape sequence."""
+    UNCLOSED_LITERAL = """Unclosed string literal."""
+    NEWLINE_LITERAL = """New line in string literals are not allowed, use a raw string literal instead."""
     #endregion
     
     def __init__(self, token: Token, msg: str = None) -> None:
