@@ -405,7 +405,7 @@ class Lexer:
 
         with codecs.open(filepath, 'r', encoding='utf-8') as file:
             self.rootext = os.path.splitext(os.path.basename(file.name))
-            self._content = file.read()
+            self._content = file.read() + ' '
             self._lines = self._content.split('\r\n')
         return True
         

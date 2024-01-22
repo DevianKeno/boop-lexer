@@ -5,191 +5,189 @@ statement
     ;
 
 block
-    : statement
+    : LEFT_BRACE statement RIGHT_BRACE
     ;
 
 classBody
-    : block
-    | LEFT_BRACE block RIGHT_BRACE
+    : LEFT_BRACE block statement EXCLAMATION_POINT RIGHT_BRACE
     ;
 
 classHeading
     : PUBLIC CLASS IDENTIFIER LEFT_BRACE classBody RIGHT_BRACE
     ;
 
+// functionHeading
+//     : FUNC IDENTIFIER functionParameters functionBody
+//     | FUNC IDENTIFIER functionParameters functionReturn functionBody
+//     ;
 
-functionHeading
-    : FUNC IDENTIFIER functionParameters functionBody
-    | FUNC IDENTIFIER functionParameters functionReturn functionBody
-    ;
+// programStatement
+//     : functionHeading
+//     | moduleHeading
+//     | classHeading
+//     ;
 
-programStatement
-    : functionHeading
-    | moduleHeading
-    | classHeading
-    ;
+// functionBody
+//     : LEFT_BRACE RIGHT_BRACE
+//     | LEFT_BRACE block RIGHT_BRACE
+//     ;
 
-functionBody
-    : LEFT_BRACE RIGHT_BRACE
-    | LEFT_BRACE block RIGHT_BRACE
-    ;
+// mainFunction
+//     : FUNC IDENTIFIER LEFT_PAREN RIGHT_PAREN functionBody
+//     ;
 
-mainFunction
-    : FUNC IDENTIFIER LEFT_PAREN RIGHT_PAREN functionBody
-    ;
-
-value
-    : SINGLE_QUOTE DOLLAR SINGLE_QUOTE
-    ;
+// value
+//     : SINGLE_QUOTE DOLLAR SINGLE_QUOTE
+//     ;
     
-STRING_LITERAL
-    : SINGLE_QUOTE DOLLAR SINGLE_QUOTE
-    ;
+// STRING_LITERAL
+//     : SINGLE_QUOTE DOLLAR SINGLE_QUOTE
+//     ;
     
-dataType
-    : INT | BOOL | FLOAT | DOUBLE | STRING
-    ;
-
-parameter
-    : dataType IDENTIFIER
-    | dataType IDENTIFIER (EQUALS value)
-    ;
-    
-expression
-    : value
-    | IDENTIFIER
-    | STRING_LITERAL
-    ;
-    
-accessModifier
-    : PUBLIC | PRIVATE | PROTECTED
-    ;
-
-secondaryModifier
-    : VIRTUAL | ABSTRACT | OVERRIDE
-    ;
-
-functionModifier
-    : REPEAT | DELAYED | ASYNC
-    ;
-
-modifier
-    : accessModifier
-    | accessModifier secondaryModifier
-    ;
-
-functionReturn
-    : DELIM_FUNC_RETURN dataType
-    ;
-
-functionParameters
-    : LEFT_PAREN (parameter (COMMA parameter)*)? RIGHT_PAREN
-    ;
-
-moduleBody
-    : LEFT_BRACE classHeading* RIGHT_BRACE
-    ;
-
-moduleHeading
-    : MODULE IDENTIFIER moduleBody
-    ;
-
-variableDeclaration
-    : modifier? dataType IDENTIFIER SEMICOLON
-    | modifier? dataType IDENTIFIER OP_EQUALITY expression SEMICOLON
-    ;
+// dataType
+//     : INT | BOOL | FLOAT | DOUBLE | STRING
+//     ;
 
 // parameter
-//     : dataType IDENTIFIER (EQUALS constant)?
+//     : dataType IDENTIFIER
+//     | dataType IDENTIFIER (EQUALS value)
+//     ;
+    
+// expression
+//     : value
+//     | IDENTIFIER
+//     | STRING_LITERAL
+//     ;
+    
+// accessModifier
+//     : PUBLIC | PRIVATE | PROTECTED
 //     ;
 
+// secondaryModifier
+//     : VIRTUAL | ABSTRACT | OVERRIDE
+//     ;
 
-typeParameters
-    : LEFT_ANGLED_BRACKET (dataType (COMMA dataType)*)? RIGHT_ANGLED_BRACKET
-    ;
+// functionModifier
+//     : REPEAT | DELAYED | ASYNC
+//     ;
 
-recurLastParameter
-    : TIME IDENTIFIER
-    | INT IDENTIFIER
-    ;
+// modifier
+//     : accessModifier
+//     | accessModifier secondaryModifier
+//     ;
 
-recurParameters
-    : LEFT_PAREN parameter+ (COMMA parameter)+ recurLastParameter RIGHT_PAREN
-    | LEFT_PAREN parameter (COMMA parameter)+ COMMA recurLastParameter RIGHT_PAREN
-    ;
+// functionReturn
+//     : DELIM_FUNC_RETURN dataType
+//     ;
 
-recurHeading
-    : modifier? ASYNC?
-    RECUR IDENTIFIER typeParameters? recurParameters functionReturn? functionBody
-    ;
+// functionParameters
+//     : LEFT_PAREN (parameter (COMMA parameter)*)? RIGHT_PAREN
+//     ;
 
-arguments
-    : expression+
-    ;
+// moduleBody
+//     : LEFT_BRACE classHeading* RIGHT_BRACE
+//     ;
 
-functionCall
-    : IDENTIFIER LEFT_PAREN arguments? RIGHT_PAREN
-    ;
+// moduleHeading
+//     : MODULE IDENTIFIER moduleBody
+//     ;
 
-structBody
-    : LEFT_BRACE RIGHT_BRACE
-    ;
+// variableDeclaration
+//     : modifier? dataType IDENTIFIER SEMICOLON
+//     | modifier? dataType IDENTIFIER OP_EQUALITY expression SEMICOLON
+//     ;
 
-structHeading
-    : modifier?
-    STRUCT IDENTIFIER structBody
-    ;
+// // parameter
+// //     : dataType IDENTIFIER (EQUALS constant)?
+// //     ;
 
-enumBody
-    : LEFT_BRACE (IDENTIFIER (COMMA IDENTIFIER)*)? RIGHT_BRACE
-    ;
 
-enumHeading
-    : modifier?
-    ENUM IDENTIFIER enumBody
-    ;
+// typeParameters
+//     : LEFT_ANGLED_BRACKET (dataType (COMMA dataType)*)? RIGHT_ANGLED_BRACKET
+//     ;
 
-eventBody
-    : LEFT_BRACE dataType* RIGHT_BRACE
-    ;
+// recurLastParameter
+//     : TIME IDENTIFIER
+//     | INT IDENTIFIER
+//     ;
+
+// recurParameters
+//     : LEFT_PAREN parameter+ (COMMA parameter)+ recurLastParameter RIGHT_PAREN
+//     | LEFT_PAREN parameter (COMMA parameter)+ COMMA recurLastParameter RIGHT_PAREN
+//     ;
+
+// recurHeading
+//     : modifier? ASYNC?
+//     RECUR IDENTIFIER typeParameters? recurParameters functionReturn? functionBody
+//     ;
+
+// arguments
+//     : expression+
+//     ;
+
+// functionCall
+//     : IDENTIFIER LEFT_PAREN arguments? RIGHT_PAREN
+//     ;
+
+// structBody
+//     : LEFT_BRACE RIGHT_BRACE
+//     ;
+
+// structHeading
+//     : modifier?
+//     STRUCT IDENTIFIER structBody
+//     ;
+
+// enumBody
+//     : LEFT_BRACE (IDENTIFIER (COMMA IDENTIFIER)*)? RIGHT_BRACE
+//     ;
+
+// enumHeading
+//     : modifier?
+//     ENUM IDENTIFIER enumBody
+//     ;
+
+// eventBody
+//     : LEFT_BRACE dataType* RIGHT_BRACE
+//     ;
  
-eventHeading
-    : modifier?
-    EVENT IDENTIFIER eventBody
-    ;
-
-classBodyDeclarations
-    : variableDeclaration
-    | functionHeading
-    | classHeading
-    | structHeading
-    | enumHeading
-    | eventHeading
-    ;
-
-
-// classHeading
-//     : modifier? CLASS typeParameters? IDENTIFIER (INHERIT IDENTIFIER)? interfaceSignature? classBody
+// eventHeading
+//     : modifier?
+//     EVENT IDENTIFIER eventBody
 //     ;
 
-interfaceSignature
-    : LEFT_BRACE IDENTIFIER (COMMA IDENTIFIER)* RIGHT_PAREN
-    ;
+// classBodyDeclarations
+//     : variableDeclaration
+//     | functionHeading
+//     | classHeading
+//     | structHeading
+//     | enumHeading
+//     | eventHeading
+//     ;
 
-keyword
-    : ABSTRACT    | ALIAS       | ALIAS      | BASE        | BOOL        | BREAK
-    | CASE        | CATCH       | CHAR       | CLASS       | CONST
-    | CONST       | CONTINUE    | DEFAULT    | DICT        
-    | DO          | DOUBLE      | ELSE       | ENUM        
-    | EVENT       | FALSE       | FLOAT      | FOR         | FOREACH
-    | FORMAT      | FORTIME     | FROM       | FUNC        | GET
-    | IF          | IMPORT      | INHERIT    | INT         | INTERFACE
-    | LIST        | MILLISEC    | MODULE     | NULL        | OVERRIDE
-    | PRIVATE     | PROTECTED   | PUBLIC     | RECUR       | REF
-    | RETURN      | SECOND      | SET        | STATIC      | STRING
-    | STRUCT      | SWITCH      | THIS       | THROW       | TIME
-    | TRUE        | TRY         | VIRTUAL    | VOID        | WHILE
-    | WHERE
-    ;
 
-#endregion
+// // classHeading
+// //     : modifier? CLASS typeParameters? IDENTIFIER (INHERIT IDENTIFIER)? interfaceSignature? classBody
+// //     ;
+
+// interfaceSignature
+//     : LEFT_BRACE IDENTIFIER (COMMA IDENTIFIER)* RIGHT_PAREN
+//     ;
+
+// keyword
+//     : ABSTRACT    | ALIAS       | ALIAS      | BASE        | BOOL        | BREAK
+//     | CASE        | CATCH       | CHAR       | CLASS       | CONST
+//     | CONST       | CONTINUE    | DEFAULT    | DICT        
+//     | DO          | DOUBLE      | ELSE       | ENUM        
+//     | EVENT       | FALSE       | FLOAT      | FOR         | FOREACH
+//     | FORMAT      | FORTIME     | FROM       | FUNC        | GET
+//     | IF          | IMPORT      | INHERIT    | INT         | INTERFACE
+//     | LIST        | MILLISEC    | MODULE     | NULL        | OVERRIDE
+//     | PRIVATE     | PROTECTED   | PUBLIC     | RECUR       | REF
+//     | RETURN      | SECOND      | SET        | STATIC      | STRING
+//     | STRUCT      | SWITCH      | THIS       | THROW       | TIME
+//     | TRUE        | TRY         | VIRTUAL    | VOID        | WHILE
+//     | WHERE
+//     ;
+
+// #endregion

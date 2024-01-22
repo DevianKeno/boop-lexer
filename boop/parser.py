@@ -20,8 +20,9 @@ CLOSURES = {
     OPTIONAL : 'OPTIONAL'
 }
 
-def isrulename(string: str) -> bool:
-    """ Returns True if the string is a valid rule name, False otherwise or if empty.\n
+def isnonterminal(string: str) -> bool:
+    """ Returns True if the string is a non-terminal, False otherwise or if empty.\n
+        A non-terminal is represented by a rule name that
         - starts with an alphabet (a-z, A-Z)
         - has no special characters
         - not all caps
@@ -59,6 +60,7 @@ class Parser:
         self.rules = {}
         
         self._firsts: dict[str, set] = {}
+        self._follows: dict[str, set] = {}
         self._rulestrs: list[str] = EMPTY
         self._int_map = {}
         self._rule_int_sequences: dict[str, list[int]] = {}
@@ -95,7 +97,7 @@ class Parser:
         return sequence
     
     def _get_sequence(self, token: str) -> list[int]:                                
-        if isrulename(token):
+        if isnonterminal(token):
             return self._get_rule_int_sequence(token)
         else:
             return self._int_map[token]
@@ -157,58 +159,20 @@ class Parser:
         for i in self.rules:
             self._int_map[i] = len(self._int_map) + 1
 
-        # Get rule firsts
+        # Get FIRST 
         for rule in self.rules.keys():
             self._firsts[rule] = self._get_firsts(rule)            
+
+        # Get FOLLOW
+        for rule in self.rules.keys():
+            self._get_follows(rule)   
 
         # Create rule integer sequences mapping
         for rule in self.rules.keys():
              self._parse_rule(rule)
             
-        var = self._sequences
-        print()
-            # for grammar in content: # content refers to the rules separated by '|'
-            #     var = self._parse_grammar(grammar)
-                
-            #     self._rule_int_sequences.append(var)
-                # current_sequence = [self._int_map[token_sequence[0]]]
-                # # Parse token sequence
-                # for i, token in enumerate(token_sequence):
-                    
-                #     self._parse_token(token)
-                    
-                    
-                #     if isrulename(token):
-                #         if not self.rules[token]:                            
-                #             raise Exception(f"[GrammarError]: No grammar defined for rule [{token}]")
-                                                
-                #         # Check if rule already exists as an integer sequence
-                #         if token not in self._rule_seq_dict:
-                #             var = self._get_rule_int_sequence(token)                                                
-                            
-                            
-                            
-                #         # current_sequence = self._powerlist(current_sequence, self._rule_seq_dict[token])                                
-                                                
-                #     else:
-                #         if (i + 1) < len(token_sequence):
-                #             current_sequence.append(self._int_map[token_sequence[i + 1]])
-                    
-                # if current_sequence: # Append if not empty sequence
-                #     self._rule_int_sequences.append(current_sequence)
-            
-        # """ Convert rule integer sequence mapping to individual sequences. 
-        # """
-        # for grammar_sequence in self._rule_sequences.values():
-        #     for token_sequence in grammar_sequence:
-        #         for i, token in enumerate(token_sequence):
-        #                 if i + 1 < len(token_sequence):
-        #                     self._sequences.setdefault(token, set()).add(token_sequence[i + 1])
-        #         pass 
-                
         #region Debugging only, can be removed
         self._sequences = {k: v for k, v in sorted(self._sequences.items(), key=lambda item: item[0])}
-        print()
         #endregion
 
     def _parse_rule(self, rulename: str) -> set:                        
@@ -221,8 +185,8 @@ class Parser:
                         
         return sequences
             
-    def _get_firsts(self, rulename: str) -> list:
-        """ Retrieve the rule's "first" tokens. 
+    def _get_firsts(self, rulename: str) -> set:
+        """ Retrieve the rule's "FIRST" tokens. 
         """
         if not (content := self.rules[rulename]): # Check if rule exists
             raise Exception(f"[GrammarError]: No such rule [{rulename}] exists.")
@@ -230,9 +194,40 @@ class Parser:
         firsts = set()
         
         for grammar in content:
-            firsts = firsts | self._parse_grammar_firsts(grammar)
+            firsts.update(self._parse_grammar_firsts(grammar))
             
         return firsts
+    
+    def _get_follows(self, rulename: str) -> set:  
+        """ Retrieve the rule's "FOLLOW" tokens. 
+        """
+        if not (content := self.rules[rulename]): # Check if rule exists
+            raise Exception(f"[GrammarError]: No such rule [{rulename}] exists.")
+        
+        follows = set()
+        
+        for grammar in content:
+            self._parse_grammar_follows(grammar)
+        
+        return follows
+    
+    def _parse_grammar_follows(self, grammar: str):
+        if not (token_sequence := separate_from_symbols(grammar)):
+            raise Exception(f"[GrammarError]: A rule cannot be empty.")
+                
+        for i, token in enumerate(token_sequence):
+            if not isnonterminal(token): continue # Only non-terminals have FOLLOW sets
+            result = set()
+            
+            if (i + 1) < len(token_sequence): # Check if there is next token
+                next_token = token_sequence[i + 1]
+                
+                if isnonterminal(next_token):
+                    result.update(self._firsts[next_token])
+                else:
+                    result.add(self._to_int(next_token))
+                
+                self._follows.setdefault(token, set()).update(result)
     
     def _to_int(self, token: str) -> int:
         if result := self._int_map[token]:
@@ -245,8 +240,8 @@ class Parser:
         
         result = set()
         
-        if isrulename(token_sequence[0]):
-            result = result | self._get_firsts(token_sequence[0])
+        if isnonterminal(token_sequence[0]):
+            result.update(self._get_firsts(token_sequence[0]))
         else:
             result.add(self._to_int(token_sequence[0]))
         
@@ -263,7 +258,7 @@ class Parser:
         for i, token in enumerate(token_sequence):
             
             if len(token_sequence) == 1:
-                if isrulename(token):
+                if isnonterminal(token):
                     return self._firsts[token]
                 else:
                     pass
@@ -271,7 +266,7 @@ class Parser:
             if (i + 1) < len(token_sequence): # Check if there is still next token                
                 from_ = self._to_int(token)
                     
-                if isrulename(token): # Get firsts                    
+                if isnonterminal(token): # Get firsts                    
                     self._add_sequence(from_, self._firsts[token])
                 else: # is token
                     to = set()
