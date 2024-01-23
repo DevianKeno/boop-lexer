@@ -1,0 +1,15 @@
+Valid tokens count: 11
+Error tokens count: 0
+Elapsed time: 0.0 s
+
+public                                          	PUBLIC                                          
+class                                           	CLASS                                           
+Program                                         	IDENTIFIER                                      
+{                                               	LEFT_BRACE                                      
+public                                          	PUBLIC                                          
+int                                             	INT                                             
+number                                          	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+'s'                                             	STRING_LITERAL                                  
+;                                               	END_STATEMENT                                   
+}                                               	RIGHT_BRACE                                     

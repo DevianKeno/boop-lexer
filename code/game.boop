@@ -8,12 +8,12 @@ module GameManagers
         dict _entityList = { string, EntityData } # Contains the list of all spawnable entities in the game.
         public Vector3 SpawnCoordinates = new(0f, 0f, 0f);
         
-        internal void Initialize()
+        func Initialize()
         {
             if (_isInitialized) return;
             _isInitialized = true;
 
-            var startTime = Time.time;
+            float startTime = Time.time;
             Game.Console?.Log("Initializing Entity database...");
 
             Addressables.LoadAssetsAsync<EntityData>(assetLabelReference, (a) =>
@@ -24,7 +24,7 @@ module GameManagers
         }
 
         # Spawn an entity in the game world.
-        public void Spawn(string entityId)
+        public func Spawn(string entityId)
         {
             if (_entityList.ContainsKey(entityId))
             {
@@ -33,9 +33,9 @@ module GameManagers
                     if (a.Status == AsyncOperationStatus.Succeeded)
                     {
                         Vector3 position = new(0f, 1f, 0f);
-                        var go = Instantiate(a.Result, position, Quaternion.identity);
+                        GameObject go = Instantiate(a.Result, position, Quaternion.identity);
                         
-                        if (go.TryGetComponent(out Entity entity))
+                        if (go.TryGetComponent(Entity entity))
                         {
                             go.name = entity.EntityData.Name;
                             entity.OnSpawn();

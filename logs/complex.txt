@@ -1,0 +1,20 @@
+[ErrorToken]: Invalid token in ln 4, col 11
+	New line in string literals are not allowed, use a raw string literal instead
+	√x'∏Σπθι̅x
+	          ^
+[ErrorToken]: Invalid token in ln 17, col 53
+	Invalid escape sequence
+	    'a "tab": \t'"'x' is invalid escape character: \x"
+	                                                    ^
+[ErrorToken]: Invalid token in ln 19, col 31
+	New line in string literals are not allowed, use a raw string literal instead
+	    ''"d'"Sads"'d's"D"Adas'd"'
+	                              ^
+[ErrorToken]: Invalid token in ln 20, col 28
+	New line in string literals are not allowed, use a raw string literal instead
+	    "literal does not allow
+	                           ^
+[ErrorToken]: Invalid token in ln 21, col 11
+	New line in string literals are not allowed, use a raw string literal instead
+	new lines"
+	          ^

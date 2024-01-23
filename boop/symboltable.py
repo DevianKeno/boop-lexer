@@ -49,6 +49,6 @@ class SymbolTable:
         # string += f'Lexeme{"":<{TABLE_COLUMN_WIDTH}s}Token{"":<{TABLE_COLUMN_WIDTH}s}\n'
         for symbol in self.tokens:
             i = symbol.lexeme.rfind('\n')
-            new_width = (TABLE_COLUMN_WIDTH + i + 1) if i != -1 else TABLE_COLUMN_WIDTH
-            string += f'{symbol.lexeme:<{new_width}s}\t{symbol.token:<{TABLE_COLUMN_WIDTH}s}\n'                
+            width = (TABLE_COLUMN_WIDTH + i + 1) if i != -1 else TABLE_COLUMN_WIDTH
+            string += f'{symbol.lexeme:<{width}s}\t{symbol.token:<{TABLE_COLUMN_WIDTH}s}\n'                
         return string

@@ -1,10 +1,11 @@
+
 import os
 from boop.lexer import Lexer
 from boop.parser import Parser
 
 # Setup file path
 cwd = os.getcwd()
-filename = 'code/complex.boop'
+filename = 'code/test.boop'
 filepath = os.path.join(cwd, filename)
     
 if __name__ == '__main__':    
@@ -13,6 +14,6 @@ if __name__ == '__main__':
     # lexer.tokenize_keywords = False
     output = lexer.parse(filepath)
     
-    # parser = Parser()
-    # parser.parse(output)
+    parser = Parser()
+    parser.parse(output)
     

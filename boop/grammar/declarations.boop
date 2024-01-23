@@ -1,19 +1,68 @@
 
-statement
-    : IF ELSE IF ELSE END_STATEMENT
-    | IF ELSE END_STATEMENT
+value
+    : NUM_LITERAL
+    | STRING_LITERAL
     ;
 
-block
-    : LEFT_BRACE statement RIGHT_BRACE
+dataPrimitive
+    : VOID | INT | BOOL | FLOAT | DOUBLE
+    ;
+    
+dataType
+    : dataPrimitive
+    ;
+
+modifier
+    : PUBLIC | PRIVATE | PROTECTED
+    ;
+
+arithmeticOperator
+    : OP_ADD | OP_SUB | OP_MUL | OP_DIV | OP_TRUEDIV | OP_MOD | OP_EXPO
+    ;
+
+functionBody
+    : STRING_LITERAL
+    ;
+
+functionReturn
+    : DELIM_FUNC_RETURN dataType
+    ;
+
+functionModifier
+    : REPEAT | DELAYED
+    ;
+
+functionHeading
+    : modifier? FUNC IDENTIFIER LEFT_PAREN RIGHT_PAREN
+    ;
+
+functionDeclaration
+    : functionHeading functionReturn LEFT_BRACE functionBody? RIGHT_BRACE
+    ;
+
+varDeclaration
+    : modifier? dataType IDENTIFIER END_STATEMENT
+    | modifier? dataType IDENTIFIER OP_ASSIGN value END_STATEMENT
+    ;
+
+declaration
+    : varDeclaration
     ;
 
 classBody
-    : LEFT_BRACE block statement EXCLAMATION_POINT RIGHT_BRACE
+    : declaration
     ;
 
 classHeading
-    : PUBLIC CLASS IDENTIFIER LEFT_BRACE classBody RIGHT_BRACE
+    : modifier CLASS IDENTIFIER
+    ;
+
+classDeclaration
+    : classHeading LEFT_BRACE classBody? RIGHT_BRACE
+    ;
+
+programStatement
+    : classDeclaration
     ;
 
 // functionHeading
@@ -59,21 +108,21 @@ classHeading
 //     | STRING_LITERAL
 //     ;
     
-// accessModifier
+// accessmodifier
 //     : PUBLIC | PRIVATE | PROTECTED
 //     ;
 
-// secondaryModifier
+// secondarymodifier
 //     : VIRTUAL | ABSTRACT | OVERRIDE
 //     ;
 
-// functionModifier
+// functionmodifier
 //     : REPEAT | DELAYED | ASYNC
 //     ;
 
 // modifier
-//     : accessModifier
-//     | accessModifier secondaryModifier
+//     : accessmodifier
+//     | accessmodifier secondarymodifier
 //     ;
 
 // functionReturn
@@ -164,7 +213,6 @@ classHeading
 //     | enumHeading
 //     | eventHeading
 //     ;
-
 
 // // classHeading
 // //     : modifier? CLASS typeParameters? IDENTIFIER (INHERIT IDENTIFIER)? interfaceSignature? classBody

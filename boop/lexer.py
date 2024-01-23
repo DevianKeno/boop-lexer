@@ -6,7 +6,7 @@ import os
 import codecs
 import time
 from boop.config import *
-from boop.parser import *
+from boop.legacy.parser import *
 from boop.token import *
 from boop.tokens import *
 from boop.symboltable import *
