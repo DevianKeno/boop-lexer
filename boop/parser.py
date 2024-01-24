@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 import re
 import collections
+from time import time
 from boop.utils import *
 from boop.token import *
 from boop.tokens import *
@@ -33,29 +34,16 @@ def isnonterminal(string: str) -> bool:
     return isalpha(string)
 
 def _split_rhs(input: str) -> list[str]:
+    """ This splits the right hand side (rhs) into individual tokens.
+        e.g. "modifier? dataType IDENTIFIER" -> ['modifier', '?', 'dataType', 'IDENTIFIER'] 
+    """
     pattern = re.compile(r'([()+*?]|\b\w+\b)')
-    var = [match.group() for match in pattern.finditer(input)]
-    return var
+    return [match.group() for match in pattern.finditer(input)]
 
 class Parser:
     """ 1. Convert tokens into integer representations.
         2. Check if the current token and preceding token is in valid rules.
     """
-    class Rule:
-        
-        def __init__(self, name: str) -> None:
-            self.name = name
-            self.token_seq: list[int] = {}
-            pass
-        
-        def set_next(self, string: str):
-            
-            pass
-        pass
-    
-        def __repr__(self) -> str:
-            return 'rule'
-    
     def __init__(self) -> None:
         self.content: str = EMPTY
         self.tokens: dict[str, str] = {}
@@ -86,7 +74,7 @@ class Parser:
         return len(self._token_repr)
                 
     def _preprocess(self):
-        path = os.path.join(cwd, 'boop/grammar/declarations.boop')
+        path = os.path.join(cwd, 'boop/grammar/grammar.boop')
         
         with open(path, 'r', encoding='utf-8') as file:
             self.content = file.read()
@@ -97,32 +85,31 @@ class Parser:
         rules = self.content.split(';')
         
         # Map tokens to integers
-        for nonterminal, value in TOKENS.items():
-            self.tokens[value] = nonterminal
+        for token, value in TOKENS.items():
+            self.tokens[value] = token
             
-        for nonterminal, value in SPECIAL_CHARACTERS.items():
-            self.tokens[value] = nonterminal
+        for token, value in SPECIAL_CHARACTERS.items():
+            self.tokens[value] = token
             
-        for nonterminal, value in KEYWORDS.items():
-            self.tokens[value] = nonterminal
+        for token, value in KEYWORDS.items():
+            self.tokens[value] = token
         
-        for nonterminal, value in OPERATORS.items():
-            self.tokens[value] = nonterminal
+        for token, value in OPERATORS.items():
+            self.tokens[value] = token
             
-        for nonterminal, value in DELIMITERS.items():
-            self.tokens[value] = nonterminal
+        for token, value in DELIMITERS.items():
+            self.tokens[value] = token
         
         # Separate individual rules
         for nonterminal in rules:
             nonterminal = nonterminal.strip() # Remove new lines                        
             if nonterminal.startswith("#") or nonterminal.startswith('//') or not nonterminal: continue # Disregard region markers and comments
-            
-            nonterminal, rules = map(str.strip, nonterminal.split(':', 1))
-            rules = [word.strip() for word in rules.split('|')] # Split OR, basically rules with two or more grammars(?)
-            
-            self.rules[nonterminal] = rules
+            lhs, rhs = map(str.strip, nonterminal.split(':', 1)) # Split lhs and rhs
+            rules = [word.strip() for word in rhs.split('|')] # Split rhs ORs, basically rules with two or more variations            
+            self.rules[lhs] = rules
 
         # Create token-integer mapping
+        # Every tokens, rules and its variations are represented by a unique int id
         for i in self.tokens:
             var = len(self._int_map) + 1
             self._int_map[i] = var
@@ -147,8 +134,7 @@ class Parser:
         self._sequences = {k: v for k, v in sorted(self._sequences.items(), key=lambda item: item[0])}
         #endregion
         
-    def _map_subrule(self, lhs, token_sequence, start_index: int):
-        
+    def _map_subrule(self, lhs, token_sequence, start_index: int):        
         subrule = []
         for i in range(start_index, len(token_sequence)):
             token = token_sequence[i]
@@ -213,14 +199,16 @@ class Parser:
                 # Create two rhs variations
                 for seq in current_seqs:                    
                     new_list.append(seq) # Original
-                    var = "  ".join(seq.split()[:-1])
-                    new_list.append(f' {var} ' if var else '') # Minus the previous token
+                    minus_last = "  ".join(seq.split()[:-1]) # Remove the last token
+                    # The if else is necessary to check whether the resulting sequence is empty
+                    # so it will be in fact empty '' instead of having the separators '  '
+                    # The separators ' {} ' are important!!
+                    #                 ^  ^
+                    new_list.append(f' {minus_last} ' if minus_last else '')
                 sequences = new_list
                 continue
             
-            for j, s in enumerate(sequences):
-                sequences[j] = sequences[j] + f' {self._to_int(token)} '
-            continue
+            #TODO
             # if token == LEFT_PAREN:
             #     result = self._parse_subrule(lhs, token_sequence, i + 1)                
             #     result = self._rule_to_int_seq(lhs, self.subrules[result[0]])
@@ -230,41 +218,50 @@ class Parser:
             #     continue
                 
             # if token == CLOSURE_POSITIVE:
-            #     continue
-                
-            # if token == OPTIONAL:
-            #     continue                       
+            #     continue       
+            
+            for j, s in enumerate(sequences):
+                sequences[j] = sequences[j] + f' {self._to_int(token)} '
+            continue
+                    
         return sequences
    
     def _to_int(self, token: str) -> int:
+        """ Takes a token and returns its integer mapping.
+        """
         if result := self._int_map[token]:
             return result
         raise Exception(f"[GrammarError]: Unknown token [{token}].")
     
     def _to_token(self, value: int) -> str:
+        """ Takes an int and returns the token mapped to it.
+        """
         if value == None or value == EMPTY: return
         if result := self._token_map[value]:
             return result
         raise Exception(f"[GrammarError]: Unknown int mapping [{value}].")
     
     def find_rule(self, key: str) -> tuple[bool, str, int, int]:
-        # This is fucked up, needs optimizing
+        """ Given a key, search for any production rule that is a substring in this key.\n
+            Returns -> matches: list[tuple[bool, str, int, int]]: can be made into a struct but whatever
+                - bool - whether or not there is a match
+                - str - name of the rule with variation id
+                - int - start index where the rule starts in the key
+                - int - length of the rule str                
+        """
+        # This is kinda fucked up, needs optimizing
         matches = []
         for nonterminal, rhs in self._nonterminal_int_seq.items():
-            # Check if a substring exists as rhs in any rule
             if not (index := key.find(rhs)) == -1:
                 matches.append((True, nonterminal, index, len(rhs)))
-                
-                continue       
+                continue
         return matches
     
     def match_rule(self, key: str) -> tuple[bool, str, int, int]:
         """ Returns the nearest production rules given an input.
         """
-        # This is fucked up, needs optimizing
         matches = []
         for nonterminal, rhs in self._nonterminal_int_seq.items():
-            # Check if a substring exists as rhs in any rule
             if not (index := rhs.find(key)) == -1:
                 matches.append((True, nonterminal, index, len(rhs)))
                 
@@ -273,12 +270,12 @@ class Parser:
     
     def parse(self, table: SymbolTable):
         if table == None: return
-        
-        tree = ''
-        
+        start_time = time()
+                
         input_sequence = [self._int_map[token.token] for token in table.tokens]
         stack = ''
-        stack_view = ''
+        tree = ''
+        stack_view = '' # Debugging
         
         self.buffer = None
         finished = False
@@ -286,29 +283,25 @@ class Parser:
         while j < len(input_sequence) or stack:
             if finished:
                 break
-            
-            # if (j + 1) < len(input_sequence):
-            #     look_ahead = f' {input_sequence[j + 1]} '
-            
+                        
             # Shift
             if input_sequence:
-                var = f' {input_sequence.pop(0)} '
-                stack += var
-                ### DEBUG
-                stack_view = self._to_token(int(var.strip()))
-                ###
-                
+                input = f' {input_sequence.pop(0)} '
+                stack += input
+                stack_view = self._to_token(int(input.strip())) # Debugging                
                 j += 1
             else:
                 finished = True
                 
-            # Keep reducing until it's not possible anymore       
+            # Keep reducing until not possible       
             while True:
                 result = self.find_rule(stack)
                 
                 if not result: break
                 
                 if len(result) == 1:
+                    """ There's only one match, rule is unambiguous therefore reduce. 
+                    """
                     result = result[0]
                     i = result[2]
                     n = result[3]
@@ -316,24 +309,29 @@ class Parser:
                     stack = stack[:i] + stack[i + n:]
                     # Insert substring at index i of length n            
                     stack = stack[:i ] + f' {self._to_int(result[1][:-4])} ' + stack[i:]
+                    
+                    # Parse tree should be constructed here
                     continue
                 
                 elif len(result) >= 1:            
-                    # How do I check the most appropriate production rule to choose here haha
-                    
-                    #????        
+                    """ Need a way to check the most appropriate rule in cases that there are
+                        two or more matches (result). Rule is ambiguous.
+                        To combat this for now, the grammar must be structured in a way that it is not ambiguous.
+                    """
                     result = result[0]
                     i = result[2]
                     n = result[3]
                     # Remove substring at index i of length n
                     stack = stack[:i] + stack[i + n:]
                     # Insert substring at index i of length n            
-                    stack = stack[:i ] + f' {self._to_int(result[1][:-4])} ' + stack[i:]
+                    stack = stack[:i] + f' {self._to_int(result[1][:-4])} ' + stack[i:]
                     continue
 
         if len(stack.strip().split()) == 1:
-            print('Successful parse')
-        else:            
+            print(f'Successful parse\nElapsed: {time() - start_time}s')
+        else:
+            """ Handle syntax error. 
+            """
             # result = self.match_rule(stack)
             # var = self._nonterminal_int_seq[result[-1][1]]
             

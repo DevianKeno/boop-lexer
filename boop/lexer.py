@@ -4,9 +4,9 @@
 from __future__ import annotations
 import os
 import codecs
-import time
+from time import time
 from boop.config import *
-from boop.legacy.parser import *
+from boop.parser import *
 from boop.token import *
 from boop.tokens import *
 from boop.symboltable import *
@@ -415,9 +415,9 @@ class Lexer:
             Returns a SymbolTable object if a file is successfully parsed, None otherwise.
         """
         if self.open(path):       
-            self._start_time = time.time()
+            self._start_time = time()
             self._parse()
-            self.elapsed_time = time.time() - self._start_time
+            self.elapsed_time = time() - self._start_time
             
             self.save_error_log()
             self.save_symbol_table()        

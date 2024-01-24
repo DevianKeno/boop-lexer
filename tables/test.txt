@@ -6,10 +6,10 @@ public                                          	PUBLIC
 class                                           	CLASS                                           
 Program                                         	IDENTIFIER                                      
 {                                               	LEFT_BRACE                                      
-public                                          	PUBLIC                                          
 int                                             	INT                                             
 number                                          	IDENTIFIER                                      
-=                                               	OP_ASSIGN                                       
-'s'                                             	STRING_LITERAL                                  
+;                                               	END_STATEMENT                                   
+int                                             	INT                                             
+number1                                         	IDENTIFIER                                      
 ;                                               	END_STATEMENT                                   
 }                                               	RIGHT_BRACE                                     
