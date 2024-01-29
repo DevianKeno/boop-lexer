@@ -1,15 +1,18 @@
-Valid tokens count: 11
+Valid tokens count: 14
 Error tokens count: 0
-Elapsed time: 0.0 s
+Elapsed time: 0.001994609832763672 s
 
-public                                          	PUBLIC                                          
-class                                           	CLASS                                           
-Program                                         	IDENTIFIER                                      
+if                                              	IF                                              
+(                                               	LEFT_PAREN                                      
+a                                               	IDENTIFIER                                      
+>                                               	RIGHT_ANGLED_BRACKET                            
+b                                               	IDENTIFIER                                      
+)                                               	RIGHT_PAREN                                     
+{                                               	LEFT_BRACE                                      
+}                                               	RIGHT_BRACE                                     
+else                                            	ELSE                                            
 {                                               	LEFT_BRACE                                      
 int                                             	INT                                             
-number                                          	IDENTIFIER                                      
-;                                               	END_STATEMENT                                   
-int                                             	INT                                             
-number1                                         	IDENTIFIER                                      
+a                                               	IDENTIFIER                                      
 ;                                               	END_STATEMENT                                   
 }                                               	RIGHT_BRACE                                     

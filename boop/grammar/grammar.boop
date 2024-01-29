@@ -1,15 +1,23 @@
 
 value
-    : NUM_LITERAL
+    : NUM_LITERAL NUM_SUFFIX?
+    | NUM_LITERAL OP_DOT NUM_LITERAL NUM_SUFFIX? 
     | STRING_LITERAL
     ;
 
-dataPrimitive
-    : VOID | INT | BOOL | FLOAT | DOUBLE
+identifierList
+    : IDENTIFIER COMMA IDENTIFIER
+    | identifierList COMMA IDENTIFIER
     ;
-    
+
+arrayDeclaration
+    : LEFT_BRACKET RIGHT_BRACKET
+    ;
+
 dataType
-    : dataPrimitive
+    : INT | BOOL | FLOAT | DOUBLE | STRING | VAR
+    | dataType arrayDeclaration
+    | IDENTIFIER arrayDeclaration
     ;
 
 modifier
@@ -20,8 +28,87 @@ arithmeticOperator
     : OP_ADD | OP_SUB | OP_MUL | OP_DIV | OP_TRUEDIV | OP_MOD | OP_EXPO
     ;
 
-functionBody
-    : STRING_LITERAL
+relationalOperator
+    : REL_EQUALITY
+    | LEFT_ANGLED_BRACKET
+    | RIGHT_ANGLED_BRACKET
+    | REL_LESS_OR_EQUAL
+    | REL_GREATER_OR_EQUAL
+    | REL_NOT_EQUALS
+    ;
+
+logicalOperator
+    : LOGC_AND
+    | LOGC_OR
+    ;
+
+term
+    : IDENTIFIER arithmeticOperator IDENTIFIER
+    | term arithmeticOperator value
+    | value arithmeticOperator term
+    ;
+
+expression
+    : term
+    | LEFT_PAREN term RIGHT_PAREN
+    ;
+
+varDeclaration
+    : dataType IDENTIFIER
+    | dataType identifierList
+    | varDeclaration COMMA IDENTIFIER
+    | varDeclaration OP_ASSIGN value
+    ;
+
+varDeclarationStatement
+    : modifier? STATIC? varDeclaration END_STATEMENT
+    ;
+
+conditionalExpression
+    : value relationalOperator value
+    | IDENTIFIER relationalOperator IDENTIFIER
+    | value relationalOperator IDENTIFIER
+    | value relationalOperator value
+    ;
+
+ifStatement
+    : IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body RIGHT_BRACE
+    | IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RIGHT_BRACE
+    | ifStatement elseStatement
+    ;
+
+elseStatement
+    : ELSE LEFT_BRACE RIGHT_BRACE
+    | ELSE LEFT_BRACE body RIGHT_BRACE
+    ;
+
+// forStatement
+//     : FOR LEFT_PAREN statement SEMICOLON condition SEMICOLON statement RIGHT_PAREN LEFT_BRACE body? RIGHT_BRACE
+//     ;
+
+returnStatement
+    : RETURN END_STATEMENT
+    | RETURN value END_STATEMENT
+    | RETURN IDENTIFIER END_STATEMENT
+    | RETURN expression END_STATEMENT
+    ;
+
+statement
+    : ifStatement
+    | returnStatement
+    ;
+
+body
+    : varDeclarationStatement
+    | functionDeclaration
+    | classDeclaration
+    | statement
+    | body body
+    ;
+
+condition
+    : value relationalOperator value
+    | IDENTIFIER relationalOperator IDENTIFIER
     ;
 
 functionReturn
@@ -32,214 +119,46 @@ functionModifier
     : REPEAT | DELAYED
     ;
 
-functionHeading
-    : modifier? FUNC IDENTIFIER LEFT_PAREN RIGHT_PAREN
+functionParameter
+    : varDeclaration COMMA varDeclaration
+    | functionParameter COMMA varDeclaration
     ;
 
 functionDeclaration
-    : functionHeading functionReturn LEFT_BRACE functionBody? RIGHT_BRACE
+    : modifier? STATIC? ASYNC? functionModifier? FUNC IDENTIFIER
+    LEFT_PAREN varDeclaration? RIGHT_PAREN functionReturn?
+    LEFT_BRACE body? RIGHT_BRACE
+    | modifier? STATIC? ASYNC? functionModifier? FUNC IDENTIFIER
+    LEFT_PAREN functionParameter? RIGHT_PAREN functionReturn?
+    LEFT_BRACE body? RIGHT_BRACE
     ;
 
-varDeclaration
-    : modifier? dataType IDENTIFIER END_STATEMENT
-    | modifier? dataType IDENTIFIER OP_ASSIGN value END_STATEMENT
+interfaceHeading
+    : modifier? INTERFACE IDENTIFIER
     ;
 
-declaration
-    : varDeclaration
+interfaceDeclaration
+    : interfaceHeading LEFT_BRACE body? RIGHT_BRACE
     ;
 
 classInherit
     : COLON IDENTIFIER
     ;
 
-classBody
-    : declaration
-    ;
-
-classHeading
-    : modifier? CLASS IDENTIFIER 
+classInterface
+    : LEFT_PAREN IDENTIFIER RIGHT_PAREN
+    | LEFT_PAREN identifierList RIGHT_PAREN
     ;
 
 classDeclaration
-    : classHeading classInherit? LEFT_BRACE classBody? RIGHT_BRACE
+    : modifier? STATIC? CLASS IDENTIFIER
+    classInherit? classInterface? 
+    LEFT_BRACE body? RIGHT_BRACE
     ;
 
 programStatement
     : classDeclaration
+    | interfaceDeclaration
+    | functionDeclaration
+    | programStatement programStatement
     ;
-
-// functionHeading
-//     : FUNC IDENTIFIER functionParameters functionBody
-//     | FUNC IDENTIFIER functionParameters functionReturn functionBody
-//     ;
-
-// programStatement
-//     : functionHeading
-//     | moduleHeading
-//     | classHeading
-//     ;
-
-// functionBody
-//     : LEFT_BRACE RIGHT_BRACE
-//     | LEFT_BRACE block RIGHT_BRACE
-//     ;
-
-// mainFunction
-//     : FUNC IDENTIFIER LEFT_PAREN RIGHT_PAREN functionBody
-//     ;
-
-// value
-//     : SINGLE_QUOTE DOLLAR SINGLE_QUOTE
-//     ;
-    
-// STRING_LITERAL
-//     : SINGLE_QUOTE DOLLAR SINGLE_QUOTE
-//     ;
-    
-// dataType
-//     : INT | BOOL | FLOAT | DOUBLE | STRING
-//     ;
-
-// parameter
-//     : dataType IDENTIFIER
-//     | dataType IDENTIFIER (EQUALS value)
-//     ;
-    
-// expression
-//     : value
-//     | IDENTIFIER
-//     | STRING_LITERAL
-//     ;
-    
-// accessmodifier
-//     : PUBLIC | PRIVATE | PROTECTED
-//     ;
-
-// secondarymodifier
-//     : VIRTUAL | ABSTRACT | OVERRIDE
-//     ;
-
-// functionmodifier
-//     : REPEAT | DELAYED | ASYNC
-//     ;
-
-// modifier
-//     : accessmodifier
-//     | accessmodifier secondarymodifier
-//     ;
-
-// functionReturn
-//     : DELIM_FUNC_RETURN dataType
-//     ;
-
-// functionParameters
-//     : LEFT_PAREN (parameter (COMMA parameter)*)? RIGHT_PAREN
-//     ;
-
-// moduleBody
-//     : LEFT_BRACE classHeading* RIGHT_BRACE
-//     ;
-
-// moduleHeading
-//     : MODULE IDENTIFIER moduleBody
-//     ;
-
-// variableDeclaration
-//     : modifier? dataType IDENTIFIER SEMICOLON
-//     | modifier? dataType IDENTIFIER OP_EQUALITY expression SEMICOLON
-//     ;
-
-// // parameter
-// //     : dataType IDENTIFIER (EQUALS constant)?
-// //     ;
-
-
-// typeParameters
-//     : LEFT_ANGLED_BRACKET (dataType (COMMA dataType)*)? RIGHT_ANGLED_BRACKET
-//     ;
-
-// recurLastParameter
-//     : TIME IDENTIFIER
-//     | INT IDENTIFIER
-//     ;
-
-// recurParameters
-//     : LEFT_PAREN parameter+ (COMMA parameter)+ recurLastParameter RIGHT_PAREN
-//     | LEFT_PAREN parameter (COMMA parameter)+ COMMA recurLastParameter RIGHT_PAREN
-//     ;
-
-// recurHeading
-//     : modifier? ASYNC?
-//     RECUR IDENTIFIER typeParameters? recurParameters functionReturn? functionBody
-//     ;
-
-// arguments
-//     : expression+
-//     ;
-
-// functionCall
-//     : IDENTIFIER LEFT_PAREN arguments? RIGHT_PAREN
-//     ;
-
-// structBody
-//     : LEFT_BRACE RIGHT_BRACE
-//     ;
-
-// structHeading
-//     : modifier?
-//     STRUCT IDENTIFIER structBody
-//     ;
-
-// enumBody
-//     : LEFT_BRACE (IDENTIFIER (COMMA IDENTIFIER)*)? RIGHT_BRACE
-//     ;
-
-// enumHeading
-//     : modifier?
-//     ENUM IDENTIFIER enumBody
-//     ;
-
-// eventBody
-//     : LEFT_BRACE dataType* RIGHT_BRACE
-//     ;
- 
-// eventHeading
-//     : modifier?
-//     EVENT IDENTIFIER eventBody
-//     ;
-
-// classBodyDeclarations
-//     : variableDeclaration
-//     | functionHeading
-//     | classHeading
-//     | structHeading
-//     | enumHeading
-//     | eventHeading
-//     ;
-
-// // classHeading
-// //     : modifier? CLASS typeParameters? IDENTIFIER (INHERIT IDENTIFIER)? interfaceSignature? classBody
-// //     ;
-
-// interfaceSignature
-//     : LEFT_BRACE IDENTIFIER (COMMA IDENTIFIER)* RIGHT_PAREN
-//     ;
-
-// keyword
-//     : ABSTRACT    | ALIAS       | ALIAS      | BASE        | BOOL        | BREAK
-//     | CASE        | CATCH       | CHAR       | CLASS       | CONST
-//     | CONST       | CONTINUE    | DEFAULT    | DICT        
-//     | DO          | DOUBLE      | ELSE       | ENUM        
-//     | EVENT       | FALSE       | FLOAT      | FOR         | FOREACH
-//     | FORMAT      | FORTIME     | FROM       | FUNC        | GET
-//     | IF          | IMPORT      | INHERIT    | INT         | INTERFACE
-//     | LIST        | MILLISEC    | MODULE     | NULL        | OVERRIDE
-//     | PRIVATE     | PROTECTED   | PUBLIC     | RECUR       | REF
-//     | RETURN      | SECOND      | SET        | STATIC      | STRING
-//     | STRUCT      | SWITCH      | THIS       | THROW       | TIME
-//     | TRUE        | TRY         | VIRTUAL    | VOID        | WHILE
-//     | WHERE
-//     ;
-
-// #endregion

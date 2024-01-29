@@ -1,5 +1,7 @@
-public class Program
+
+
+if (a > b)
 {
-    int number;
-    int number1;
+} else
+{int a;
 }
