@@ -104,6 +104,7 @@ GET = 'get'
 IF = 'if'
 IMPORT = 'import'
 INHERIT = 'inherit'
+IN = 'in'
 INT = 'int'
 INTERFACE = 'interface'
 LIST = 'list'
@@ -185,6 +186,7 @@ KEYWORDS = {
     IF: 'IF',
     IMPORT: 'IMPORT',
     INHERIT: 'INHERIT',
+    IN: 'IN',
     INT: 'INT',
     INTERFACE: 'INTERFACE',
     LIST: 'LIST',

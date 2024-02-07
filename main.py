@@ -1,19 +1,13 @@
 
 import os
-from boop.lexer import Lexer
-from boop.parser import Parser
+from boop.cmp import Compiler
 
 # Setup file path
 cwd = os.getcwd()
-filename = 'code/test.boop'
+filename = 'code/parsethis.boop'
 filepath = os.path.join(cwd, filename)
-    
+
 if __name__ == '__main__':    
-    lexer = Lexer()
-    # lexer.allow_external_files(True)
-    # lexer.tokenize_keywords = False
-    output = lexer.parse(filepath)
-    
-    parser = Parser()
-    parser.parse(output)
+    cmp = Compiler()
+    cmp.parse(filepath)
     

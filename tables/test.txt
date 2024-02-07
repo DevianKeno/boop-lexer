@@ -1,18 +1,64 @@
-Valid tokens count: 14
+Valid tokens count: 60
 Error tokens count: 0
-Elapsed time: 0.001994609832763672 s
+Elapsed time: 0.0009980201721191406 s
 
-if                                              	IF                                              
-(                                               	LEFT_PAREN                                      
-a                                               	IDENTIFIER                                      
->                                               	RIGHT_ANGLED_BRACKET                            
-b                                               	IDENTIFIER                                      
-)                                               	RIGHT_PAREN                                     
-{                                               	LEFT_BRACE                                      
-}                                               	RIGHT_BRACE                                     
-else                                            	ELSE                                            
+public                                          	PUBLIC                                          
+class                                           	CLASS                                           
+Program                                         	IDENTIFIER                                      
 {                                               	LEFT_BRACE                                      
 int                                             	INT                                             
 a                                               	IDENTIFIER                                      
+,                                               	COMMA                                           
+b                                               	IDENTIFIER                                      
+,                                               	COMMA                                           
+c                                               	IDENTIFIER                                      
 ;                                               	END_STATEMENT                                   
+public                                          	PUBLIC                                          
+func                                            	FUNC                                            
+Add                                             	IDENTIFIER                                      
+(                                               	LEFT_PAREN                                      
+int                                             	INT                                             
+a                                               	IDENTIFIER                                      
+,                                               	COMMA                                           
+int                                             	INT                                             
+b                                               	IDENTIFIER                                      
+)                                               	RIGHT_PAREN                                     
+->                                              	DELIM_FUNC_RETURN                               
+int                                             	INT                                             
+{                                               	LEFT_BRACE                                      
+return                                          	RETURN                                          
+a                                               	IDENTIFIER                                      
++                                               	OP_ADD                                          
+b                                               	IDENTIFIER                                      
+;                                               	END_STATEMENT                                   
+if                                              	IF                                              
+(                                               	LEFT_PAREN                                      
+a                                               	IDENTIFIER                                      
+<                                               	LEFT_ANGLED_BRACKET                             
+b                                               	IDENTIFIER                                      
+)                                               	RIGHT_PAREN                                     
+{                                               	LEFT_BRACE                                      
+Print                                           	IDENTIFIER                                      
+(                                               	LEFT_PAREN                                      
+'a is less than b'                              	STRING_LITERAL                                  
+)                                               	RIGHT_PAREN                                     
+;                                               	END_STATEMENT                                   
+}                                               	RIGHT_BRACE                                     
+else                                            	ELSE                                            
+{                                               	LEFT_BRACE                                      
+Print                                           	IDENTIFIER                                      
+(                                               	LEFT_PAREN                                      
+'a is greater than b'                           	STRING_LITERAL                                  
+)                                               	RIGHT_PAREN                                     
+;                                               	END_STATEMENT                                   
+}                                               	RIGHT_BRACE                                     
+}                                               	RIGHT_BRACE                                     
+func                                            	FUNC                                            
+Main                                            	IDENTIFIER                                      
+(                                               	LEFT_PAREN                                      
+string                                          	STRING                                          
+args                                            	IDENTIFIER                                      
+)                                               	RIGHT_PAREN                                     
+{                                               	LEFT_BRACE                                      
+}                                               	RIGHT_BRACE                                     
 }                                               	RIGHT_BRACE                                     

@@ -6,7 +6,6 @@ import os
 import codecs
 from time import time
 from boop.config import *
-from boop.parser import *
 from boop.token import *
 from boop.tokens import *
 from boop.symboltable import *
@@ -25,7 +24,7 @@ class Lexer:
         """If to include the comment delimiters as tokens in the output table."""
         self.rootext: tuple[str, str] = (EMPTY, EMPTY)
         """Represents the filename [0] and file extension [1]."""
-        self.syntaxer = Parser()
+        self.parser = None
         
         self._allow_external_files: bool = False
         self._content: str = []
@@ -54,6 +53,9 @@ class Lexer:
     def _add_stack(self, symbol: Token):
         """Adds symbol to the stack."""
         if symbol == None: return
+        
+        symbol.line = self._line_idx
+        symbol.col = self._col_idx        
         self._stack.append(symbol)
         self._prev = EMPTY
         
@@ -495,17 +497,4 @@ class Lexer:
         st.add_symbols(self._parse_ln(line))
         return st
     #endregion
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     

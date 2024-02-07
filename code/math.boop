@@ -1,20 +1,5 @@
-public class Program
+module Math
 {
-    int a, b, c;
-    
-    public func Add(int a, int b) -> int
-    {
-        return a + b;
-
-        if (a < b)
-        {
-            Print('a is less than b');
-        } else
-        {
-            Print('a is greater than b');
-        }
-    }
-    
     public class Funcs
     {
         public static func Max(float a, float b) -> float
@@ -44,9 +29,5 @@ public class Program
         {
             return √((x2 - x1)^2 + (y2 - y1)^2);
         }
-    }
-
-    func Main(string args)
-    {
     }
 }

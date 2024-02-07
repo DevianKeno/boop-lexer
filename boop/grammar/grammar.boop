@@ -14,14 +14,42 @@ arrayDeclaration
     : LEFT_BRACKET RIGHT_BRACKET
     ;
 
+arrayDeclarationSized
+    : LEFT_BRACKET value RIGHT_BRACKET
+    ;
+
 dataType
-    : INT | BOOL | FLOAT | DOUBLE | STRING | VAR
+    : INT | BOOL | FLOAT | DOUBLE | STRING | VAR | SECOND | MILLISEC
     | dataType arrayDeclaration
     | IDENTIFIER arrayDeclaration
     ;
 
+dataTypeList
+    : dataType COMMA dataType
+    | IDENTIFIER COMMA dataType
+    | identifierList COMMA dataType
+    | dataTypeList COMMA dataType
+    | dataTypeList COMMA IDENTIFIER
+    ;
+
 modifier
     : PUBLIC | PRIVATE | PROTECTED
+    ;
+
+secondaryModifier
+    : STATIC | ABSTRACT | VIRTUAL | OVERRIDE
+    ;
+
+functionModifier
+    : REPEAT | DELAYED
+    ;
+
+memberAccess
+    : IDENTIFIER OP_DOT IDENTIFIER
+    | memberAccess OP_DOT IDENTIFIER
+    | memberAccess LEFT_PAREN RIGHT_PAREN
+    | memberAccess LEFT_PAREN IDENTIFIER RIGHT_PAREN
+    | memberAccess LEFT_PAREN identifierList RIGHT_PAREN
     ;
 
 arithmeticOperator
@@ -42,22 +70,61 @@ logicalOperator
     | LOGC_OR
     ;
 
+assignmentOperator
+    : OP_ASSIGN | OP_ADD_ASSIGN | OP_SUB_ASSIGN | OP_MUL_ASSIGN | OP_DIV_ASSIGN
+    ;    
+
+unaryOperator
+    : UNARY_ADD
+    | UNARY_SUB
+    ;
+
 term
     : IDENTIFIER arithmeticOperator IDENTIFIER
-    | term arithmeticOperator value
+    | IDENTIFIER arithmeticOperator value
+    | IDENTIFIER arithmeticOperator term
+
+    | value arithmeticOperator value
+    | value arithmeticOperator IDENTIFIER
     | value arithmeticOperator term
+
+    | term arithmeticOperator term
+    | term arithmeticOperator IDENTIFIER
+    | term arithmeticOperator value
+    ;
+
+unaryMath
+    : MATH_SQRT | MATH_MEAN | MATH_PRODN | MATH_SUMMN | MATH_PI | MATH_THETA | MATH_IMAGI
     ;
 
 expression
     : term
-    | LEFT_PAREN term RIGHT_PAREN
+
+    | expression arithmeticOperator expression
+    | expression arithmeticOperator IDENTIFIER
+    | expression arithmeticOperator value
+    | expression arithmeticOperator term
+    
+    | IDENTIFIER arithmeticOperator expression
+    | value arithmeticOperator expression
+    | term arithmeticOperator expression
+
+    | LEFT_PAREN expression RIGHT_PAREN
+    | unaryMath expression
+    | expression unaryMath
     ;
 
 varDeclaration
     : dataType IDENTIFIER
     | dataType identifierList
+    | IDENTIFIER IDENTIFIER
+    | IDENTIFIER identifierList
     | varDeclaration COMMA IDENTIFIER
-    | varDeclaration OP_ASSIGN value
+    | varDeclaration assignmentOperator value
+    | varDeclaration assignmentOperator TRUE
+    | varDeclaration assignmentOperator FALSE
+    | varDeclaration assignmentOperator dataType arrayDeclarationSized
+    | varDeclaration assignmentOperator IDENTIFIER arrayDeclarationSized
     ;
 
 varDeclarationStatement
@@ -66,25 +133,60 @@ varDeclarationStatement
 
 conditionalExpression
     : value relationalOperator value
-    | IDENTIFIER relationalOperator IDENTIFIER
     | value relationalOperator IDENTIFIER
-    | value relationalOperator value
+    | IDENTIFIER relationalOperator value
+    | IDENTIFIER relationalOperator IDENTIFIER
+    | TRUE
+    | FALSE
     ;
 
 ifStatement
-    : IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body RIGHT_BRACE
-    | IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RIGHT_BRACE
-    | ifStatement elseStatement
+    : IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body? RIGHT_BRACE
     ;
 
 elseStatement
-    : ELSE LEFT_BRACE RIGHT_BRACE
-    | ELSE LEFT_BRACE body RIGHT_BRACE
+    : ELSE LEFT_BRACE body? RIGHT_BRACE
+    | ELSE ifStatement
     ;
 
-// forStatement
-//     : FOR LEFT_PAREN statement SEMICOLON condition SEMICOLON statement RIGHT_PAREN LEFT_BRACE body? RIGHT_BRACE
-//     ;
+forStatement
+    : FOR dataType IDENTIFIER IN IDENTIFIER LEFT_BRACE body? RIGHT_BRACE
+    | FOR dataType IDENTIFIER IN NUM_LITERAL LEFT_BRACE body? RIGHT_BRACE
+    | FOR NUM_LITERAL LEFT_BRACE body? RIGHT_BRACE
+    ;
+
+fortimeStatement
+    : FORTIME IDENTIFIER LEFT_BRACE body? RIGHT_BRACE
+    | FORTIME NUM_LITERAL LEFT_BRACE body? RIGHT_BRACE
+    ;
+
+foreachStatement
+    : FOREACH dataType IDENTIFIER IN IDENTIFIER LEFT_BRACE body? RIGHT_BRACE
+    ;
+
+whileStatement
+    : WHILE LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body? RIGHT_BRACE
+    ;
+
+doWhileStatement
+    : DO LEFT_BRACE body? RIGHT_BRACE WHILE LEFT_PAREN conditionalExpression RIGHT_PAREN
+    ;
+
+caseStatement
+    : CASE value COLON statement
+    | CASE value COLON LEFT_BRACE RIGHT_BRACE
+    | CASE value COLON LEFT_BRACE body RIGHT_BRACE
+    | caseStatement caseStatement
+    ;
+
+switchStatement
+    : SWITCH LEFT_PAREN IDENTIFIER RIGHT_PAREN LEFT_BRACE caseStatement? RIGHT_BRACE
+    ;
+
+functionParameter
+    : varDeclaration COMMA varDeclaration
+    | functionParameter COMMA varDeclaration
+    ;
 
 returnStatement
     : RETURN END_STATEMENT
@@ -93,9 +195,32 @@ returnStatement
     | RETURN expression END_STATEMENT
     ;
 
+assignmentStatement
+    : IDENTIFIER assignmentOperator expression END_STATEMENT
+    | IDENTIFIER assignmentOperator memberAccess END_STATEMENT
+    | varDeclaration assignmentOperator functionCallStatement
+    ;
+
+functionCallStatement
+    : IDENTIFIER LEFT_PAREN IDENTIFIER? RIGHT_PAREN END_STATEMENT
+    | IDENTIFIER LEFT_PAREN identifierList RIGHT_PAREN END_STATEMENT
+    | IDENTIFIER LEFT_PAREN expression RIGHT_PAREN END_STATEMENT
+    | IDENTIFIER LEFT_PAREN value RIGHT_PAREN END_STATEMENT
+    ;
+
 statement
-    : ifStatement
+    : assignmentStatement
+    | ifStatement
+    | elseStatement
+    | forStatement
+    | fortimeStatement
+    | foreachStatement
+    | whileStatement
+    | doWhileStatement
+    | switchStatement
     | returnStatement
+    | functionCallStatement
+    | IDENTIFIER unaryOperator END_STATEMENT
     ;
 
 body
@@ -113,23 +238,16 @@ condition
 
 functionReturn
     : DELIM_FUNC_RETURN dataType
-    ;
-
-functionModifier
-    : REPEAT | DELAYED
-    ;
-
-functionParameter
-    : varDeclaration COMMA varDeclaration
-    | functionParameter COMMA varDeclaration
+    | DELIM_FUNC_RETURN VOID
     ;
 
 functionDeclaration
-    : modifier? STATIC? ASYNC? functionModifier? FUNC IDENTIFIER
-    LEFT_PAREN varDeclaration? RIGHT_PAREN functionReturn?
+    : modifier? secondaryModifier? ASYNC? functionModifier?
+    FUNC IDENTIFIER LEFT_PAREN varDeclaration? RIGHT_PAREN functionReturn?
     LEFT_BRACE body? RIGHT_BRACE
-    | modifier? STATIC? ASYNC? functionModifier? FUNC IDENTIFIER
-    LEFT_PAREN functionParameter? RIGHT_PAREN functionReturn?
+    
+    | modifier? secondaryModifier? ASYNC? functionModifier?
+    FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn?
     LEFT_BRACE body? RIGHT_BRACE
     ;
 
@@ -145,19 +263,26 @@ classInherit
     : COLON IDENTIFIER
     ;
 
-classInterface
-    : LEFT_PAREN IDENTIFIER RIGHT_PAREN
-    | LEFT_PAREN identifierList RIGHT_PAREN
-    ;
-
 classDeclaration
-    : modifier? STATIC? CLASS IDENTIFIER
-    classInherit? classInterface? 
+    : modifier? secondaryModifier? CLASS IDENTIFIER
+    classInherit? LEFT_BRACE body? RIGHT_BRACE
+    
+    | modifier? secondaryModifier? CLASS IDENTIFIER
+    classInherit? LEFT_PAREN IDENTIFIER RIGHT_PAREN
+    LEFT_BRACE body? RIGHT_BRACE
+    
+    | modifier? secondaryModifier? CLASS IDENTIFIER
+    classInherit? LEFT_PAREN identifierList RIGHT_PAREN
     LEFT_BRACE body? RIGHT_BRACE
     ;
 
+moduleDeclaration
+    : MODULE IDENTIFIER LEFT_BRACE body? RIGHT_BRACE
+    ;
+
 programStatement
-    : classDeclaration
+    : moduleDeclaration
+    | classDeclaration
     | interfaceDeclaration
     | functionDeclaration
     | programStatement programStatement
