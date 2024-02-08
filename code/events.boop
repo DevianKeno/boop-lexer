@@ -1,0 +1,34 @@
+public class ChatHandler
+{
+    public event OnSendMessage { string, bool }
+
+    public delayed func SendMessage(string message, bool isHost, time delay)
+    { 
+        OnSendMessage(message, isHost);
+    }
+}
+
+public class ChatListener
+{
+    public string Message;
+    public bool IsHost;
+
+    public func UpdateMessage(string message, bool isHost)
+    {
+        Message = message;
+        IsHost = isHost;
+    }
+}
+
+public class Main
+{
+    func Main()
+    {
+        millisecond delay = 100;
+        var chatHandler = ChatHandler();
+        var chatListener = ChatListener();
+
+        chatHandler.OnSendMessage => chatListener.UpdateMessage;
+        chatHandler.SendMessage('Hello world.', true, delay);
+    }
+}

@@ -37,6 +37,10 @@ CLOSURES = {
     OPTIONAL : 'OPTIONAL'
 }
 
+DNR = {
+    'OP_DOT'
+}
+
 def isnonterminal(string: str) -> bool:
     """ Returns True if the string is a non-terminal, False otherwise or if empty.\n
         A non-terminal is represented by a rule name that
@@ -79,6 +83,7 @@ class Parser:
         self.derivation: list[str] = []        
         self.enable_syntax_checking = True
         self.lexer: Lexer = None
+        self.errors = []
         
         self._stack: str = EMPTY    
         
@@ -432,6 +437,7 @@ class Parser:
     def error_token(self):
         symbol = self._table.tokens[self._stack_idx - 1]
         expect = [self._to_token(num) for num in self._follows[symbol.token]]
+        self.errors.append(symbol)
         print(f'[BOOP] SyntaxError: Unexpected token at ln {symbol.line}, col {symbol.col}')
         print(self.lexer.get_line(symbol.line - 1))
         print(' ' * (symbol.col - 1) + '^')
@@ -477,6 +483,7 @@ class Parser:
                 self._stack += input
                 self.derivation.append(self._stack)                                
                 lookahead = input_sequence[0] if input_sequence else None
+                
                 k += 1 
                 self._stack_idx += 1
             else:
@@ -485,12 +492,13 @@ class Parser:
             while True:
                 result = self.find_rule(self._stack, input=input, lookahead=lookahead)              
                 if not result: break
-                
+                self._int_map
                 self._reduce(result)
                 self.derivation.append(self._stack)
                 input = EMPTY # Input is consumed
        
         if len(self._stack.strip().split()) == 1:
+        
             print(f'[BOOP] Succesfully parsed file\nElapsed time: {time() - start_time}s')
             self.save_derivation()
                         

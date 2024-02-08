@@ -1,0 +1,31 @@
+public class Iterative
+{
+    int[] nums = { 1, 2, 3, 4, 5 }
+    
+    func Main()
+    {
+        for int i in 5
+        {
+            Print(i);
+        }
+
+        for int j in nums
+        {
+            Print(j);
+        }
+
+        int k = 0;
+        while (k < 6)
+        {
+            Print(k);
+            k++;
+        }
+
+        int h = 17;
+        do
+        {
+            Print('first');
+            h--;
+        } while (h > 0)
+    }
+}

@@ -1,0 +1,29 @@
+Valid tokens count: 25
+Error tokens count: 0
+Elapsed time: 0.0 s
+
+public                                          	PUBLIC                                          
+class                                           	CLASS                                           
+Assignments                                     	IDENTIFIER                                      
+{                                               	LEFT_BRACE                                      
+public                                          	PUBLIC                                          
+static                                          	STATIC                                          
+string                                          	STRING                                          
+True                                            	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+'True'                                          	STRING_LITERAL                                  
+;                                               	END_STATEMENT                                   
+public                                          	PUBLIC                                          
+static                                          	STATIC                                          
+string                                          	STRING                                          
+False                                           	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+'False'                                         	STRING_LITERAL                                  
+;                                               	END_STATEMENT                                   
+func                                            	FUNC                                            
+Main                                            	IDENTIFIER                                      
+(                                               	LEFT_PAREN                                      
+)                                               	RIGHT_PAREN                                     
+{                                               	LEFT_BRACE                                      
+}                                               	RIGHT_BRACE                                     
+}                                               	RIGHT_BRACE                                     

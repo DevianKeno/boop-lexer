@@ -1,0 +1,65 @@
+Valid tokens count: 61
+Error tokens count: 0
+Elapsed time: 0.0019958019256591797 s
+
+public                                          	PUBLIC                                          
+class                                           	CLASS                                           
+Program                                         	IDENTIFIER                                      
+{                                               	LEFT_BRACE                                      
+public                                          	PUBLIC                                          
+string                                          	STRING                                          
+Name                                            	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+'Group 1'                                       	STRING_LITERAL                                  
+;                                               	END_STATEMENT                                   
+private                                         	PRIVATE                                         
+string                                          	STRING                                          
+Hidden                                          	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+'kung pano gumagana yung code'                  	STRING_LITERAL                                  
+;                                               	END_STATEMENT                                   
+protected                                       	PROTECTED                                       
+string                                          	STRING                                          
+Prof                                            	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+'Sir Mon'                                       	STRING_LITERAL                                  
+;                                               	END_STATEMENT                                   
+int                                             	INT                                             
+a                                               	IDENTIFIER                                      
+;                                               	END_STATEMENT                                   
+int                                             	INT                                             
+b                                               	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+5                                               	NUM_LITERAL                                     
+;                                               	END_STATEMENT                                   
+float                                           	FLOAT                                           
+num1                                            	IDENTIFIER                                      
+,                                               	COMMA                                           
+num2                                            	IDENTIFIER                                      
+,                                               	COMMA                                           
+num3                                            	IDENTIFIER                                      
+;                                               	END_STATEMENT                                   
+Second                                          	IDENTIFIER                                      
+num4                                            	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+1                                               	NUM_LITERAL                                     
+,                                               	COMMA                                           
+num5                                            	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+4                                               	NUM_LITERAL                                     
+,                                               	COMMA                                           
+num6                                            	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+3                                               	NUM_LITERAL                                     
+;                                               	END_STATEMENT                                   
+bool                                            	BOOL                                            
+num7                                            	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+true                                            	TRUE                                            
+,                                               	COMMA                                           
+num8                                            	IDENTIFIER                                      
+,                                               	COMMA                                           
+=                                               	OP_ASSIGN                                       
+false                                           	FALSE                                           
+;                                               	END_STATEMENT                                   
+}                                               	RIGHT_BRACE                                     

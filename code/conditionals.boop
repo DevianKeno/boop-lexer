@@ -1,26 +1,6 @@
-public class Program
+public class Conditionals : Program
 {
-    public string Name = 'Group 1';
-    int a;
-    int b = 5;
-    float num1, num2, num3;
-    Second num4 = 1, num5 = 4, num6 = 3;
-
-    public class Second
-    {
-        float value;
-    }
-
-    public func IsOdd(int a) -> bool
-    {
-        if (a % 2 == 1)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public func Max(int a, int b) -> int
+    public static func Max(float a, float b) -> float
     {
         if (a > b)
         {
@@ -30,12 +10,32 @@ public class Program
             return b;
         }
     }
+    
+    public static func Min(float a, float b) -> float
+    {
+        if (a < b)
+        {
+            return a;
+        } else
+        {
+            return b;
+        }
+    }
+
+    public static func Equates(float a, float b) -> bool
+    {
+        if (a == b)
+        {
+            return true;
+        }
+        return false;
+    }
 
     public func GetDay(int n) -> string
     {
         if (n < 0 || n > 7)
         {
-            return n;
+            throw Exception();
         }
 
         switch n
@@ -50,12 +50,8 @@ public class Program
         }
     }
 
-    func Main(string args)
+    func Main()
     {
-        int num = 4;
-        string day = GetDay(4);
-        Second delay = Second();
-
-        PrintLine(day);
+        
     }
 }

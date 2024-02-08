@@ -3,6 +3,13 @@ value
     : NUM_LITERAL NUM_SUFFIX?
     | NUM_LITERAL OP_DOT NUM_LITERAL NUM_SUFFIX? 
     | STRING_LITERAL
+    | value OP_DOT NUM_LITERAL
+    | value NUM_SUFFIX
+    ;
+
+valueList
+    : value COMMA value
+    | valueList COMMA value
     ;
 
 identifierList
@@ -10,18 +17,17 @@ identifierList
     | identifierList COMMA IDENTIFIER
     ;
 
-arrayDeclaration
+arraySignature
     : LEFT_BRACKET RIGHT_BRACKET
-    ;
-
-arrayDeclarationSized
-    : LEFT_BRACKET value RIGHT_BRACKET
+    | LEFT_BRACKET value RIGHT_BRACKET
+    | LEFT_BRACKET expression RIGHT_BRACKET
     ;
 
 dataType
-    : INT | BOOL | FLOAT | DOUBLE | STRING | VAR | SECOND | MILLISEC
-    | dataType arrayDeclaration
-    | IDENTIFIER arrayDeclaration
+    : INT | BOOL | FLOAT | DOUBLE | STRING | VAR | TIME | SECOND | MILLISEC
+    | LIST | DICT
+    | dataType arraySignature
+    | IDENTIFIER arraySignature
     ;
 
 dataTypeList
@@ -47,9 +53,15 @@ functionModifier
 memberAccess
     : IDENTIFIER OP_DOT IDENTIFIER
     | memberAccess OP_DOT IDENTIFIER
-    | memberAccess LEFT_PAREN RIGHT_PAREN
-    | memberAccess LEFT_PAREN IDENTIFIER RIGHT_PAREN
+    | memberAccess LEFT_PAREN IDENTIFIER? RIGHT_PAREN
     | memberAccess LEFT_PAREN identifierList RIGHT_PAREN
+    | memberAccess LEFT_PAREN expression RIGHT_PAREN
+    | memberAccess LEFT_PAREN value RIGHT_PAREN
+    | memberAccess LEFT_PAREN argumentList RIGHT_PAREN
+    ;
+
+argumentList
+    : value COMMA IDENTIFIER
     ;
 
 arithmeticOperator
@@ -120,24 +132,41 @@ varDeclaration
     | IDENTIFIER IDENTIFIER
     | IDENTIFIER identifierList
     | varDeclaration COMMA IDENTIFIER
+    | varDeclaration assignmentOperator IDENTIFIER
     | varDeclaration assignmentOperator value
     | varDeclaration assignmentOperator TRUE
     | varDeclaration assignmentOperator FALSE
-    | varDeclaration assignmentOperator dataType arrayDeclarationSized
-    | varDeclaration assignmentOperator IDENTIFIER arrayDeclarationSized
+
+    | varDeclaration assignmentOperator dataType arraySignature
+    | varDeclaration assignmentOperator IDENTIFIER arraySignature
+    | varDeclaration assignmentOperator memberAccess
+    | varDeclaration assignmentOperator functionCallStatement
+    ;
+
+arrayInitialized
+    : varDeclaration assignmentOperator LEFT_BRACE value? RIGHT_BRACE
+    | varDeclaration assignmentOperator LEFT_BRACE valueList RIGHT_BRACE
     ;
 
 varDeclarationStatement
-    : modifier? STATIC? varDeclaration END_STATEMENT
+    : modifier? secondaryModifier? varDeclaration arraySignature? END_STATEMENT
     ;
 
 conditionalExpression
     : value relationalOperator value
     | value relationalOperator IDENTIFIER
+    | value relationalOperator expression
+
     | IDENTIFIER relationalOperator value
     | IDENTIFIER relationalOperator IDENTIFIER
-    | TRUE
-    | FALSE
+    | IDENTIFIER relationalOperator expression
+    
+    | expression relationalOperator value
+    | expression relationalOperator IDENTIFIER
+    | expression relationalOperator expression
+    
+    | conditionalExpression logicalOperator conditionalExpression
+    | LOGC_NOT conditionalExpression
     ;
 
 ifStatement
@@ -151,8 +180,12 @@ elseStatement
 
 forStatement
     : FOR dataType IDENTIFIER IN IDENTIFIER LEFT_BRACE body? RIGHT_BRACE
-    | FOR dataType IDENTIFIER IN NUM_LITERAL LEFT_BRACE body? RIGHT_BRACE
-    | FOR NUM_LITERAL LEFT_BRACE body? RIGHT_BRACE
+    | FOR dataType IDENTIFIER IN value LEFT_BRACE body? RIGHT_BRACE
+
+    | FOR varDeclaration IN IDENTIFIER LEFT_BRACE body? RIGHT_BRACE
+    | FOR varDeclaration IN value LEFT_BRACE body? RIGHT_BRACE
+
+    | FOR value LEFT_BRACE body? RIGHT_BRACE
     ;
 
 fortimeStatement
@@ -180,7 +213,7 @@ caseStatement
     ;
 
 switchStatement
-    : SWITCH LEFT_PAREN IDENTIFIER RIGHT_PAREN LEFT_BRACE caseStatement? RIGHT_BRACE
+    : SWITCH IDENTIFIER LEFT_BRACE caseStatement? RIGHT_BRACE
     ;
 
 functionParameter
@@ -193,19 +226,40 @@ returnStatement
     | RETURN value END_STATEMENT
     | RETURN IDENTIFIER END_STATEMENT
     | RETURN expression END_STATEMENT
+    | RETURN TRUE END_STATEMENT
+    | RETURN FALSE END_STATEMENT
+    ;
+
+subscribeStatement
+    : memberAccess DELIM_FIELD_RETURN memberAccess;
     ;
 
 assignmentStatement
-    : IDENTIFIER assignmentOperator expression END_STATEMENT
+    : IDENTIFIER assignmentOperator value END_STATEMENT
+    | IDENTIFIER assignmentOperator IDENTIFIER END_STATEMENT
+    | IDENTIFIER assignmentOperator expression END_STATEMENT
     | IDENTIFIER assignmentOperator memberAccess END_STATEMENT
-    | varDeclaration assignmentOperator functionCallStatement
-    ;
 
+    | IDENTIFIER assignmentOperator IDENTIFIER LEFT_PAREN IDENTIFIER? RIGHT_PAREN END_STATEMENT
+    | IDENTIFIER assignmentOperator IDENTIFIER LEFT_PAREN identifierList RIGHT_PAREN END_STATEMENT
+    | IDENTIFIER assignmentOperator IDENTIFIER LEFT_PAREN expression RIGHT_PAREN END_STATEMENT
+    | IDENTIFIER assignmentOperator IDENTIFIER LEFT_PAREN value RIGHT_PAREN END_STATEMENT
+    | IDENTIFIER assignmentOperator IDENTIFIER LEFT_PAREN argumentList RIGHT_PAREN END_STATEMENT
+
+    | varDeclaration assignmentOperator expression END_STATEMENT
+    ;
+    
 functionCallStatement
     : IDENTIFIER LEFT_PAREN IDENTIFIER? RIGHT_PAREN END_STATEMENT
     | IDENTIFIER LEFT_PAREN identifierList RIGHT_PAREN END_STATEMENT
     | IDENTIFIER LEFT_PAREN expression RIGHT_PAREN END_STATEMENT
     | IDENTIFIER LEFT_PAREN value RIGHT_PAREN END_STATEMENT
+    | IDENTIFIER LEFT_PAREN argumentList RIGHT_PAREN END_STATEMENT
+    ;
+
+eventDeclarationStatement
+    : modifier? EVENT IDENTIFIER LEFT_BRACE dataType RIGHT_BRACE
+    | modifier? EVENT IDENTIFIER LEFT_BRACE dataTypeList RIGHT_BRACE
     ;
 
 statement
@@ -220,6 +274,11 @@ statement
     | switchStatement
     | returnStatement
     | functionCallStatement
+    | eventDeclarationStatement
+    | arrayInitialized
+    | memberAccess END_STATEMENT
+    | subscribeStatement END_STATEMENT
+    | THROW statement
     | IDENTIFIER unaryOperator END_STATEMENT
     ;
 

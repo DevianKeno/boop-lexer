@@ -1,0 +1,26 @@
+public class Assignments : Project (Printable)
+{
+    public static string True = 'True';
+    public static string False = 'False';
+    bool result;
+
+    public func GetAnswer(string question) -> bool
+    {
+        if (question == 'Is Sir Mon the best prof?')
+        {
+            return true;
+        } else
+        {
+            return True;
+        }
+    }
+
+    func Main(string argc, string argv)
+    {
+        bool isParserFinished = False;
+        string isParserWorking = 'medyo';        
+        string question = 'Is Sir Mon the best prof?';
+
+        result = GetAnswer(question);
+    }
+}

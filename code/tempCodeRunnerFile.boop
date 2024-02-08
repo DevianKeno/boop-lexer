@@ -1,0 +1,17 @@
+public class Declarations
+{
+    public class Node
+    {
+
+    }
+
+    public string Name = 'Group 1';
+    private string Hidden = 'kung pano gumagana yung code';
+    protected string Prof = 'Sir Mon';
+    int a;
+    int b = 5;
+    float num1, num2, num3;
+    Second num4 = 1, num5 = 4, num6 = 3;
+    bool num7 = true, num8, num9 = false;
+    Node[] nodes = Node[6];
+}
