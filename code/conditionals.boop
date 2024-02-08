@@ -16,9 +16,12 @@ public class Conditionals : Program
         if (a < b)
         {
             return a;
-        } else
+        } else if (a > b)
         {
             return b;
+        } else
+        {
+            return 0;
         }
     }
 

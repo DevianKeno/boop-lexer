@@ -1,0 +1,357 @@
+Generated derivation
+
+PUBLIC
+modifier
+modifier CLASS
+modifier CLASS IDENTIFIER
+modifier CLASS IDENTIFIER COLON
+modifier CLASS IDENTIFIER COLON IDENTIFIER
+modifier CLASS IDENTIFIER classInherit
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE PUBLIC
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier STATIC
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN FLOAT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN dataType
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN dataType IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA FLOAT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA dataType
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA dataType IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA varDeclaration
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN DELIM_FUNC_RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN DELIM_FUNC_RETURN FLOAT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN DELIM_FUNC_RETURN dataType
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER RIGHT_ANGLED_BRACKET
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER relationalOperator
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER relationalOperator IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RETURN IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RETURN IDENTIFIER END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE ifStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE RETURN IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE RETURN IDENTIFIER END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE body RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body elseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE functionDeclaration
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body PUBLIC
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier STATIC
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN FLOAT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN dataType
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN dataType IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA FLOAT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA dataType
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA dataType IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA varDeclaration
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN DELIM_FUNC_RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN DELIM_FUNC_RETURN FLOAT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN DELIM_FUNC_RETURN dataType
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER LEFT_ANGLED_BRACKET
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER relationalOperator
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER relationalOperator IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RETURN IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RETURN IDENTIFIER END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE ifStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN IDENTIFIER RIGHT_ANGLED_BRACKET
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN IDENTIFIER relationalOperator
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN IDENTIFIER relationalOperator IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN conditionalExpression
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN conditionalExpression RIGHT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RETURN IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RETURN IDENTIFIER END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE ifStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body elseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE RETURN NUM_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE RETURN value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE RETURN value END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body ELSE LEFT_BRACE body RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body elseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body functionDeclaration
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body PUBLIC
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier STATIC
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN FLOAT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN dataType
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN dataType IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA FLOAT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA dataType
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA dataType IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN varDeclaration COMMA varDeclaration
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN DELIM_FUNC_RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN DELIM_FUNC_RETURN BOOL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN DELIM_FUNC_RETURN dataType
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER REL_EQUALITY
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER relationalOperator
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER relationalOperator IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RETURN TRUE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE RETURN TRUE END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE ifStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body RETURN FALSE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body RETURN FALSE END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier secondaryModifier FUNC IDENTIFIER LEFT_PAREN functionParameter RIGHT_PAREN functionReturn LEFT_BRACE body RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body functionDeclaration
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body PUBLIC
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN INT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN dataType
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN dataType IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN DELIM_FUNC_RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN DELIM_FUNC_RETURN STRING
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN DELIM_FUNC_RETURN dataType
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER LEFT_ANGLED_BRACKET
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER relationalOperator
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER relationalOperator NUM_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN IDENTIFIER relationalOperator value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression LOGC_OR
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression logicalOperator
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression logicalOperator IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression logicalOperator IDENTIFIER RIGHT_ANGLED_BRACKET
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression logicalOperator IDENTIFIER relationalOperator
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression logicalOperator IDENTIFIER relationalOperator NUM_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression logicalOperator IDENTIFIER relationalOperator value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression logicalOperator conditionalExpression
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE THROW
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE THROW IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE THROW IDENTIFIER LEFT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE THROW IDENTIFIER LEFT_PAREN RIGHT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE THROW IDENTIFIER LEFT_PAREN RIGHT_PAREN END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE THROW functionCallStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE THROW statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE IF LEFT_PAREN conditionalExpression RIGHT_PAREN LEFT_BRACE body RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE ifStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE CASE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE CASE NUM_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE CASE value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE CASE value COLON
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE CASE value COLON RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE CASE value COLON RETURN STRING_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE CASE value COLON RETURN value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE CASE value COLON RETURN value END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE CASE value COLON returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE CASE value COLON statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE NUM_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN STRING_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN value END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE NUM_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN STRING_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN value END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE NUM_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN STRING_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN value END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE NUM_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN STRING_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN value END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE NUM_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN STRING_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN value END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE NUM_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN STRING_LITERAL
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN value
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON RETURN value END_STATEMENT
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON returnStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement CASE value COLON statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body SWITCH IDENTIFIER LEFT_BRACE caseStatement RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body switchStatement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body statement
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body modifier FUNC IDENTIFIER LEFT_PAREN varDeclaration RIGHT_PAREN functionReturn LEFT_BRACE body RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body functionDeclaration
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body FUNC
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body FUNC IDENTIFIER
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body FUNC IDENTIFIER LEFT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body FUNC IDENTIFIER LEFT_PAREN RIGHT_PAREN
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body FUNC IDENTIFIER LEFT_PAREN RIGHT_PAREN LEFT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body FUNC IDENTIFIER LEFT_PAREN RIGHT_PAREN LEFT_BRACE RIGHT_BRACE
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body functionDeclaration
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body
+modifier CLASS IDENTIFIER classInherit LEFT_BRACE body RIGHT_BRACE
+classDeclaration
+body

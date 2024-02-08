@@ -442,6 +442,7 @@ class Parser:
         print(self.lexer.get_line(symbol.line - 1))
         print(' ' * (symbol.col - 1) + '^')
         print(f'Expected {", ".join(expect)}')
+        # raise Exception()
     
     def parse(self, table: SymbolTable):
         if table == None: return

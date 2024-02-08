@@ -140,6 +140,7 @@ varDeclaration
     | varDeclaration assignmentOperator dataType arraySignature
     | varDeclaration assignmentOperator IDENTIFIER arraySignature
     | varDeclaration assignmentOperator memberAccess
+    | varDeclaration assignmentOperator expression
     | varDeclaration assignmentOperator functionCallStatement
     ;
 

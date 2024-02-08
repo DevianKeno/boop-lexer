@@ -22,5 +22,8 @@ public class Assignments : Project (Printable)
         string question = 'Is Sir Mon the best prof?';
 
         result = GetAnswer(question);
+        int sum = (a + b);
+        int expr1 = (a + (b * c));
+        int expr1 = (a^2 + b * c);
     }
 }

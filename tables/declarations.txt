@@ -1,11 +1,20 @@
-Valid tokens count: 61
+Valid tokens count: 80
 Error tokens count: 0
-Elapsed time: 0.0019958019256591797 s
+Elapsed time: 0.0009975433349609375 s
 
 public                                          	PUBLIC                                          
 class                                           	CLASS                                           
-Program                                         	IDENTIFIER                                      
+Declarations                                    	IDENTIFIER                                      
 {                                               	LEFT_BRACE                                      
+public                                          	PUBLIC                                          
+class                                           	CLASS                                           
+Node                                            	IDENTIFIER                                      
+{                                               	LEFT_BRACE                                      
+public                                          	PUBLIC                                          
+string                                          	STRING                                          
+Value                                           	IDENTIFIER                                      
+;                                               	END_STATEMENT                                   
+}                                               	RIGHT_BRACE                                     
 public                                          	PUBLIC                                          
 string                                          	STRING                                          
 Name                                            	IDENTIFIER                                      
@@ -19,7 +28,6 @@ Hidden                                          	IDENTIFIER
 'kung pano gumagana yung code'                  	STRING_LITERAL                                  
 ;                                               	END_STATEMENT                                   
 protected                                       	PROTECTED                                       
-string                                          	STRING                                          
 Prof                                            	IDENTIFIER                                      
 =                                               	OP_ASSIGN                                       
 'Sir Mon'                                       	STRING_LITERAL                                  
@@ -59,7 +67,18 @@ true                                            	TRUE
 ,                                               	COMMA                                           
 num8                                            	IDENTIFIER                                      
 ,                                               	COMMA                                           
+num9                                            	IDENTIFIER                                      
 =                                               	OP_ASSIGN                                       
 false                                           	FALSE                                           
+;                                               	END_STATEMENT                                   
+Node                                            	IDENTIFIER                                      
+[                                               	LEFT_BRACKET                                    
+]                                               	RIGHT_BRACKET                                   
+nodes                                           	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+Node                                            	IDENTIFIER                                      
+[                                               	LEFT_BRACKET                                    
+6                                               	NUM_LITERAL                                     
+]                                               	RIGHT_BRACKET                                   
 ;                                               	END_STATEMENT                                   
 }                                               	RIGHT_BRACE                                     

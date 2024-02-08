@@ -7,17 +7,35 @@ modifier CLASS IDENTIFIER
 modifier CLASS IDENTIFIER LEFT_BRACE
 modifier CLASS IDENTIFIER LEFT_BRACE PUBLIC
 modifier CLASS IDENTIFIER LEFT_BRACE modifier
-modifier CLASS IDENTIFIER LEFT_BRACE modifier STRING
-modifier CLASS IDENTIFIER LEFT_BRACE modifier dataType
-modifier CLASS IDENTIFIER LEFT_BRACE modifier dataType IDENTIFIER
-modifier CLASS IDENTIFIER LEFT_BRACE modifier varDeclaration
-modifier CLASS IDENTIFIER LEFT_BRACE modifier varDeclaration OP_ASSIGN
-modifier CLASS IDENTIFIER LEFT_BRACE modifier varDeclaration assignmentOperator
-modifier CLASS IDENTIFIER LEFT_BRACE modifier varDeclaration assignmentOperator STRING_LITERAL
-modifier CLASS IDENTIFIER LEFT_BRACE modifier varDeclaration assignmentOperator value
-modifier CLASS IDENTIFIER LEFT_BRACE modifier varDeclaration
-modifier CLASS IDENTIFIER LEFT_BRACE modifier varDeclaration END_STATEMENT
-modifier CLASS IDENTIFIER LEFT_BRACE varDeclarationStatement
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS IDENTIFIER
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS IDENTIFIER LEFT_BRACE
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS IDENTIFIER LEFT_BRACE PUBLIC
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS IDENTIFIER LEFT_BRACE modifier
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS IDENTIFIER LEFT_BRACE modifier STRING
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS IDENTIFIER LEFT_BRACE modifier dataType
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS IDENTIFIER LEFT_BRACE modifier dataType IDENTIFIER
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS IDENTIFIER LEFT_BRACE modifier varDeclaration
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS IDENTIFIER LEFT_BRACE modifier varDeclaration END_STATEMENT
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS IDENTIFIER LEFT_BRACE varDeclarationStatement
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS IDENTIFIER LEFT_BRACE body
+modifier CLASS IDENTIFIER LEFT_BRACE modifier CLASS IDENTIFIER LEFT_BRACE body RIGHT_BRACE
+modifier CLASS IDENTIFIER LEFT_BRACE classDeclaration
+modifier CLASS IDENTIFIER LEFT_BRACE body
+modifier CLASS IDENTIFIER LEFT_BRACE body PUBLIC
+modifier CLASS IDENTIFIER LEFT_BRACE body modifier
+modifier CLASS IDENTIFIER LEFT_BRACE body modifier STRING
+modifier CLASS IDENTIFIER LEFT_BRACE body modifier dataType
+modifier CLASS IDENTIFIER LEFT_BRACE body modifier dataType IDENTIFIER
+modifier CLASS IDENTIFIER LEFT_BRACE body modifier varDeclaration
+modifier CLASS IDENTIFIER LEFT_BRACE body modifier varDeclaration OP_ASSIGN
+modifier CLASS IDENTIFIER LEFT_BRACE body modifier varDeclaration assignmentOperator
+modifier CLASS IDENTIFIER LEFT_BRACE body modifier varDeclaration assignmentOperator STRING_LITERAL
+modifier CLASS IDENTIFIER LEFT_BRACE body modifier varDeclaration assignmentOperator value
+modifier CLASS IDENTIFIER LEFT_BRACE body modifier varDeclaration
+modifier CLASS IDENTIFIER LEFT_BRACE body modifier varDeclaration END_STATEMENT
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclarationStatement
+modifier CLASS IDENTIFIER LEFT_BRACE body body
 modifier CLASS IDENTIFIER LEFT_BRACE body
 modifier CLASS IDENTIFIER LEFT_BRACE body PRIVATE
 modifier CLASS IDENTIFIER LEFT_BRACE body modifier
@@ -131,6 +149,26 @@ modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration assignmentOperator
 modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration assignmentOperator FALSE
 modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration
 modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration END_STATEMENT
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclarationStatement
+modifier CLASS IDENTIFIER LEFT_BRACE body body
+modifier CLASS IDENTIFIER LEFT_BRACE body
+modifier CLASS IDENTIFIER LEFT_BRACE body IDENTIFIER
+modifier CLASS IDENTIFIER LEFT_BRACE body IDENTIFIER LEFT_BRACKET
+modifier CLASS IDENTIFIER LEFT_BRACE body IDENTIFIER LEFT_BRACKET RIGHT_BRACKET
+modifier CLASS IDENTIFIER LEFT_BRACE body IDENTIFIER arraySignature
+modifier CLASS IDENTIFIER LEFT_BRACE body dataType
+modifier CLASS IDENTIFIER LEFT_BRACE body dataType IDENTIFIER
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration OP_ASSIGN
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration assignmentOperator
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration assignmentOperator IDENTIFIER
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration LEFT_BRACKET
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration LEFT_BRACKET NUM_LITERAL
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration LEFT_BRACKET value
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration LEFT_BRACKET value RIGHT_BRACKET
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration arraySignature
+modifier CLASS IDENTIFIER LEFT_BRACE body varDeclaration arraySignature END_STATEMENT
 modifier CLASS IDENTIFIER LEFT_BRACE body varDeclarationStatement
 modifier CLASS IDENTIFIER LEFT_BRACE body body
 modifier CLASS IDENTIFIER LEFT_BRACE body
