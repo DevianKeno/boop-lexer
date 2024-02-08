@@ -1,6 +1,6 @@
 Valid tokens count: 206
 Error tokens count: 0
-Elapsed time: 0.001995086669921875 s
+Elapsed time: 0.10073089599609375 s
 
 public                                          	PUBLIC                                          
 class                                           	CLASS                                           

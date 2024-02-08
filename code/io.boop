@@ -1,0 +1,11 @@
+public class IO
+{
+    public string Message = 'Thank you';
+    string input;
+
+    func Main()
+    {
+        PrintLine(Message);
+        input = ReadLine();
+    }
+}

@@ -4,7 +4,7 @@ from boop.cmp import Compiler
 
 # Setup file path
 cwd = os.getcwd()
-filename = 'code/math.boop'
+filename = 'code/io.boop'
 filepath = os.path.join(cwd, filename)
 
 if __name__ == '__main__':    

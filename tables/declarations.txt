@@ -1,6 +1,6 @@
 Valid tokens count: 80
 Error tokens count: 0
-Elapsed time: 0.0009975433349609375 s
+Elapsed time: 0.0009980201721191406 s
 
 public                                          	PUBLIC                                          
 class                                           	CLASS                                           
@@ -28,6 +28,7 @@ Hidden                                          	IDENTIFIER
 'kung pano gumagana yung code'                  	STRING_LITERAL                                  
 ;                                               	END_STATEMENT                                   
 protected                                       	PROTECTED                                       
+string                                          	STRING                                          
 Prof                                            	IDENTIFIER                                      
 =                                               	OP_ASSIGN                                       
 'Sir Mon'                                       	STRING_LITERAL                                  
@@ -38,7 +39,6 @@ a                                               	IDENTIFIER
 int                                             	INT                                             
 b                                               	IDENTIFIER                                      
 =                                               	OP_ASSIGN                                       
-5                                               	NUM_LITERAL                                     
 ;                                               	END_STATEMENT                                   
 float                                           	FLOAT                                           
 num1                                            	IDENTIFIER                                      

@@ -436,12 +436,16 @@ class Parser:
     
     def error_token(self):
         symbol = self._table.tokens[self._stack_idx - 1]
-        expect = [self._to_token(num) for num in self._follows[symbol.token]]
-        self.errors.append(symbol)
-        print(f'[BOOP] SyntaxError: Unexpected token at ln {symbol.line}, col {symbol.col}')
-        print(self.lexer.get_line(symbol.line - 1))
-        print(' ' * (symbol.col - 1) + '^')
-        print(f'Expected {", ".join(expect)}')
+        
+        if symbol.token == 'ERROR_TOKEN':
+            print(f'[BOOP] SyntaxError: Invalid token at ln {symbol.line}, col {symbol.col}')
+        else:
+            expect = [self._to_token(num) for num in self._follows[symbol.token]]
+            self.errors.append(symbol)
+            print(f'[BOOP] SyntaxError: Unexpected token at ln {symbol.line}, col {symbol.col}')
+            print(self.lexer.get_line(symbol.line - 1))
+            print(' ' * (symbol.col - 1) + '^')
+            print(f'Expected {", ".join(expect)}')
         # raise Exception()
     
     def parse(self, table: SymbolTable):

@@ -1,0 +1,39 @@
+Valid tokens count: 35
+Error tokens count: 0
+Elapsed time: 0.0009968280792236328 s
+
+public                                          	PUBLIC                                          
+class                                           	CLASS                                           
+IO                                              	IDENTIFIER                                      
+{                                               	LEFT_BRACE                                      
+public                                          	PUBLIC                                          
+string                                          	STRING                                          
+Message                                         	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+'Thank you'                                     	STRING_LITERAL                                  
+;                                               	END_STATEMENT                                   
+string                                          	STRING                                          
+input                                           	IDENTIFIER                                      
+;                                               	END_STATEMENT                                   
+func                                            	FUNC                                            
+Main                                            	IDENTIFIER                                      
+(                                               	LEFT_PAREN                                      
+)                                               	RIGHT_PAREN                                     
+{                                               	LEFT_BRACE                                      
+PrintLine                                       	IDENTIFIER                                      
+(                                               	LEFT_PAREN                                      
+Message                                         	IDENTIFIER                                      
+)                                               	RIGHT_PAREN                                     
+;                                               	END_STATEMENT                                   
+input                                           	IDENTIFIER                                      
+=                                               	OP_ASSIGN                                       
+ReadLine                                        	IDENTIFIER                                      
+(                                               	LEFT_PAREN                                      
+)                                               	RIGHT_PAREN                                     
+;                                               	END_STATEMENT                                   
+a                                               	IDENTIFIER                                      
+++                                              	UNARY_ADD                                       
+++                                              	UNARY_ADD                                       
+;                                               	END_STATEMENT                                   
+}                                               	RIGHT_BRACE                                     
+}                                               	RIGHT_BRACE                                     
