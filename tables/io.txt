@@ -1,6 +1,6 @@
-Valid tokens count: 35
+Valid tokens count: 31
 Error tokens count: 0
-Elapsed time: 0.0009968280792236328 s
+Elapsed time: 0.0009975433349609375 s
 
 public                                          	PUBLIC                                          
 class                                           	CLASS                                           
@@ -30,10 +30,6 @@ input                                           	IDENTIFIER
 ReadLine                                        	IDENTIFIER                                      
 (                                               	LEFT_PAREN                                      
 )                                               	RIGHT_PAREN                                     
-;                                               	END_STATEMENT                                   
-a                                               	IDENTIFIER                                      
-++                                              	UNARY_ADD                                       
-++                                              	UNARY_ADD                                       
 ;                                               	END_STATEMENT                                   
 }                                               	RIGHT_BRACE                                     
 }                                               	RIGHT_BRACE                                     

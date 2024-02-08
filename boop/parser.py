@@ -436,6 +436,7 @@ class Parser:
     
     def error_token(self):
         symbol = self._table.tokens[self._stack_idx - 1]
+        expect = None
         
         if symbol.token == 'ERROR_TOKEN':
             print(f'[BOOP] SyntaxError: Invalid token at ln {symbol.line}, col {symbol.col}')
@@ -443,8 +444,11 @@ class Parser:
             expect = [self._to_token(num) for num in self._follows[symbol.token]]
             self.errors.append(symbol)
             print(f'[BOOP] SyntaxError: Unexpected token at ln {symbol.line}, col {symbol.col}')
-            print(self.lexer.get_line(symbol.line - 1))
-            print(' ' * (symbol.col - 1) + '^')
+            
+        print(self.lexer.get_line(symbol.line - 1))
+        print(' ' * (symbol.col - 1) + '^')
+        
+        if expect:
             print(f'Expected {", ".join(expect)}')
         # raise Exception()
     
@@ -504,7 +508,7 @@ class Parser:
        
         if len(self._stack.strip().split()) == 1:
         
-            print(f'[BOOP] Succesfully parsed file\nElapsed time: {time() - start_time}s')
+            print(f'[BOOP] Succesfully parsed file \'{"".join(self.lexer.rootext)}\'\nElapsed time: {time() - start_time}s')
             self.save_derivation()
                         
         else:

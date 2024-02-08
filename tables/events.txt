@@ -1,6 +1,6 @@
-Valid tokens count: 119
+Valid tokens count: 118
 Error tokens count: 0
-Elapsed time: 0.002992868423461914 s
+Elapsed time: 0.0009980201721191406 s
 
 public                                          	PUBLIC                                          
 class                                           	CLASS                                           
@@ -12,7 +12,7 @@ OnSendMessage                                   	IDENTIFIER
 {                                               	LEFT_BRACE                                      
 string                                          	STRING                                          
 ,                                               	COMMA                                           
-boolean                                         	IDENTIFIER                                      
+bool                                            	BOOL                                            
 }                                               	RIGHT_BRACE                                     
 public                                          	PUBLIC                                          
 delayed                                         	DELAYED                                         
@@ -22,7 +22,7 @@ SendMessage                                     	IDENTIFIER
 string                                          	STRING                                          
 message                                         	IDENTIFIER                                      
 ,                                               	COMMA                                           
-boolean                                         	IDENTIFIER                                      
+bool                                            	BOOL                                            
 isHost                                          	IDENTIFIER                                      
 ,                                               	COMMA                                           
 time                                            	TIME                                            
@@ -60,7 +60,6 @@ message                                         	IDENTIFIER
 bool                                            	BOOL                                            
 isHost                                          	IDENTIFIER                                      
 )                                               	RIGHT_PAREN                                     
-;                                               	END_STATEMENT                                   
 {                                               	LEFT_BRACE                                      
 Message                                         	IDENTIFIER                                      
 =                                               	OP_ASSIGN                                       
