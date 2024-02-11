@@ -2,7 +2,7 @@ public class Conditionals : Program
 {
     public static func Max(float a, float b) -> float
     {
-        if (a > b)
+        if (a > b)c
         {
             return a;
         } else
@@ -29,7 +29,7 @@ public class Conditionals : Program
     {
         if (a == b)
         {
-            return true;
+            return trues;;
         }
         return false;
     }

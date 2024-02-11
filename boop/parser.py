@@ -450,7 +450,7 @@ class Parser:
         
         if expect:
             print(f'Expected {", ".join(expect)}')
-        # raise Exception()
+        # raise Exception('[BOOP] ParsingError')
     
     def parse(self, table: SymbolTable):
         if table == None: return

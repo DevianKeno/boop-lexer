@@ -1,6 +1,6 @@
-Valid tokens count: 192
+Valid tokens count: 194
 Error tokens count: 0
-Elapsed time: 0.000997304916381836 s
+Elapsed time: 0.0009975433349609375 s
 
 public                                          	PUBLIC                                          
 class                                           	CLASS                                           
@@ -28,6 +28,7 @@ a                                               	IDENTIFIER
 >                                               	RIGHT_ANGLED_BRACKET                            
 b                                               	IDENTIFIER                                      
 )                                               	RIGHT_PAREN                                     
+c                                               	IDENTIFIER                                      
 {                                               	LEFT_BRACE                                      
 return                                          	RETURN                                          
 a                                               	IDENTIFIER                                      
@@ -106,7 +107,8 @@ b                                               	IDENTIFIER
 )                                               	RIGHT_PAREN                                     
 {                                               	LEFT_BRACE                                      
 return                                          	RETURN                                          
-true                                            	TRUE                                            
+trues                                           	IDENTIFIER                                      
+;                                               	END_STATEMENT                                   
 ;                                               	END_STATEMENT                                   
 }                                               	RIGHT_BRACE                                     
 return                                          	RETURN                                          

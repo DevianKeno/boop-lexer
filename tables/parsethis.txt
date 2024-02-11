@@ -1,12 +1,26 @@
-Valid tokens count: 8
+Valid tokens count: 22
 Error tokens count: 0
-Elapsed time: 0.0010020732879638672 s
+Elapsed time: 0.0 s
 
-#                                               	COMMENT_SINGLE                                  
-func                                            	FUNC                                            
-Main                                            	IDENTIFIER                                      
-(                                               	LEFT_PAREN                                      
-)                                               	RIGHT_PAREN                                     
-#                                               	COMMENT_SINGLE                                  
+switch                                          	SWITCH                                          
+n                                               	IDENTIFIER                                      
 {                                               	LEFT_BRACE                                      
+case                                            	CASE                                            
+1                                               	NUM_LITERAL                                     
+:                                               	COLON                                           
+return                                          	RETURN                                          
+'Monday'                                        	STRING_LITERAL                                  
+;                                               	END_STATEMENT                                   
+case                                            	CASE                                            
+2                                               	NUM_LITERAL                                     
+:                                               	COLON                                           
+return                                          	RETURN                                          
+'Tuesday'                                       	STRING_LITERAL                                  
+;                                               	END_STATEMENT                                   
+case                                            	CASE                                            
+3                                               	NUM_LITERAL                                     
+:                                               	COLON                                           
+return                                          	RETURN                                          
+'Wednesday'                                     	STRING_LITERAL                                  
+;                                               	END_STATEMENT                                   
 }                                               	RIGHT_BRACE                                     
